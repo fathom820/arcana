@@ -13,7 +13,9 @@ import com.arcana.utils.*;
 
 
 public class Main {
+
     public static boolean gameRunning = false;
+    public static Player player;
 
     public static void main(String[] args) throws IOException {
 
@@ -22,15 +24,16 @@ public class Main {
         Input.init();
         Scanner kb = new Scanner(System.in);
         FileEngine fileEng = new FileEngine();
-        Player player = null;
+        //Player player = null;
 
 
         Text.printWelcome();
 
         while (!gameRunning) {
             System.out.print("Enter the name of your Mage: ");
-            player = new Player(kb.nextLine());
-            gameRunning = fileEng.newFile(player.getName());
+            setPlayer(new Player(kb.nextLine()));
+            FileEngine.configure(getPlayer().getName());
+            gameRunning = FileEngine.newFile(getPlayer().getName());
         }
 
 
@@ -43,5 +46,13 @@ public class Main {
         }
 
 
+    }
+
+    public static Player getPlayer() {
+        return player;
+    }
+
+    public static void setPlayer(Player player) {
+        Main.player = player;
     }
 }

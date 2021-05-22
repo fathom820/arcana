@@ -7,3 +7,13 @@ This game was created just for fun, as a summer project by the sole developer. A
 
 Estimated date for a playable release: **August 1, 2021**
 
+# Development
+The source code for this project can be found in the `src/com/arcana` folder.
+This project was programmed entirely in Java, using no framework whatsoever. The purpose of writing this project from scratch was mainly to challenge the author, as the game's main intention was to be a Java learning experience. Of course, being a game, making it fun was also the second largest priority.
+
+# How To Run
+Because Arcana was made in Java, it requires a **JRT** (Java Runtime Environment) to run properly. The latest version of Java can be downloaded here: 
+
+https://java.com/en/download/windows_manual.jsp
+
+There is currently no way to download the 

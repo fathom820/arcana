@@ -1,5 +1,5 @@
 # Arcana
-`© 2021 Clipper Software`
+_© 2021 Michael Frank_
 
 Welcome to **Arcana**! Currently in Alpha, this game is a text-based spellcaster with a linear storyline.
 

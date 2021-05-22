@@ -14,13 +14,42 @@ import java.util.Map.Entry;
 
 public class Input {
 
-    private static final Command debug = new Command("debug", "dbg", "Intended for developer use. Displays debug messages.");
-    private static final Command version = new Command("version", "ver", "Displays the game's current version.");
-    private static final Command credits = new Command("credits", "cred", "Displays the game's credits.");
-    private static final Command reset = new Command("reset", "r", "Resets the current mage to the beginning of the game.");
-    private static final Command save = new Command("save", "s", "Saves the current mage's progress.");
-    private static final Command quit = new Command("quit", "q", "Quits to main menu. Does not auto-save.");
-    private static final Command help = new Command("help", "h", "Displays list of commands.");
+    private static final Command debug = new Command (
+            "debug",
+            "dbg",
+            "Intended for developer use. Displays debug messages."
+    );
+    private static final Command version = new Command (
+            "version",
+            "ver",
+            "Displays the game's current version."
+    );
+    private static final Command credits = new Command (
+            "credits",
+            "cred",
+            "Displays the game's credits."
+    );
+    private static final Command reset = new Command (
+            "reset",
+            "r",
+            "Resets the current mage to the beginning of the game."
+    );
+    private static final Command save = new Command (
+            "save",
+            "s",
+            "Saves the current mage's progress."
+    );
+    private static final Command quit = new Command (
+            "quit",
+            "q",
+            "Quits to main menu. Does not auto-save."
+    );
+    private static final Command help = new Command (
+            "help",
+            "h",
+            "Displays list of commands."
+    );
+    
     private static final Command[] commandArray = new Command[] {
             debug,
             version,
@@ -69,9 +98,9 @@ public class Input {
             case "debug":
                 Debug.toggle();
                 if (Debug.getStatus())
-                    Debug.warn("Debug messages: OFF");
-                else
                     Debug.warn("Debug messages: ON");
+                else
+                    Debug.warn("Debug messages: OFF");
             break;
 
             case "version":

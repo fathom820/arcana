@@ -24,8 +24,6 @@ public class Main {
         Input.init();
         Scanner kb = new Scanner(System.in);
         FileEngine fileEng = new FileEngine();
-        //Player player = null;
-
 
         Text.printWelcome();
 

@@ -32,7 +32,7 @@ public class Main {
             player = new Player(kb.nextLine());
             gameRunning = fileEng.newFile(player.getName());
         }
-        // test
+
 
 
         // BEGIN GAME RUNTIME //

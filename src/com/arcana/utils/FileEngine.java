@@ -7,8 +7,10 @@ read the data from these "saves" to pick up where they left off.
 package com.arcana.utils;
 
 import com.arcana.config.Debug;
+import com.arcana.entity.Player;
 
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -17,9 +19,9 @@ import java.nio.file.Paths;
 
 public class FileEngine {
 
-    private final String winUser = System.getProperty("user.name");
-    private final String saveDir = "C:\\Users\\" + winUser + "\\Documents\\My Games\\Arcana";
-
+    private final static String winUser = System.getProperty("user.name");
+    private final static String saveDir = "C:\\Users\\" + winUser + "\\Documents\\My Games\\Arcana";
+    private static String currentFile;
 
     /*
     * CONSTRUCTOR *
@@ -42,24 +44,36 @@ public class FileEngine {
         }
     }
 
-    public boolean newFile(String fname) throws IOException {
-        File save = new File (saveDir + "\\" + fname + ".dat");
-        boolean saveSuccess = save.createNewFile();
-        if (saveSuccess) {
-            Debug.tell("File " + fname + ".dat created.");
+    public static void configure(String fname) {
+        currentFile = saveDir + "\\" + fname + ".dat";
+    }
+
+    public static boolean newFile(String fname) throws IOException {
+        File save = new File (currentFile);
+        if (save != null) {
+            boolean saveSuccess = save.createNewFile();
+            if (saveSuccess) {
+                Debug.tell("File " + fname + ".dat created.");
+            } else {
+                Debug.warn("A mage with this name already exists. Please try another name.");
+            }
+            return saveSuccess;
         } else {
-            Debug.warn("A mage with this name already exists. Please try another name.");
+            Debug.warn("FileEngine not configured. Aborting newFile()");
+            return false;
         }
-        return saveSuccess;
+
 
     }
 
 
-    public void loadFile (String fname) {
+    public static void loadFile (String fname) {
         // todo
     }
 
-    public void saveFile (String fname) {
-
+    public static void saveFile (Player player) throws IOException {
+        FileWriter fileWriter = new FileWriter(currentFile);
+        fileWriter.write(player.toString());
+        fileWriter.close();
     }
 }

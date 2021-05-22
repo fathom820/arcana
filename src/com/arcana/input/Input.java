@@ -7,10 +7,16 @@ package com.arcana.input;
 
 import com.arcana.Main;
 import com.arcana.config.Debug;
+import com.arcana.utils.FileEngine;
 import com.arcana.utils.Text;
 
+
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map.Entry;
+
+import static com.arcana.Main.player;
+
 
 public class Input {
 
@@ -49,7 +55,7 @@ public class Input {
             "h",
             "Displays list of commands."
     );
-    
+
     private static final Command[] commandArray = new Command[] {
             debug,
             version,
@@ -72,7 +78,7 @@ public class Input {
     }
 
     // INTERPRETATIONS //
-    public static void interpret(String cmd) {
+    public static void interpret(String cmd) throws IOException {
 
         /*
         This section refers to the aliases.
@@ -119,7 +125,7 @@ public class Input {
 
             case "save":
                 Debug.tell("Saving progress to file");
-                Debug.warn("Nothing here yet.");
+                FileEngine.saveFile(player);
             break;
 
             case "quit":

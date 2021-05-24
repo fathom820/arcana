@@ -7,6 +7,7 @@ public class Player extends Entity {
     private int maxMana;
     private int mana;
     private Spell[] spells;
+    private int storyLevel;
 
     public Player(String name) {
         super.setMaxHealth(100);
@@ -19,6 +20,10 @@ public class Player extends Entity {
         this.spells = new Spell[] {};
     }
 
+    /*
+    --------------
+    * DEPRECATED *
+    --------------
     public String toString () {
         StringBuilder out =
             new StringBuilder(attributeToString("maxHealth", super.getMaxHealth()) +
@@ -36,15 +41,34 @@ public class Player extends Entity {
 
         return out.toString();
     }
+    */
+
+    public String toSaveFormat () {
+        String out = "";
+        String[] attrArray = new String[] {
+                attributeToString("maxHealth", super.getMaxHealth()) +
+                        attributeToString("maxArmor", super.getMaxArmor()) +
+                        attributeToString("health", super.getHealth()) +
+                        attributeToString("armor", super.getArmor()) +
+                        attributeToString("name", super.getName()) +
+                        attributeToString("maxMana", maxMana) +
+                        attributeToString("mana", mana)
+        };
+        for (String attr : attrArray) {
+            out += attr + "\n";
+        }
+
+        return out;
+    }
 
     // AS INT
     private String attributeToString (String attrName, int attrVal) {
-        return attrName + ": " + attrVal + "\n";
+        return attrName + "-" + attrVal + "\n";
     }
 
     // AS STRING
     private String attributeToString (String attrName, String attrVal) {
-        return attrName + ": " + attrVal + "\n";
+        return attrName + "-" + attrVal + "\n";
     }
 
 }

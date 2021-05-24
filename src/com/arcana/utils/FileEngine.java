@@ -45,7 +45,7 @@ public class FileEngine {
     }
 
     public static void configure(String fname) {
-        currentFile = saveDir + "\\" + fname + ".dat";
+        currentFile = saveDir + "\\" + fname + ".mage";
     }
 
     public static boolean newFile(String fname) throws IOException {
@@ -53,7 +53,7 @@ public class FileEngine {
         if (save != null) {
             boolean saveSuccess = save.createNewFile();
             if (saveSuccess) {
-                Debug.tell("File " + fname + ".dat created.");
+                Debug.tell("File " + fname + ".mage created.");
             } else {
                 Debug.warn("A mage with this name already exists. Please try another name.");
             }
@@ -73,7 +73,8 @@ public class FileEngine {
 
     public static void saveFile (Player player) throws IOException {
         FileWriter fileWriter = new FileWriter(currentFile);
-        fileWriter.write(player.toString());
+        fileWriter.write("# Player save file for Arcana.\n# **DO NOT MODIFY!**\n");
+        fileWriter.write(player.toSaveFormat());
         fileWriter.close();
     }
 }

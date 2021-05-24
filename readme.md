@@ -5,7 +5,7 @@ Welcome to **Arcana**! Currently in Alpha, this game is a text-based spellcaster
 
 This game was created just for fun, as a summer project by the sole developer. 
 As such, don't expect anything super complicated - it's more of a proof of concept. 
-That doesn't mean you shouldn't expect it to be simple, though!
+
 
 Estimated date for a playable release: **July 1, 2021**
 
@@ -30,8 +30,8 @@ to run properly. The latest version of Java can be downloaded here:
 https://java.com/en/download/windows_manual.jsp
 
 ### 2. Download game 
-**Note that there is currently no way to download the compiled game, as it's not in a playable state yet.**
-When the game is considered playable and/or ready for release, I will add a download link to the game's website (work in progress):
+**Arcana is not currently in a playable state.** When I deem the game playable, I will release a beta version in the `releases` tab of this GitHub page.
+Additionally, I will upload it to the game's official website (work in progress):
 
 https://sites.google.com/view/arcanagame/home
 

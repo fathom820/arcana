@@ -40,8 +40,11 @@ https://java.com/en/download/windows_manual.jsp
 **Arcana is not currently available to play.** When I deem the game suitable for public testing, I will release a beta version in the `releases` tab of this GitHub page. In the same way, when I deem the game to be finished, I will release the full version in the `releases` section. If you want more information on tentative release dates, see the **Arcana** section at the top of this document.
 
 ### 3. Run game
-The game can simply be run by running the Arcana.exe file. Upon running for the first time,
-it will create a folder under `C:\Users\[current user]\Documents\My Games\` called `Arcana`. **Do not delete this folder!**
+The game can simply be run by running the Arcana.exe file. 
+
+Upon running for the first time, it will create a folder under `C:\Users\[current user]\Documents\My Games\` called `Arcana`. 
+
+**Do not delete this folder!**
 All of your save files will be stored inside it.
 
 Every subsequent time the game is run, it will ask you if you'd like to create a new save or load an existing one.

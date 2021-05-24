@@ -32,10 +32,7 @@ to run properly. The latest version of Java can be downloaded here:
 https://java.com/en/download/windows_manual.jsp
 
 ### 2. Download game 
-**Arcana is not currently in a playable state.** When I deem the game playable, I will release a beta version in the `releases` tab of this GitHub page.
-Additionally, I will upload it to the game's official website (work in progress):
-
-https://sites.google.com/view/arcanagame/home
+**Arcana is not currently available to play.** When I deem the game suitable for public testing, I will release a beta version in the `releases` tab of this GitHub page. In the same way, when I deem the game to be finished, I will release the full version in the `releases` section. If you want more information on tentative release dates, see the **Arcana** section at the top of this document.
 
 ### 3. Run game
 The game can simply be run by running the Arcana.exe file. Upon running for the first time,

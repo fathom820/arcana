@@ -14,19 +14,24 @@ As such, don't expect anything super complicated - it's more of a proof of conce
 - Estimated date for full release: **August 1, 2021**
 
 # Development
+### Source Code
 For the curious souls out there, the source code for this project can be found in the `src/com/arcana` folder.
 The `.idea`, `.gitignore`, and `arcana.iml` files are not part of the source code.
 
+### Purpose
 This project was programmed entirely in Java, using no framework whatsoever. 
 The purpose of writing this project from scratch was mainly to challenge the author, 
 as the game's main intention was to be a Java learning experience. 
 Of course, being a game, making it fun was also the second largest priority.
 
+### Paladin
+In order to make Arcana more accessible and fun to play, I created an I/O engine called **Paladin** that allows the player to control what their character does through simple commands. Paladin reads these simple one-word commands, then determines the context and what to do with them. In order to make something so simple for the player, I had to make it more complicated behind the scenes. In fact, Paladin is what comprises most of the game's code - very little is actually related to gameplay. Because most of the game's code contributes to Paladin in some way, I gave it its own info section in this document. 
+
 
 # How To Run
 ### 1. Download Java
 
-Because Arcana was made in Java, it requires a **JRT** (Java Runtime Environment) 
+Because Arcana was made in Java, it requires a **JRE** (Java Runtime Environment) 
 to run properly. The latest version of Java can be downloaded here: 
 
 https://java.com/en/download/windows_manual.jsp

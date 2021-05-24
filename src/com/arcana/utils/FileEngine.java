@@ -10,10 +10,12 @@ import com.arcana.config.Debug;
 import com.arcana.entity.Player;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.Scanner;
 // end import
 
 
@@ -66,9 +68,31 @@ public class FileEngine {
 
     }
 
+    /*
+    This function creates a new player using values from the current configured file
+    in the file engine. It then returns that player.
+     */
+    public static Player loadFile () {
+        Player player = new Player();
 
-    public static void loadFile (String fname) {
-        // todo
+        try {
+            Debug.tell("Loading " + currentFile);
+            File save = new File(currentFile);
+            Scanner fileReader = new Scanner(save);
+            while(fileReader.hasNextLine()) {
+                String data = fileReader.nextLine();
+                if (data.charAt(0) != '#') {
+                    Debug.tell(data);
+                }
+
+            }
+
+        } catch (FileNotFoundException e) {
+            Debug.warn("Error in FileEngine.loadFile(): Unable to load file " + currentFile);
+            e.printStackTrace();
+        }
+
+        return player;
     }
 
     public static void saveFile (Player player) throws IOException {

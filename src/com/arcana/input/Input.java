@@ -71,7 +71,7 @@ public class Input {
 
     // CONSTRUCTOR
     public static void init() {
-        Debug.tell("test");
+        Debug.tell("Initializing Paladin...");
         for (Command c : commandArray) {
             aliasMap.put(c.getKeyword(), c.getAlias());
         }

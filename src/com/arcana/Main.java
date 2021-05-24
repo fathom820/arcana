@@ -32,6 +32,8 @@ public class Main {
             setPlayer(new Player(kb.nextLine()));
             FileEngine.configure(getPlayer().getName());
             gameRunning = FileEngine.newFile(getPlayer().getName());
+            FileEngine.saveFile(player);
+            FileEngine.loadFile();
         }
 
 

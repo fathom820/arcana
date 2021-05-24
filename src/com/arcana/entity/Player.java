@@ -9,6 +9,18 @@ public class Player extends Entity {
     private Spell[] spells;
     private int storyLevel;
 
+    public Player() {
+        super.setMaxHealth(100);
+        super.setMaxArmor(50);
+        super.setHealth(super.getMaxHealth());
+        super.setArmor(super.getMaxArmor());
+        super.setName("NULL");
+        this.maxMana = 100;
+        this.mana = maxMana;
+        this.spells = new Spell[] {};
+        this.storyLevel = 0;
+    }
+
     public Player(String name) {
         super.setMaxHealth(100);
         super.setMaxArmor(50);
@@ -18,6 +30,7 @@ public class Player extends Entity {
         this.maxMana = 100;
         this.mana = maxMana;
         this.spells = new Spell[] {};
+        this.storyLevel = 0;
     }
 
     /*
@@ -46,13 +59,14 @@ public class Player extends Entity {
     public String toSaveFormat () {
         String out = "";
         String[] attrArray = new String[] {
-                attributeToString("maxHealth", super.getMaxHealth()) +
-                        attributeToString("maxArmor", super.getMaxArmor()) +
-                        attributeToString("health", super.getHealth()) +
-                        attributeToString("armor", super.getArmor()) +
-                        attributeToString("name", super.getName()) +
-                        attributeToString("maxMana", maxMana) +
-                        attributeToString("mana", mana)
+            attributeToString("maxHealth", super.getMaxHealth()),
+            attributeToString("maxArmor", super.getMaxArmor()),
+            attributeToString("health", super.getHealth()),
+            attributeToString("armor", super.getArmor()),
+            attributeToString("name", super.getName()),
+            attributeToString("maxMana", maxMana),
+            attributeToString("mana", mana),
+            attributeToString("storyLevel", storyLevel)
         };
         for (String attr : attrArray) {
             out += attr + "\n";
@@ -63,12 +77,12 @@ public class Player extends Entity {
 
     // AS INT
     private String attributeToString (String attrName, int attrVal) {
-        return attrName + "-" + attrVal + "\n";
+        return attrName + "-" + attrVal;
     }
 
     // AS STRING
     private String attributeToString (String attrName, String attrVal) {
-        return attrName + "-" + attrVal + "\n";
+        return attrName + "-" + attrVal;
     }
 
 }

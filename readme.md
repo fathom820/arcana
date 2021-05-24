@@ -1,11 +1,13 @@
 # Arcana
 _© 2021 Michael Frank_
 
-Welcome to **Arcana**! Currently in Alpha, this game is a text-based spellcaster with a linear storyline.
+Welcome to **Arcana**! 
+
 
 This game was created just for fun, as a summer project by the sole developer. 
 As such, don't expect anything super complicated - it's more of a proof of concept. 
 
+**Arcana is currently in Alpha, and is not available for download at this time. **
 
 Estimated date for a playable release: **July 1, 2021**
 

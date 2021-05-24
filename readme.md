@@ -9,9 +9,9 @@ As such, don't expect anything super complicated - it's more of a proof of conce
 
 **Arcana is currently in Alpha, and is not available for download at this time.**
 
-Estimated date for a playable release: **July 1, 2021**
+- Estimated date for a playable release: **July 1, 2021**
 
-Estimated date for full release: **August 1, 2021**
+- Estimated date for full release: **August 1, 2021**
 
 # Development
 For the curious souls out there, the source code for this project can be found in the `src/com/arcana` folder.

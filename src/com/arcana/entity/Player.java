@@ -77,12 +77,12 @@ public class Player extends Entity {
 
     // AS INT
     private String attributeToString (String attrName, int attrVal) {
-        return attrName + "-" + attrVal;
+        return attrName + "=" + attrVal;
     }
 
     // AS STRING
     private String attributeToString (String attrName, String attrVal) {
-        return attrName + "-" + attrVal;
+        return attrName + "=" + attrVal;
     }
 
 }

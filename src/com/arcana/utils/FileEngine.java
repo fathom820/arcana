@@ -2,6 +2,9 @@
 This class contains several different functions pertaining to file data and parsing.
 It allows the game to create new "saves" for different players, and
 read the data from these "saves" to pick up where they left off.
+
+Files are stored in the MAGE file format.
+Any line starting with # will be ignored, and the rest will be read.
  */
 
 package com.arcana.utils;
@@ -80,9 +83,10 @@ public class FileEngine {
             File save = new File(currentFile);
             Scanner fileReader = new Scanner(save);
             while(fileReader.hasNextLine()) {
-                String data = fileReader.nextLine();
-                if (data.charAt(0) != '#') {
-                    Debug.tell(data);
+                String line = fileReader.nextLine();
+                if (line.charAt(0) != '#') {
+                    Debug.tell(line);
+
                 }
 
             }

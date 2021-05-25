@@ -4,7 +4,7 @@ _© 2021 Michael Frank_
 Welcome to **Arcana**! 
 
 
-This game was created just for fun, as a summer project by the sole developer. 
+I created this game just for fun, as a summer project, as well as something to add to my resume.
 As such, don't expect anything super complicated - it's more of a proof of concept. 
 
 **Arcana is currently in Alpha, and is not available for download at this time.**
@@ -25,7 +25,7 @@ as the game's main intention was to be a Java learning experience.
 Of course, being a game, making it fun was also the second largest priority.
 
 ### Paladin
-In order to make Arcana more accessible and fun to play, I created an I/O engine called **Paladin** that allows the player to control what their character does through simple commands. Paladin reads these simple one-word commands, then determines the context and what to do with them. In order to make something so simple for the player, I had to make it more complicated behind the scenes. In fact, Paladin is what comprises most of the game's code - very little is actually related to gameplay. Because most of the game's code contributes to Paladin in some way, I gave it its own info section in this document. 
+In order to make Arcana more accessible and fun to play, I created an I/O engine called **Paladin** that allows the player to control what their character does through simple commands. Paladin reads these simple one-word commands, then determines how to interpret them based off of context. In order to make something so simple for the player, I had to make it more complicated behind the scenes. In fact, Paladin is what comprises most of the game's code - very little is actually related to gameplay. Because most of the game's code contributes to Paladin in some way, I gave it its own info section in this document. 
 
 
 # How To Run

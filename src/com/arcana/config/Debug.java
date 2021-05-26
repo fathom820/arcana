@@ -20,7 +20,7 @@ public abstract class Debug {
             System.out.println(tellPrefix + msg);
     }
 
-    public static void warn (String msg) {
+    public static void forceTell(String msg) {
         System.out.println(warnPrefix + msg);
     }
 

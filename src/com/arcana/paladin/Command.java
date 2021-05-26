@@ -1,4 +1,4 @@
-package com.arcana.input;
+package com.arcana.paladin;
 
 public class Command {
 

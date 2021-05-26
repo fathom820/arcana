@@ -37,13 +37,13 @@ public class FileEngine {
 
         if (!Files.exists(Paths.get(saveDir))) {
 
-            Debug.warn(saveDir + " not found. Creating...");
+            Debug.forceTell(saveDir + " not found. Creating...");
 
             try {
                 Files.createDirectory(Paths.get(saveDir));
-                Debug.warn(saveDir + " successfully created.");
+                Debug.forceTell(saveDir + " successfully created.");
             } catch (IOException io) {
-                Debug.warn("Unable to create " + saveDir);
+                Debug.forceTell("Unable to create " + saveDir);
             }
 
         }
@@ -60,11 +60,11 @@ public class FileEngine {
             if (saveSuccess) {
                 Debug.tell("File " + fname + ".mage created.");
             } else {
-                Debug.warn("A mage with this name already exists. Please try another name.");
+                Debug.forceTell("A mage with this name already exists. Please try another name.");
             }
             return saveSuccess;
         } else {
-            Debug.warn("FileEngine not configured. Aborting newFile()");
+            Debug.forceTell("FileEngine not configured. Aborting newFile()");
             return false;
         }
 
@@ -92,7 +92,7 @@ public class FileEngine {
             }
 
         } catch (FileNotFoundException e) {
-            Debug.warn("Error in FileEngine.loadFile(): Unable to load file " + currentFile);
+            Debug.forceTell("Error in FileEngine.loadFile(): Unable to load file " + currentFile);
             e.printStackTrace();
         }
 

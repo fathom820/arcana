@@ -7,10 +7,10 @@ Files are stored in the MAGE file format.
 Any line starting with # will be ignored, and the rest will be read.
  */
 
-package com.arcana.utils;
+package dev.mfrank.utils;
 
-import com.arcana.paladin.Debug;
-import com.arcana.entity.Player;
+import dev.mfrank.paladin.Debug;
+import dev.mfrank.entity.Player;
 
 import java.io.File;
 import java.io.FileNotFoundException;

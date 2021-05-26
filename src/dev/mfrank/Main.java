@@ -1,4 +1,4 @@
-package com.arcana;
+package dev.mfrank;
 
 // Java libraries
 import java.io.IOException;
@@ -6,11 +6,11 @@ import java.util.Scanner;
 
 
 // Project files
-import com.arcana.paladin.Debug;
-import com.arcana.entity.*;
-import com.arcana.paladin.Stage;
-import com.arcana.paladin.stage.Menu;
-import com.arcana.utils.*;
+import dev.mfrank.paladin.Debug;
+import dev.mfrank.paladin.Stage;
+import dev.mfrank.paladin.stage.Menu;
+import dev.mfrank.entity.Player;
+import dev.mfrank.utils.Text;
 
 
 public class Main {

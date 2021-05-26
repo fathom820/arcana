@@ -1,4 +1,4 @@
-package com.arcana.utils;
+package dev.mfrank.utils;
 
 public class Text {
 

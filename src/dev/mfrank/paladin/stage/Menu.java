@@ -1,13 +1,13 @@
-package com.arcana.paladin.stage;
+package dev.mfrank.paladin.stage;
 
-import com.arcana.entity.Player;
-import com.arcana.paladin.Command;
-import com.arcana.paladin.Stage;
-import com.arcana.utils.FileEngine;
+import dev.mfrank.entity.Player;
+import dev.mfrank.paladin.Command;
+import dev.mfrank.paladin.Stage;
+import dev.mfrank.utils.FileEngine;
 
-import static com.arcana.Main.player;
-import static com.arcana.Main.setPlayer;
-import static com.arcana.Main.gameRunning;
+import static dev.mfrank.Main.player;
+import static dev.mfrank.Main.setPlayer;
+import static dev.mfrank.Main.gameRunning;
 
 import java.io.IOException;
 import java.util.Scanner;

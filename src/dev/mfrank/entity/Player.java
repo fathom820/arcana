@@ -1,6 +1,6 @@
-package com.arcana.entity;
+package dev.mfrank.entity;
 
-import com.arcana.spell.Spell;
+import dev.mfrank.spell.Spell;
 
 
 public class Player extends Entity {

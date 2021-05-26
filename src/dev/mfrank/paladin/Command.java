@@ -1,4 +1,4 @@
-package com.arcana.paladin;
+package dev.mfrank.paladin;
 
 public class Command {
 

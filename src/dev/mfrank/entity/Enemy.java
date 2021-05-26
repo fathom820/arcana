@@ -1,4 +1,4 @@
-package com.arcana.entity;
+package dev.mfrank.entity;
 
 public abstract class Enemy extends Entity {
 

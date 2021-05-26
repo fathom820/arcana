@@ -3,7 +3,7 @@ This is the Paladin command engine. Most of the game's commands don't take argum
 the pre-defined context to calculate the results. The engine is designed like this for the player's ease of use,
  */
 
-package com.arcana.paladin;
+package dev.mfrank.paladin;
 
 // Java libraries
 import java.io.IOException;
@@ -11,12 +11,12 @@ import java.util.HashMap;
 import java.util.Map.Entry;
 
 // Project modules
-import com.arcana.Main;
-import com.arcana.utils.FileEngine;
-import com.arcana.utils.Text;
+import dev.mfrank.Main;
+import dev.mfrank.utils.FileEngine;
+import dev.mfrank.utils.Text;
 
 // Import global var player from main class
-import static com.arcana.Main.player;
+import static dev.mfrank.Main.player;
 
 
 public class Stage {

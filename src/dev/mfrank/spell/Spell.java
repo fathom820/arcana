@@ -1,4 +1,4 @@
-package com.arcana.spell;
+package dev.mfrank.spell;
 
 public class Spell {
     private String name;

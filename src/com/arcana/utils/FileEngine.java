@@ -9,7 +9,7 @@ Any line starting with # will be ignored, and the rest will be read.
 
 package com.arcana.utils;
 
-import com.arcana.config.Debug;
+import com.arcana.paladin.Debug;
 import com.arcana.entity.Player;
 
 import java.io.File;
@@ -37,13 +37,13 @@ public class FileEngine {
 
         if (!Files.exists(Paths.get(saveDir))) {
 
-            Debug.forceTell(saveDir + " not found. Creating...");
+            Debug.msg(saveDir + " not found. Creating...");
 
             try {
                 Files.createDirectory(Paths.get(saveDir));
-                Debug.forceTell(saveDir + " successfully created.");
+                Debug.msg(saveDir + " successfully created.");
             } catch (IOException io) {
-                Debug.forceTell("Unable to create " + saveDir);
+                Debug.msg("Unable to create " + saveDir);
             }
 
         }
@@ -60,11 +60,12 @@ public class FileEngine {
             if (saveSuccess) {
                 Debug.tell("File " + fname + ".mage created.");
             } else {
-                Debug.forceTell("A mage with this name already exists. Please try another name.");
+                Debug.msg("A mage with this name already exists.\n" +
+                        "Enter \"new\" again if you'd like to try a different name.");
             }
             return saveSuccess;
         } else {
-            Debug.forceTell("FileEngine not configured. Aborting newFile()");
+            Debug.msg("FileEngine not configured. Aborting newFile()");
             return false;
         }
 
@@ -86,13 +87,12 @@ public class FileEngine {
                 String line = fileReader.nextLine();
                 if (line.charAt(0) != '#') {
                     Debug.tell(line);
-
                 }
 
             }
 
         } catch (FileNotFoundException e) {
-            Debug.forceTell("Error in FileEngine.loadFile(): Unable to load file " + currentFile);
+            Debug.msg("Error in FileEngine.loadFile(): Unable to load file " + currentFile);
             e.printStackTrace();
         }
 

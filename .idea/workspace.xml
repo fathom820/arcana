@@ -2,15 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="53ce2d0f-ff08-4066-be85-8eff67bada50" name="Default Changelist" comment="v. 21.5.22">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/arcana/paladin/stage/Menu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/arcana/paladin/stage/LevelOne.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/arcana/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/arcana/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/arcana/config/Debug.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/arcana/config/Debug.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/arcana/input/Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/arcana/paladin/Command.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/arcana/input/Input.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/arcana/paladin/Input.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/arcana/story/Level.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/arcana/story/Story.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/arcana/config/Debug.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/arcana/paladin/Debug.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/arcana/entity/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/arcana/entity/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/arcana/paladin/Input.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/arcana/paladin/Stage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/arcana/paladin/stage/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/arcana/paladin/stage/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/arcana/story/Menu.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/arcana/utils/FileEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/arcana/utils/FileEngine.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -148,7 +147,7 @@
       <workItem from="1621989606439" duration="187000" />
       <workItem from="1621989853693" duration="8000" />
       <workItem from="1621989872255" duration="334000" />
-      <workItem from="1621990227625" duration="2592000" />
+      <workItem from="1621990227625" duration="12464000" />
     </task>
     <task id="LOCAL-00001" summary="Testing">
       <created>1621661497456</created>
@@ -339,7 +338,14 @@
       <option name="project" value="LOCAL" />
       <updated>1621990262503</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="alpha 5.25">
+      <created>1621992857726</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1621992857726</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

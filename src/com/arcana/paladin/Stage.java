@@ -12,7 +12,6 @@ import java.util.Map.Entry;
 
 // Project modules
 import com.arcana.Main;
-import com.arcana.config.Debug;
 import com.arcana.utils.FileEngine;
 import com.arcana.utils.Text;
 
@@ -20,8 +19,9 @@ import com.arcana.utils.Text;
 import static com.arcana.Main.player;
 
 
-public class Input {
+public class Stage {
 
+    private static int levelID;
     private static Command debug;
     private static Command version;
     private static Command credits;
@@ -35,16 +35,15 @@ public class Input {
 
     private static HashMap<String, String> aliasMap = new HashMap<>();       // map alias to keyword
 
-    private static String[] invalidTokens;
+    private static String[] disabledCommands;
 
 
-    // CONSTRUCTOR
-    public static void init() {
+    // CONSTRUCTOR //
+    public void init() {
         Debug.tell("Initializing Paladin...");
-        for (Command c : commandArray) {
-            aliasMap.put(c.getKeyword(), c.getAlias());
-        }
-        invalidTokens = new String[] {};
+
+        levelID = 0;
+
 
         // Command instantiation
         debug = new Command (
@@ -83,6 +82,7 @@ public class Input {
                 "Displays list of commands."
         );
 
+
         commandArray = new Command[] {
                 debug,
                 version,
@@ -92,12 +92,21 @@ public class Input {
                 quit,
                 help
         };
+
+        for (Command c : commandArray) {
+            aliasMap.put(c.getKeyword(), c.getAlias());
+        }
+
+        // Initialize disabled commands
+        disabledCommands = new String[] {};
     }
 
     // INTERPRETATIONS //
-    public static void interpret(String cmd) throws IOException {
+    public boolean interpret(String cmd) throws IOException {
+
 
         /*
+        // TODO: Not working properly.
         This section refers to the aliases.
         Let's say the user enters "h", which is an alias but would not be recognized by the next statement.
         In that case, it will be run through this algorithm, which will test if it is a valid alias;
@@ -111,17 +120,27 @@ public class Input {
             }
         }
 
+        /*
+        If command is disabled in given context, then set it to "NULL" so that it is caught
+        by the default section of the switch statement.
+         */
+        for (String token : disabledCommands) {
+            if (cmd.equals(token)) {
+                cmd = "NULL";
+                break;
+            }
+        }
+
         switch (cmd) {
             default:
-                Debug.forceTell("Invalid command. Use \"help\" to see a list of valid commands.");
-            break;
+                return false;
 
             case "debug":
                 Debug.toggle();
                 if (Debug.getStatus())
-                    Debug.forceTell("Debug messages: ON");
+                    Debug.msg("Debug messages: ON");
                 else
-                    Debug.forceTell("Debug messages: OFF");
+                    Debug.msg("Debug messages: OFF");
             break;
 
             case "version":
@@ -130,12 +149,12 @@ public class Input {
 
             case "credits":
                 Debug.tell("Showing credits");
-                Debug.forceTell("Nothing here yet.");
+                Debug.msg("Nothing here yet.");
             break;
 
             case "reset":
                 Debug.tell("Resetting save file");
-                Debug.forceTell("Nothing here yet.");
+                Debug.msg("Nothing here yet.");
             break;
 
             case "save":
@@ -151,9 +170,41 @@ public class Input {
             case "help":
                 Debug.tell("Displaying help menu");
                 for (Command c : commandArray) {
-                    Debug.forceTell(c.getKeyword() + ": " + c.getDescription());
+                    Debug.msg(c.getKeyword() + ": " + c.getDescription());
                 }
             break;
         }
+
+        return true;
+    }
+
+    // OTHER //
+    /*
+    Add command to commandArray. Is intended to be used by child classes, not the parent class.
+     */
+    public void addCommand (Command cmd) {
+        Command[] temp = new Command[commandArray.length + 1];
+        System.arraycopy(commandArray, 0, temp, 0, commandArray.length);
+        temp[temp.length - 1] = cmd;
+        commandArray = temp;
+    }
+
+    // Tells end user that their command was not valid.
+    public void tellInvalidCmd () {
+        Debug.msg("Invalid command. Use \"help\" to see a list of valid commands.");
+    }
+
+    // GETTERS //
+    public Command[] getCommandArray () {
+        return Stage.commandArray;
+    }
+
+    public int getLevelID () {
+        return levelID;
+    }
+
+    // SETTERS //
+    public void setDisabledCommands (String[] disabledCommands) {
+        Stage.disabledCommands = disabledCommands;
     }
 }

@@ -2,12 +2,13 @@ package com.arcana.entity;
 
 import com.arcana.spell.Spell;
 
+
 public class Player extends Entity {
 
     private int maxMana;
     private int mana;
     private Spell[] spells;
-    private int storyLevel;
+    private int currentLevelID;
 
     public Player() {
         super.setMaxHealth(100);
@@ -18,7 +19,7 @@ public class Player extends Entity {
         this.maxMana = 100;
         this.mana = maxMana;
         this.spells = new Spell[] {};
-        this.storyLevel = 0;
+        this.currentLevelID = 0;
     }
 
     public Player(String name) {
@@ -30,7 +31,7 @@ public class Player extends Entity {
         this.maxMana = 100;
         this.mana = maxMana;
         this.spells = new Spell[] {};
-        this.storyLevel = 0;
+        this.currentLevelID = 0;
     }
 
     /*
@@ -57,7 +58,7 @@ public class Player extends Entity {
     */
 
     public String toSaveFormat () {
-        String out = "";
+        StringBuilder out = new StringBuilder();
         String[] attrArray = new String[] {
             attributeToString("maxHealth", super.getMaxHealth()),
             attributeToString("maxArmor", super.getMaxArmor()),
@@ -66,13 +67,13 @@ public class Player extends Entity {
             attributeToString("name", super.getName()),
             attributeToString("maxMana", maxMana),
             attributeToString("mana", mana),
-            attributeToString("storyLevel", storyLevel)
+            attributeToString("storyLevel", currentLevelID)
         };
         for (String attr : attrArray) {
-            out += attr + "\n";
+            out.append(attr).append("\n");
         }
 
-        return out;
+        return out.toString();
     }
 
     // AS INT

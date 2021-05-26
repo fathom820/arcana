@@ -1,10 +1,10 @@
-package com.arcana.config;
+package com.arcana.paladin;
 
 public abstract class Debug {
 
     private static boolean debug = false;                       // whether or not to show debug messages
-    private static final String tellPrefix = "[::] ";           // prefix for debug messages
-    private static final String warnPrefix = "[!!] ";           // prefix for debug warnings
+    private static final String tellPrefix = "[Debug] ";           // prefix for debug messages
+    private static final String msgPrefix = "[Paladin] ";           // prefix for debug warnings
 
 
     public static void toggle() {
@@ -15,13 +15,17 @@ public abstract class Debug {
         return debug;
     }
 
+
+    // If debug messages are enabled, send a message
     public static void tell (String msg) {
         if (debug)
             System.out.println(tellPrefix + msg);
     }
 
-    public static void forceTell(String msg) {
-        System.out.println(warnPrefix + msg);
+
+    // Force a debug message, even if messages are disabled
+    public static void msg(String msg) {
+        System.out.println(msgPrefix + msg);
     }
 
 

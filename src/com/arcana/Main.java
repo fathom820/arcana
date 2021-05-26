@@ -28,7 +28,7 @@ public class Main {
         Scanner kb = new Scanner(System.in);                            // I/O scanner
 
 
-        Text.printWelcome();                                            // !! Deprecated !!
+        Text.printWelcome();                                            // !! DEPRECATED !!
 
         while (currentLevel.getLevelID() == 0) {
             currentLevel.interpret(kb.nextLine());

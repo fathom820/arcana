@@ -9,9 +9,11 @@ As such, don't expect anything super complicated - it's more of a proof of conce
 
 **Arcana is currently in Alpha, and is not available for download at this time.**
 
-- Estimated date for a playable release: **July 1, 2021**
+- Tentative date for **BETA** release: **July 1, 2021**
 
-- Estimated date for full release: **August 1, 2021**
+- Tentative date for **FULL** release: **August 1, 2021**
+
+Note that these release dates are tentative and are subject to change should I run into too many issues.
 
 # Development
 ### Source Code

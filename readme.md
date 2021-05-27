@@ -17,7 +17,7 @@ Note that these release dates are tentative and are subject to change should I r
 
 # Development
 ### Source Code
-For the curious souls out there, the source code for this project can be found in the `src/com/arcana` folder.
+For the curious souls out there, the source code for this project can be found in the `src/dev/mfrank` folder.
 The `.idea`, `.gitignore`, and `arcana.iml` files are not part of the source code.
 
 ### Purpose

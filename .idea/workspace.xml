@@ -1,8 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="arcana:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="53ce2d0f-ff08-4066-be85-8eff67bada50" name="Default Changelist" comment="v. 21.5.22">
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/arcana_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/mfrank/level/Level.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/mfrank/level/Level1.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/mfrank/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/mfrank/paladin/Debug.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/paladin/Debug.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/mfrank/paladin/Stage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/paladin/Paladin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/mfrank/paladin/stage/LevelOne.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/mfrank/paladin/stage/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/paladin/stage/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/mfrank/utils/FileEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/utils/FileEngine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/mfrank/utils/Screen.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/mfrank/utils/Text.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/utils/Text.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +69,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs.mocha.mocha_node_package_dir" value="" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="restartRequiresConfirmation" value="false" />
@@ -64,7 +81,7 @@
       <recent name="C:\Users\micha\IdeaProjects\arcana\" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Arcana">
+  <component name="RunManager" selected="Application.main">
     <configuration name="Arcana" type="Application" factoryName="Application">
       <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -77,7 +94,8 @@
     <configuration name="main" type="Application" factoryName="Application" temporary="true">
       <option name="ALTERNATIVE_JRE_PATH" value="BUNDLED" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
-      <option name="MAIN_CLASS_NAME" value="com.arcana.Main" />
+      <option name="MAIN_CLASS_NAME" value="dev.mfrank.Main" />
+      <module name="arcana" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
       <extension name="coverage">
         <pattern>
@@ -102,6 +120,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="arcana.jar" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/arcana_jar/arcana.jar" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.main" />
+        <item itemvalue="JAR Application.arcana.jar" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -140,6 +168,10 @@
       <workItem from="1621989853693" duration="8000" />
       <workItem from="1621989872255" duration="334000" />
       <workItem from="1621990227625" duration="12880000" />
+      <workItem from="1622051807918" duration="985000" />
+      <workItem from="1622052852690" duration="196000" />
+      <workItem from="1622053063091" duration="9053000" />
+      <workItem from="1622085519350" duration="5082000" />
     </task>
     <task id="LOCAL-00001" summary="Testing">
       <created>1621661497456</created>
@@ -372,7 +404,21 @@
       <option name="project" value="LOCAL" />
       <updated>1622009974883</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="modified package name">
+      <created>1622052029648</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1622052029648</updated>
+    </task>
+    <task id="LOCAL-00035" summary="modified package name">
+      <created>1622052069824</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1622052069824</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -407,6 +453,7 @@
     <MESSAGE value="alpha 5.25" />
     <MESSAGE value="Merge remote-tracking branch 'origin/master'" />
     <MESSAGE value="alpha 5.26" />
-    <option name="LAST_COMMIT_MESSAGE" value="alpha 5.26" />
+    <MESSAGE value="modified package name" />
+    <option name="LAST_COMMIT_MESSAGE" value="modified package name" />
   </component>
 </project>

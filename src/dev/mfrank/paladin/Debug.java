@@ -3,15 +3,15 @@ package dev.mfrank.paladin;
 public abstract class Debug {
 
     private static boolean debug = false;                       // whether or not to show debug messages
-    private static final String tellPrefix = "[Debug] ";           // prefix for debug messages
-    private static final String msgPrefix = "[Paladin] ";           // prefix for debug warnings
+    private static final String tellPrefix = "[D] ";           // prefix for debug messages
+    private static final String msgPrefix = "[P] ";           // prefix for debug warnings
 
 
-    public static void toggle() {
-        debug = !debug;                                         // toggle debug messages on or off
+    public static void setState (boolean dbg) {
+        debug = dbg;                                    // toggle debug messages on or off
     }
 
-    public static boolean getStatus() {
+    public static boolean getState() {
         return debug;
     }
 

@@ -19,9 +19,9 @@ import dev.mfrank.utils.Text;
 import static dev.mfrank.Main.player;
 
 
-public class Stage {
+public class Paladin {
 
-    private static int levelID;
+
     private static Command debug;
     private static Command version;
     private static Command credits;
@@ -41,8 +41,6 @@ public class Stage {
     // CONSTRUCTOR //
     public void init() {
         Debug.tell("Initializing Paladin...");
-
-        levelID = 0;
 
 
         // Command instantiation
@@ -102,7 +100,7 @@ public class Stage {
     }
 
     // INTERPRETATIONS //
-    public boolean interpret(String cmd) throws IOException {
+    public static boolean interpret(String cmd) throws IOException {
 
 
         /*
@@ -136,8 +134,8 @@ public class Stage {
                 return false;
 
             case "debug":
-                Debug.toggle();
-                if (Debug.getStatus())
+                Debug.setState(!Debug.getState());
+                if (Debug.getState())
                     Debug.msg("Debug messages: ON");
                 else
                     Debug.msg("Debug messages: OFF");
@@ -159,7 +157,7 @@ public class Stage {
 
             case "save":
                 Debug.tell("Saving progress to file");
-                FileEngine.saveFile(player);
+                FileEngine.saveMage(player);
             break;
 
             case "quit":
@@ -190,21 +188,18 @@ public class Stage {
     }
 
     // Tells end user that their command was not valid.
-    public void tellInvalidCmd () {
+    public static void tellInvalidCmd() {
         Debug.msg("Invalid command. Use \"help\" to see a list of valid commands.");
     }
 
     // GETTERS //
     public Command[] getCommandArray () {
-        return Stage.commandArray;
+        return Paladin.commandArray;
     }
 
-    public int getLevelID () {
-        return levelID;
-    }
 
     // SETTERS //
     public void setDisabledCommands (String[] disabledCommands) {
-        Stage.disabledCommands = disabledCommands;
+        Paladin.disabledCommands = disabledCommands;
     }
 }

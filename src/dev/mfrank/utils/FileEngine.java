@@ -9,6 +9,8 @@ Any line starting with # will be ignored, and the rest will be read.
 
 package dev.mfrank.utils;
 
+import dev.mfrank.Main;
+import dev.mfrank.level.Level1;
 import dev.mfrank.paladin.Debug;
 import dev.mfrank.entity.Player;
 
@@ -25,7 +27,11 @@ import java.util.Scanner;
 public class FileEngine {
 
     private final static String winUser = System.getProperty("user.name");
-    private final static String saveDir = "C:\\Users\\" + winUser + "\\Documents\\My Games\\Arcana";
+    private final static String saveAddr = "C:\\Users\\" + winUser + "\\Documents\\My Games\\Arcana\\Mages";
+    private final static String configAddr = "C:\\Users\\" + winUser + "\\Documents\\My Games\\Arcana\\Config";
+    private final static File saveDir = new File(saveAddr);
+    private final static File configDir = new File(configAddr);
+    private final static File config = new File(configAddr + "\\" + "config.cfg");
     private static String currentFile;
 
     /*
@@ -33,32 +39,68 @@ public class FileEngine {
     Attempt to locate save directory.
     If directory does not exist, create it.
      */
-    public FileEngine () {
+    public static void initSaves() throws IOException {
 
-        if (!Files.exists(Paths.get(saveDir))) {
-
-            Debug.msg(saveDir + " not found. Creating...");
-
-            try {
-                Files.createDirectory(Paths.get(saveDir));
-                Debug.msg(saveDir + " successfully created.");
-            } catch (IOException io) {
-                Debug.msg("Unable to create " + saveDir);
+        if (!Files.exists(Paths.get(saveAddr))) {
+            Debug.msg(saveAddr + " not found. Creating...");
+            if (saveDir.mkdirs()) {
+                Debug.msg(saveAddr + " successfully created.");
+            } else {
+                Debug.msg("Unable to create " + saveAddr);
             }
-
         }
     }
 
-    public static void configure(String fname) {
-        currentFile = saveDir + "\\" + fname + ".mage";
+    public static void initConfig() throws IOException {
+        if (!Files.exists(Paths.get(configAddr))) {
+            Debug.msg(configAddr + " not found. Creating...");
+
+            if (configDir.mkdirs()) {
+                Debug.msg(configAddr + " successfully created.");
+
+                if (config.createNewFile()) {
+                    Debug.msg("Config file successfully created in " + configAddr);
+
+                    // adds information section to config file. Will not regenerate if modified or removed.
+                    FileWriter fileWriter = new FileWriter(config);
+                    fileWriter.write(
+                    "# DEVELOPER USE ONLY - DEVELOPER USE ONLY - DEVELOPER USE ONLY\n" +
+                        "# Config file for Arcana. Depending what you write in this file, different elements of the program\n" +
+                        "# can be enabled or disabled. Arguments must be separated by lines.\n" +
+                        "# ARGUMENTS:\n" +
+                        "# noconsole: disables the console that the game runs through. Intended for testing purposes.\n" +
+                        "# debug: enables debug messages by default.\n" +
+                        "--------------------------------------------------------------------------------------------------\n"
+                    );
+                    fileWriter.close();
+                }
+            } else {
+                Debug.msg("Unable to create " + configAddr);
+            }
+        }
     }
 
-    public static boolean newFile(String fname) throws IOException {
-        File save = new File (currentFile);
-        if (save != null) {
-            boolean saveSuccess = save.createNewFile();
+    // General functions
+
+    /*
+    Sets current file to whatever parameter is passed.
+     */
+    public static void setCurrentMage(String fname) {
+        currentFile = saveAddr + "\\" + fname + ".mage";
+    }
+
+    /*
+    Creates a new mage with default attributes. Name is set to whatever parameter is passed.
+     */
+    public static boolean newMage (String fname) throws IOException {
+        File newSaveFile = new File(saveDir + "\\" + fname);
+        if (newSaveFile != null) {
+            boolean saveSuccess = newSaveFile.createNewFile();
             if (saveSuccess) {
                 Debug.tell("File " + fname + ".mage created.");
+                Main.gameRunning = true;
+                Main.currentLevel = new Level1();
+
             } else {
                 Debug.msg("A mage with this name already exists.\n" +
                         "Enter \"new\" again if you'd like to try a different name.");
@@ -68,41 +110,56 @@ public class FileEngine {
             Debug.msg("FileEngine not configured. Aborting newFile()");
             return false;
         }
-
-
     }
 
     /*
     This function creates a new player using values from the current configured file
     in the file engine. It then returns that player.
+    TODO: functionality
      */
-    public static Player loadFile () {
+    public static Player loadMage() {
         Player player = new Player();
 
-        try {
-            Debug.tell("Loading " + currentFile);
-            File save = new File(currentFile);
-            Scanner fileReader = new Scanner(save);
-            while(fileReader.hasNextLine()) {
-                String line = fileReader.nextLine();
-                if (line.charAt(0) != '#') {
-                    Debug.tell(line);
-                }
-
+        Debug.tell("Loading " + currentFile);
+        Scanner fileReader = new Scanner(currentFile);
+        while(fileReader.hasNextLine()) {
+            String line = fileReader.nextLine();
+            if (line.charAt(0) != '#') {
+                Debug.tell(line);
             }
-
-        } catch (FileNotFoundException e) {
-            Debug.msg("Error in FileEngine.loadFile(): Unable to load file " + currentFile);
-            e.printStackTrace();
         }
 
         return player;
     }
 
-    public static void saveFile (Player player) throws IOException {
+    public static void saveMage(Player player) throws IOException {
         FileWriter fileWriter = new FileWriter(currentFile);
         fileWriter.write("# Player save file for Arcana.\n# **DO NOT MODIFY!**\n");
         fileWriter.write(player.toSaveFormat());
         fileWriter.close();
+    }
+
+    public static void readConfig() throws FileNotFoundException {
+
+        Scanner fileReader = new Scanner(config);
+        while (fileReader.hasNextLine()) {
+            String line = fileReader.nextLine();
+
+            if (line.charAt(0) != '#') { // # precedes a comment, signalling the line to be ignored
+
+                switch(line) {
+                    case "debug":
+                        Debug.setState(true);
+                        Debug.msg("Config: debug enabled");
+                        break;
+
+                    case "noconsole":
+                        Main.enableConsole = false;
+                        Debug.msg("Config: console disabled");
+                        break;
+                }
+            }
+
+        }
     }
 }

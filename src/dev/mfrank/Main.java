@@ -30,12 +30,12 @@ public class Main {
     public static void main(String[] args) throws IOException {
 
 
-
         // Engine setup
         FileEngine.initConfig();
         FileEngine.readConfig();
         FileEngine.initSaves();
         Scanner kb = new Scanner(System.in);
+        new Menu();
 
         // Console setup (if enabled)
         if (enableConsole) {
@@ -53,6 +53,7 @@ public class Main {
         Text.printWelcome();                                            // !! Deprecated !!
 
        while(!gameRunning) {
+           Debug.tell(currentContext.toString());
            Menu.interpret(kb.nextLine());
        }
 

@@ -93,7 +93,7 @@ public class FileEngine {
     Creates a new mage with default attributes. Name is set to whatever parameter is passed.
      */
     public static boolean newMage (String fname) throws IOException {
-        File newSaveFile = new File(saveDir + "\\" + fname);
+        File newSaveFile = new File(saveDir + "\\" + fname + ".mage");
         if (newSaveFile != null) {
             boolean saveSuccess = newSaveFile.createNewFile();
             if (saveSuccess) {

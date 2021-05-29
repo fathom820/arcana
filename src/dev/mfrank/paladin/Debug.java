@@ -3,8 +3,8 @@ package dev.mfrank.paladin;
 public abstract class Debug {
 
     private static boolean debug = false;                       // whether or not to show debug messages
-    private static final String tellPrefix = "[D] ";           // prefix for debug messages
-    private static final String msgPrefix = "[P] ";           // prefix for debug warnings
+    private static final String tellPrefix = "[::] ";           // prefix for debug messages
+    private static final String msgPrefix = "[-] ";           // prefix for debug warnings
 
 
     public static void setState (boolean dbg) {

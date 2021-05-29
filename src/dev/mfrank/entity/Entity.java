@@ -10,7 +10,7 @@ public class Entity {
     private int health;
     private int armor;
     private int damageOut;
-    private String name;
+    private static String name;
     private boolean alive;
 
     // CONSTR //
@@ -60,7 +60,7 @@ public class Entity {
     public int getDamageOut() {
         return damageOut;
     }
-    public String getName() {
+    public static String getName() {
         return name;
     }
     public boolean getAlive() {

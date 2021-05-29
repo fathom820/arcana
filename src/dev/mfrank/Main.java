@@ -53,7 +53,6 @@ public class Main {
         Text.printWelcome();                                            // !! Deprecated !!
 
        while(!gameRunning) {
-           Debug.tell(currentContext.toString());
            Menu.interpret(kb.nextLine());
        }
 

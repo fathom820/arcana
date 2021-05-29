@@ -9,6 +9,11 @@
     <list default="true" id="53ce2d0f-ff08-4066-be85-8eff67bada50" name="Default Changelist" comment="v. 21.5.22">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dev/mfrank/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/mfrank/entity/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/entity/Entity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/mfrank/level/Level1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/level/Level1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/mfrank/paladin/Debug.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/paladin/Debug.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/mfrank/paladin/stage/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/paladin/stage/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/mfrank/utils/FileEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/utils/FileEngine.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,19 +101,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="arcana.jar" type="JarApplication" temporary="true">
       <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/arcana_jar/arcana.jar" />
       <method v="2" />
@@ -160,7 +152,8 @@
       <workItem from="1622051807918" duration="985000" />
       <workItem from="1622052852690" duration="196000" />
       <workItem from="1622053063091" duration="9053000" />
-      <workItem from="1622085519350" duration="6063000" />
+      <workItem from="1622085519350" duration="6933000" />
+      <workItem from="1622269597134" duration="760000" />
     </task>
     <task id="LOCAL-00001" summary="Testing">
       <created>1621661497456</created>
@@ -428,7 +421,14 @@
       <option name="project" value="LOCAL" />
       <updated>1622092396941</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="fixed newMage bug">
+      <created>1622093315472</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1622093315472</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -466,6 +466,7 @@
     <MESSAGE value="modified package name" />
     <MESSAGE value="general cleanup, added config file" />
     <MESSAGE value="gen. cleanup, added config file &amp; level functionality" />
-    <option name="LAST_COMMIT_MESSAGE" value="gen. cleanup, added config file &amp; level functionality" />
+    <MESSAGE value="fixed newMage bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed newMage bug" />
   </component>
 </project>

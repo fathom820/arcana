@@ -115,19 +115,21 @@ public class FileEngine {
     /*
     This function creates a new player using values from the current configured file
     in the file engine. It then returns that player.
-    TODO: functionality
      */
     public static Player loadMage() {
+        Debug.msg("Which file would you like to load?");
+        listMages();
+        // TODO: Finish loadmage
         Player player = new Player();
 
-        Debug.tell("Loading " + currentFile);
-        Scanner fileReader = new Scanner(currentFile);
-        while(fileReader.hasNextLine()) {
-            String line = fileReader.nextLine();
-            if (line.charAt(0) != '#') {
-                Debug.tell(line);
-            }
-        }
+        //Debug.tell("Loading " + currentFile);
+        //Scanner fileReader = new Scanner(currentFile);
+        //while(fileReader.hasNextLine()) {
+        //    String line = fileReader.nextLine();
+        //    if (line.charAt(0) != '#') {
+        //        Debug.tell(line);
+        //    }
+       // }
 
         return player;
     }
@@ -137,6 +139,13 @@ public class FileEngine {
         fileWriter.write("# Player save file for Arcana.\n# **DO NOT MODIFY!**\n");
         fileWriter.write(player.toSaveFormat());
         fileWriter.close();
+    }
+
+    public static void listMages() {
+        String[] files = saveDir.list();
+        for (String f : files) {
+            Debug.msg(f);
+        }
     }
 
     public static void readConfig() throws FileNotFoundException {
@@ -159,7 +168,6 @@ public class FileEngine {
                         break;
                 }
             }
-
         }
     }
 }

@@ -76,7 +76,7 @@ public class Menu extends Paladin {
                 break;
 
                 case "load":
-                    // TODO: load file
+                    player = FileEngine.loadMage();
                 break;
 
                 case "list":

@@ -1,5 +1,8 @@
 package dev.mfrank.level;
 
+import dev.mfrank.Main;
+import dev.mfrank.entity.Player;
+
 import dev.mfrank.paladin.Debug;
 
 public class Level1 extends Level {
@@ -10,5 +13,6 @@ public class Level1 extends Level {
 
     public void run () {
         Debug.tell("Begin level 1");
+        System.out.printf("Welcome to Arcana, %s!\n", Main.player.getName());
     }
 }

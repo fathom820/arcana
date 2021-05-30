@@ -14,10 +14,7 @@ import dev.mfrank.level.Level1;
 import dev.mfrank.paladin.Debug;
 import dev.mfrank.entity.Player;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Scanner;
@@ -99,7 +96,6 @@ public class FileEngine {
             if (saveSuccess) {
                 Debug.tell("File " + fname + ".mage created.");
                 Main.gameRunning = true;
-                Main.currentLevel = new Level1();
 
             } else {
                 Debug.msg("A mage with this name already exists.\n" +
@@ -116,11 +112,67 @@ public class FileEngine {
     This function creates a new player using values from the current configured file
     in the file engine. It then returns that player.
      */
-    public static Player loadMage() {
+    public static Player loadMage() throws FileNotFoundException {
         Debug.msg("Which file would you like to load?");
         listMages();
-        // TODO: Finish loadmage
+        System.out.print(">>> ");
+        Scanner kb = new Scanner(System.in);
+        File loadedMage = new File(saveAddr + "\\" + kb.nextLine() + ".mage");
         Player player = new Player();
+
+        if (loadedMage.isFile()) {
+
+            Scanner fileReader = new Scanner(loadedMage);
+
+            while (fileReader.hasNextLine()) {
+                String line = fileReader.nextLine();
+
+                if (line.charAt(0) != '#') {
+                    String[] splitLine = line.split("=");
+                    String val = splitLine[1];
+
+                    switch (splitLine[0]) {
+                        case "maxHealth":
+                            player.setMaxHealth(Integer.parseInt(val));
+                        break;
+
+                        case "maxArmor":
+                            player.setMaxArmor(Integer.parseInt(val));
+                        break;
+
+                        case "health":
+                            player.setHealth(Integer.parseInt(val));
+                        break;
+
+                        case "armor":
+                            player.setArmor(Integer.parseInt(val));
+                        break;
+
+                        case "name":
+                            player.setName(val);
+                        break;
+
+                        case "maxMana":
+                            player.setMaxMana(Integer.parseInt(val));
+                        break;
+
+                        case "mana":
+                            player.setMana(Integer.parseInt(val));
+                        break;
+
+                        case "currentLevel":
+                            player.setCurrentLevel(Main.getLevelById(Integer.parseInt(val)));
+                    }
+                }
+            }
+            Debug.tell("Successfully loaded mage attributes.");
+            Debug.tell(player.toSaveFormat());
+        }
+        else {
+            Debug.msg("This mage does not exist. Make sure you typed in the name correctly.");
+        }
+
+        // TODO: Finish loadmage1
 
         //Debug.tell("Loading " + currentFile);
         //Scanner fileReader = new Scanner(currentFile);
@@ -136,8 +188,7 @@ public class FileEngine {
 
     public static void saveMage(Player player) throws IOException {
         FileWriter fileWriter = new FileWriter(currentFile);
-        fileWriter.write("# Player save file for Arcana.\n# **DO NOT MODIFY!**\n");
-        fileWriter.write(player.toSaveFormat());
+        fileWriter.write("# Player save file for Arcana.\n# **DO NOT MODIFY!**\n" + player.toSaveFormat());
         fileWriter.close();
     }
 

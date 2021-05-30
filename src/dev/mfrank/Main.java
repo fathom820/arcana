@@ -9,9 +9,11 @@ import java.util.Scanner;
 
 // Project files
 import dev.mfrank.level.Level;
+import dev.mfrank.level.Level0;
+import dev.mfrank.level.Level1;
 import dev.mfrank.paladin.Debug;
 import dev.mfrank.paladin.Paladin;
-import dev.mfrank.paladin.stage.Menu;
+import dev.mfrank.paladin.context.Menu;
 import dev.mfrank.entity.Player;
 import dev.mfrank.utils.FileEngine;
 import dev.mfrank.utils.Text;
@@ -23,9 +25,16 @@ public class Main {
     public static boolean gameRunning = false;
     public static Player player;
     public static Paladin currentContext = new Menu();
-    public static Level currentLevel;
+    //public static Level currentLevel;
     public static boolean enableConsole = true;
 
+    public static Level0 level0 = new Level0();
+    public static Level1 level1 = new Level1();
+
+    public static Level[] levelArray = new Level[] {
+            level0,
+            level1
+    };
 
     public static void main(String[] args) throws IOException {
 
@@ -35,6 +44,8 @@ public class Main {
         FileEngine.readConfig();
         FileEngine.initSaves();
         Scanner kb = new Scanner(System.in);
+
+
         new Menu();
 
         // Console setup (if enabled)
@@ -53,12 +64,14 @@ public class Main {
         Text.printWelcome();                                            // !! Deprecated !!
 
        while(!gameRunning) {
+           // todo: move functionality to level0
            Menu.interpret(kb.nextLine());
        }
 
         // BEGIN GAME RUNTIME
         Debug.tell("Game start");
-        currentLevel.run();
+        player.getCurrentLevel().run();
+
     }
 
     public static Player getPlayer() {
@@ -67,5 +80,14 @@ public class Main {
 
     public static void setPlayer(Player player) {
         Main.player = player;
+    }
+
+    public static Level getLevelById (int id) {
+        for (Level level : levelArray) {
+            if (level.getId() == id) {
+                return level;
+            }
+        }
+        return null;
     }
 }

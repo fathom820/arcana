@@ -1,5 +1,8 @@
 package dev.mfrank.entity;
 
+import dev.mfrank.level.Level;
+import dev.mfrank.level.Level0;
+import dev.mfrank.level.Level1;
 import dev.mfrank.spell.Spell;
 
 
@@ -8,7 +11,8 @@ public class Player extends Entity {
     private int maxMana;
     private int mana;
     private Spell[] spells;
-    private int currentLevelID;
+
+    private Level currentLevel;
 
     public Player() {
         super.setMaxHealth(100);
@@ -19,7 +23,7 @@ public class Player extends Entity {
         this.maxMana = 100;
         this.mana = maxMana;
         this.spells = new Spell[] {};
-        this.currentLevelID = 0;
+        this.currentLevel = new Level0();
     }
 
     public Player(String name) {
@@ -31,7 +35,7 @@ public class Player extends Entity {
         this.maxMana = 100;
         this.mana = maxMana;
         this.spells = new Spell[] {};
-        this.currentLevelID = 0;
+        this.currentLevel = new Level0();
     }
 
     /*
@@ -67,7 +71,7 @@ public class Player extends Entity {
             attributeToString("name", super.getName()),
             attributeToString("maxMana", maxMana),
             attributeToString("mana", mana),
-            attributeToString("storyLevel", currentLevelID)
+            attributeToString("currentLevel", currentLevel.getId())
         };
         for (String attr : attrArray) {
             out.append(attr).append("\n");
@@ -86,4 +90,20 @@ public class Player extends Entity {
         return attrName + "=" + attrVal;
     }
 
+
+    public void setMaxMana (int maxMana) {
+        this.maxMana = maxMana;
+    }
+
+    public void setMana (int mana) {
+        this.mana = mana;
+    }
+
+    public void setCurrentLevel (Level currentLevel) {
+        this.currentLevel = currentLevel;
+    }
+
+    public Level getCurrentLevel () {
+        return currentLevel;
+    }
 }

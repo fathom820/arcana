@@ -1,4 +1,4 @@
-package dev.mfrank.paladin.stage;
+package dev.mfrank.paladin.context;
 
 import dev.mfrank.entity.Player;
 import dev.mfrank.paladin.Command;
@@ -55,7 +55,7 @@ public class Menu extends Paladin {
     /*
     This segment interprets the command passed by the end user.
     First the command is run through the base, then it is run through the
-    stage-specific switch statement.
+    context-specific switch statement.
      */
     public static boolean interpret(String cmd) throws IOException {
         if (!Paladin.interpret(cmd)) {

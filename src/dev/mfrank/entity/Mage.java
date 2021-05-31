@@ -6,7 +6,7 @@ import dev.mfrank.level.Level1;
 import dev.mfrank.spell.Spell;
 
 
-public class Player extends Entity {
+public class Mage extends Entity {
 
     private int maxMana;
     private int mana;
@@ -14,7 +14,7 @@ public class Player extends Entity {
 
     private Level currentLevel;
 
-    public Player() {
+    public Mage() {
         super.setMaxHealth(100);
         super.setMaxArmor(50);
         super.setHealth(super.getMaxHealth());
@@ -26,7 +26,7 @@ public class Player extends Entity {
         this.currentLevel = new Level0();
     }
 
-    public Player(String name) {
+    public Mage(String name) {
         super.setMaxHealth(100);
         super.setMaxArmor(50);
         super.setHealth(super.getMaxHealth());

@@ -14,7 +14,7 @@ import dev.mfrank.level.Level1;
 import dev.mfrank.paladin.Debug;
 import dev.mfrank.paladin.Paladin;
 import dev.mfrank.paladin.context.Menu;
-import dev.mfrank.entity.Player;
+import dev.mfrank.entity.Mage;
 import dev.mfrank.utils.FileEngine;
 import dev.mfrank.utils.Text;
 
@@ -23,7 +23,7 @@ public class Main {
 
     // Global variables
     public static boolean gameRunning = false;
-    public static Player player;
+    public static Mage player;
     public static Paladin currentContext = new Menu();
     //public static Level currentLevel;
     public static boolean enableConsole = true;
@@ -74,11 +74,11 @@ public class Main {
 
     }
 
-    public static Player getPlayer() {
+    public static Mage getPlayer() {
         return player;
     }
 
-    public static void setPlayer(Player player) {
+    public static void setPlayer(Mage player) {
         Main.player = player;
     }
 

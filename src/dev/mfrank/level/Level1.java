@@ -1,7 +1,6 @@
 package dev.mfrank.level;
 
 import dev.mfrank.Main;
-import dev.mfrank.entity.Player;
 
 import dev.mfrank.paladin.Debug;
 

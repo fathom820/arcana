@@ -10,9 +10,8 @@ Any line starting with # will be ignored, and the rest will be read.
 package dev.mfrank.utils;
 
 import dev.mfrank.Main;
-import dev.mfrank.level.Level1;
 import dev.mfrank.paladin.Debug;
-import dev.mfrank.entity.Player;
+import dev.mfrank.entity.Mage;
 
 import java.io.*;
 import java.nio.file.Files;
@@ -112,13 +111,13 @@ public class FileEngine {
     This function creates a new player using values from the current configured file
     in the file engine. It then returns that player.
      */
-    public static Player loadMage() throws FileNotFoundException {
+    public static Mage loadMage() throws FileNotFoundException {
         Debug.msg("Which file would you like to load?");
         listMages();
         System.out.print(">>> ");
         Scanner kb = new Scanner(System.in);
         File loadedMage = new File(saveAddr + "\\" + kb.nextLine() + ".mage");
-        Player player = new Player();
+        Mage player = new Mage();
 
         if (loadedMage.isFile()) {
 
@@ -168,25 +167,15 @@ public class FileEngine {
             Debug.tell("Successfully loaded mage attributes.");
             Debug.tell(player.toSaveFormat());
         }
+
         else {
             Debug.msg("This mage does not exist. Make sure you typed in the name correctly.");
         }
 
-        // TODO: Finish loadmage1
-
-        //Debug.tell("Loading " + currentFile);
-        //Scanner fileReader = new Scanner(currentFile);
-        //while(fileReader.hasNextLine()) {
-        //    String line = fileReader.nextLine();
-        //    if (line.charAt(0) != '#') {
-        //        Debug.tell(line);
-        //    }
-       // }
-
         return player;
     }
 
-    public static void saveMage(Player player) throws IOException {
+    public static void saveMage(Mage player) throws IOException {
         FileWriter fileWriter = new FileWriter(currentFile);
         fileWriter.write("# Player save file for Arcana.\n# **DO NOT MODIFY!**\n" + player.toSaveFormat());
         fileWriter.close();

@@ -1,6 +1,6 @@
 package dev.mfrank.paladin.context;
 
-import dev.mfrank.entity.Player;
+import dev.mfrank.entity.Mage;
 import dev.mfrank.paladin.Command;
 import dev.mfrank.paladin.Paladin;
 import dev.mfrank.utils.FileEngine;
@@ -68,7 +68,7 @@ public class Menu extends Paladin {
                 case "new":
                     System.out.print("Enter the name of your Mage: ");
                     Scanner kb = new Scanner(System.in);
-                    setPlayer(new Player(kb.nextLine()));
+                    setPlayer(new Mage(kb.nextLine()));
                     FileEngine.setCurrentMage(player.getName());
                     gameRunning = FileEngine.newMage(player.getName());
                     FileEngine.saveMage(player);

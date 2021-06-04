@@ -9,10 +9,13 @@
     <list default="true" id="53ce2d0f-ff08-4066-be85-8eff67bada50" name="Default Changelist" comment="v. 21.5.22">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dev/mfrank/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dev/mfrank/entity/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/entity/Mage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/mfrank/entity/Mage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/entity/Mage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/mfrank/level/Level0.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/level/Level0.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dev/mfrank/level/Level1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/level/Level1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/mfrank/paladin/Paladin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/paladin/Paladin.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dev/mfrank/paladin/context/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/paladin/context/Menu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dev/mfrank/utils/FileEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/utils/FileEngine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/mfrank/utils/Text.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/paladin/Io.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,6 +103,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="arcana.jar" type="JarApplication" temporary="true">
       <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/arcana_jar/arcana.jar" />
       <method v="2" />
@@ -154,7 +168,8 @@
       <workItem from="1622085519350" duration="6933000" />
       <workItem from="1622269597134" duration="1463000" />
       <workItem from="1622353123394" duration="3363000" />
-      <workItem from="1622426825134" duration="643000" />
+      <workItem from="1622426825134" duration="2987000" />
+      <workItem from="1622779666103" duration="3782000" />
     </task>
     <task id="LOCAL-00001" summary="Testing">
       <created>1621661497456</created>
@@ -443,7 +458,14 @@
       <option name="project" value="LOCAL" />
       <updated>1622356472121</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="modified file tree">
+      <created>1622427712480</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1622427712480</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -485,7 +507,8 @@
     <MESSAGE value="v. 5.29" />
     <MESSAGE value="complated loading functionality" />
     <MESSAGE value="added loading functionality" />
-    <option name="LAST_COMMIT_MESSAGE" value="added loading functionality" />
+    <MESSAGE value="modified file tree" />
+    <option name="LAST_COMMIT_MESSAGE" value="modified file tree" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

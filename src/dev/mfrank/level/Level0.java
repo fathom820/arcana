@@ -10,5 +10,4 @@ public class Level0 extends Level {
         // TODO: move menu function from Main.java into Level0.java
     }
 
-
 }

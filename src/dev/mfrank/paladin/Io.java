@@ -1,6 +1,10 @@
-package dev.mfrank.utils;
+package dev.mfrank.paladin;
 
-public class Text {
+import java.util.Scanner;
+
+public class Io {
+
+    private final static Scanner console = new Scanner(System.in);
 
     private final static String versionNumber = "Alpha 1.0";
 
@@ -27,5 +31,19 @@ public class Text {
         System.out.println("Current version: " + versionNumber);
     }
 
+    public static void printDivider (int length) {
+        StringBuilder out = new StringBuilder();
+        for (int i = 0; i < length; i++) {
+            out.append("-");
+        }
+        System.out.println(out);
+    }
 
+    public static void tellRaw (String msg) {
+        System.out.println(msg);
+    }
+
+    public static String in () {
+        return console.nextLine();
+    }
 }

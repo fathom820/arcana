@@ -3,6 +3,7 @@ package dev.mfrank.level;
 import dev.mfrank.Main;
 
 import dev.mfrank.paladin.Debug;
+import dev.mfrank.paladin.Io;
 
 public class Level1 extends Level {
 
@@ -12,6 +13,7 @@ public class Level1 extends Level {
 
     public void run () {
         Debug.tell("Begin level 1");
-        System.out.printf("Welcome to Arcana, %s!\n", Main.player.getName());
+        Io.tellRaw("Welcome to Arcana, " + Main.player.getName());
+
     }
 }

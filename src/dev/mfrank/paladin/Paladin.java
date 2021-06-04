@@ -13,7 +13,6 @@ import java.util.Map.Entry;
 // Project modules
 import dev.mfrank.Main;
 import dev.mfrank.utils.FileEngine;
-import dev.mfrank.utils.Text;
 
 // Import global var player from main class
 import static dev.mfrank.Main.player;
@@ -142,7 +141,7 @@ public class Paladin {
             break;
 
             case "version":
-                Text.printVersion();
+                Io.printVersion();
             break;
 
             case "credits":

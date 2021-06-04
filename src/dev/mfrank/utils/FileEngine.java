@@ -12,6 +12,7 @@ package dev.mfrank.utils;
 import dev.mfrank.Main;
 import dev.mfrank.paladin.Debug;
 import dev.mfrank.entity.Mage;
+import dev.mfrank.paladin.Io;
 
 import java.io.*;
 import java.nio.file.Files;
@@ -66,7 +67,7 @@ public class FileEngine {
                         "# ARGUMENTS:\n" +
                         "# noconsole: disables the console that the game runs through. Intended for testing purposes.\n" +
                         "# debug: enables debug messages by default.\n" +
-                        "--------------------------------------------------------------------------------------------------\n"
+                        "# ------------------------------------------------------------------------------------------------\n"
                     );
                     fileWriter.close();
                 }
@@ -115,12 +116,10 @@ public class FileEngine {
         Debug.msg("Which file would you like to load?");
         listMages();
         System.out.print(">>> ");
-        Scanner kb = new Scanner(System.in);
-        File loadedMage = new File(saveAddr + "\\" + kb.nextLine() + ".mage");
+        File loadedMage = new File(saveAddr + "\\" + Io.in() + ".mage");
         Mage player = new Mage();
 
         if (loadedMage.isFile()) {
-
             Scanner fileReader = new Scanner(loadedMage);
 
             while (fileReader.hasNextLine()) {
@@ -164,8 +163,10 @@ public class FileEngine {
                     }
                 }
             }
+
             Debug.tell("Successfully loaded mage attributes.");
             Debug.tell(player.toSaveFormat());
+            Main.gameRunning = true;
         }
 
         else {
@@ -182,9 +183,24 @@ public class FileEngine {
     }
 
     public static void listMages() {
+        Io.printDivider(25);
+        Debug.msg("List of all saved mages:");
         String[] files = saveDir.list();
+        assert files != null;
         for (String f : files) {
-            Debug.msg(f);
+            Io.tellRaw(f);
+        }
+        Io.printDivider(25);
+    }
+
+    public static void deleteMage () {
+
+        setCurrentMage(Io.in());
+        File mage = new File(currentFile);
+        if (mage.delete()) {
+            Debug.msg("File deleted.");
+        } else {
+            Debug.msg("File could not be deleted.");
         }
     }
 

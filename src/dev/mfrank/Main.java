@@ -16,7 +16,7 @@ import dev.mfrank.paladin.Paladin;
 import dev.mfrank.paladin.context.Menu;
 import dev.mfrank.entity.Mage;
 import dev.mfrank.utils.FileEngine;
-import dev.mfrank.utils.Text;
+import dev.mfrank.paladin.Io;
 
 
 public class Main {
@@ -25,7 +25,6 @@ public class Main {
     public static boolean gameRunning = false;
     public static Mage player;
     public static Paladin currentContext = new Menu();
-    //public static Level currentLevel;
     public static boolean enableConsole = true;
 
     public static Level0 level0 = new Level0();
@@ -43,10 +42,7 @@ public class Main {
         FileEngine.initConfig();
         FileEngine.readConfig();
         FileEngine.initSaves();
-        Scanner kb = new Scanner(System.in);
 
-
-        new Menu();
 
         // Console setup (if enabled)
         if (enableConsole) {
@@ -54,23 +50,25 @@ public class Main {
             if(console == null && !GraphicsEnvironment.isHeadless()){
                 String filename = Main.class.getProtectionDomain().getCodeSource().getLocation().toString().substring(6);
                 Runtime.getRuntime().exec(new String[]{"cmd","/c","start","cmd","/k","java -jar \"" + filename + "\""});
-            }else{
-                //Main.main(new String[0]);
-                //System.out.println("Program has ended, please type 'exit' to close the console");
             }
         }
 
 
-        Text.printWelcome();                                            // !! Deprecated !!
+       Io.printWelcome();                                            // !! Deprecated !!
 
        while(!gameRunning) {
            // todo: move functionality to level0
-           Menu.interpret(kb.nextLine());
+           Menu.interpret(Io.in());
        }
 
-        // BEGIN GAME RUNTIME
-        Debug.tell("Game start");
-        player.getCurrentLevel().run();
+       // BEGIN GAME RUNTIME
+       Debug.tell("Game start");
+
+       // Run current level
+       player.getCurrentLevel().run();
+
+
+
 
     }
 

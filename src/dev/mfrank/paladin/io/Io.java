@@ -5,15 +5,11 @@ import java.util.Scanner;
 public class Io {
 
     private final static Scanner console = new Scanner(System.in);
-
     private final static String versionNumber = "Alpha 1.0";
-
     private static int indentLevel = 0;
-
     private final static String indent = "    ";
-
     private final static String tellPrefix = "[-] ";
-
+    private final static String inPrefix = ">>> ";
 
     // utils
     public static void printWelcome() {
@@ -55,7 +51,7 @@ public class Io {
 
     public static void tell(String msg) {
         StringBuilder out = new StringBuilder();
-        for (int i = 0; i < indentLevel; i++) {
+        for (int i = 1; i <= indentLevel; i++) {
             out.append(indent);
         }
 
@@ -64,13 +60,14 @@ public class Io {
 
     public static void tellRaw (String msg) {
         StringBuilder out = new StringBuilder();
-        for (int i = 0; i < indentLevel; i++) {
+        for (int i = 1; i <= indentLevel; i++) {
             out.append(indent);
         }
         System.out.println(out + msg);
     }
 
     public static String in () {
+        System.out.print(inPrefix);
         return console.nextLine();
     }
 

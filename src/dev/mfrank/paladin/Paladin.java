@@ -168,11 +168,15 @@ public class Paladin {
 
             case "help":
                 Debug.tell("Displaying help menu");
+                Io.printDivider(25);
                 Io.tellRaw("List of all commands:");
                 Io.setIndent(1);
                 for (Command c : commandArray) {
-                    Io.tell(c.getKeyword() + ": " + c.getDescription());
+
+                    Io.tellRaw(c.getKeyword() + ": " + c.getDescription());
                 }
+                Io.setIndent(0);
+                Io.printDivider(25);
             break;
         }
 

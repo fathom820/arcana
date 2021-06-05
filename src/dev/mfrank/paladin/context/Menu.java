@@ -75,9 +75,8 @@ public class Menu extends Paladin {
                     return false;
 
                 case "new":
-                    System.out.print("Enter the name of your Mage: ");
-                    Scanner kb = new Scanner(System.in);
-                    setPlayer(new Mage(kb.nextLine()));
+                    Io.tell("Enter the name of your new mage.");
+                    setPlayer(new Mage(Io.in()));
                     FileEngine.setCurrentMage(player.getName());
                     gameRunning = FileEngine.newMage(player.getName());
                     FileEngine.saveMage(player);

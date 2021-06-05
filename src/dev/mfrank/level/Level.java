@@ -3,6 +3,7 @@ package dev.mfrank.level;
 public abstract class Level {
     // TODO: level functionality
     private int id;
+    private String name;
 
 
 
@@ -14,6 +15,8 @@ public abstract class Level {
     public void run() {
 
     }
+
+
 
 
 }

@@ -115,7 +115,6 @@ public class FileEngine {
     public static Mage loadMage() throws FileNotFoundException {
         Io.tell("Which file would you like to load?");
         listMages();
-        System.out.print(">>> ");
         File loadedMage = new File(saveAddr + "\\" + Io.in() + ".mage");
         Mage player = new Mage();
 
@@ -184,7 +183,7 @@ public class FileEngine {
 
     public static void listMages() {
         Io.printDivider(25);
-        Io.tell("List of all saved mages:");
+        Io.tellRaw("List of all saved mages:");
         Io.setIndent(1);
         String[] files = saveDir.list();
         assert files != null;
@@ -197,9 +196,9 @@ public class FileEngine {
     }
 
     public static void deleteMage () {
-
         setCurrentMage(Io.in());
         File mage = new File(currentFile);
+
         if (mage.delete()) {
             Io.tell("File deleted.");
         } else {

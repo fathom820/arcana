@@ -3,7 +3,7 @@ package dev.mfrank.paladin.io;
 public abstract class Debug {
 
     private static boolean debug = false;                       // whether or not to show debug messages
-    private static final String tellPrefix = "[::] ";           // prefix for debug messages
+    private static final String tellPrefix = "[|] ";           // prefix for debug messages
     private static final String msgPrefix = "[-] ";           // prefix for debug warnings
 
 

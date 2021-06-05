@@ -10,9 +10,9 @@ Any line starting with # will be ignored, and the rest will be read.
 package dev.mfrank.utils;
 
 import dev.mfrank.Main;
-import dev.mfrank.paladin.Debug;
+import dev.mfrank.paladin.io.Debug;
 import dev.mfrank.entity.Mage;
-import dev.mfrank.paladin.Io;
+import dev.mfrank.paladin.io.Io;
 
 import java.io.*;
 import java.nio.file.Files;
@@ -39,24 +39,24 @@ public class FileEngine {
     public static void initSaves() throws IOException {
 
         if (!Files.exists(Paths.get(saveAddr))) {
-            Debug.msg(saveAddr + " not found. Creating...");
+            Io.tell(saveAddr + " not found. Creating...");
             if (saveDir.mkdirs()) {
-                Debug.msg(saveAddr + " successfully created.");
+                Io.tell(saveAddr + " successfully created.");
             } else {
-                Debug.msg("Unable to create " + saveAddr);
+                Io.tell("Unable to create " + saveAddr);
             }
         }
     }
 
     public static void initConfig() throws IOException {
         if (!Files.exists(Paths.get(configAddr))) {
-            Debug.msg(configAddr + " not found. Creating...");
+            Io.tell(configAddr + " not found. Creating...");
 
             if (configDir.mkdirs()) {
-                Debug.msg(configAddr + " successfully created.");
+                Io.tell(configAddr + " successfully created.");
 
                 if (config.createNewFile()) {
-                    Debug.msg("Config file successfully created in " + configAddr);
+                    Io.tell("Config file successfully created in " + configAddr);
 
                     // adds information section to config file. Will not regenerate if modified or removed.
                     FileWriter fileWriter = new FileWriter(config);
@@ -72,7 +72,7 @@ public class FileEngine {
                     fileWriter.close();
                 }
             } else {
-                Debug.msg("Unable to create " + configAddr);
+                Io.tell("Unable to create " + configAddr);
             }
         }
     }
@@ -98,12 +98,12 @@ public class FileEngine {
                 Main.gameRunning = true;
 
             } else {
-                Debug.msg("A mage with this name already exists.\n" +
+                Io.tell("A mage with this name already exists.\n" +
                         "Enter \"new\" again if you'd like to try a different name.");
             }
             return saveSuccess;
         } else {
-            Debug.msg("FileEngine not configured. Aborting newFile()");
+            Io.tell("FileEngine not configured. Aborting newFile()");
             return false;
         }
     }
@@ -113,7 +113,7 @@ public class FileEngine {
     in the file engine. It then returns that player.
      */
     public static Mage loadMage() throws FileNotFoundException {
-        Debug.msg("Which file would you like to load?");
+        Io.tell("Which file would you like to load?");
         listMages();
         System.out.print(">>> ");
         File loadedMage = new File(saveAddr + "\\" + Io.in() + ".mage");
@@ -170,7 +170,7 @@ public class FileEngine {
         }
 
         else {
-            Debug.msg("This mage does not exist. Make sure you typed in the name correctly.");
+            Io.tell("This mage does not exist. Make sure you typed in the name correctly.");
         }
 
         return player;
@@ -184,12 +184,15 @@ public class FileEngine {
 
     public static void listMages() {
         Io.printDivider(25);
-        Debug.msg("List of all saved mages:");
+        Io.tell("List of all saved mages:");
+        Io.setIndent(1);
         String[] files = saveDir.list();
         assert files != null;
+
         for (String f : files) {
             Io.tellRaw(f);
         }
+        Io.setIndent(0);
         Io.printDivider(25);
     }
 
@@ -198,9 +201,9 @@ public class FileEngine {
         setCurrentMage(Io.in());
         File mage = new File(currentFile);
         if (mage.delete()) {
-            Debug.msg("File deleted.");
+            Io.tell("File deleted.");
         } else {
-            Debug.msg("File could not be deleted.");
+            Io.tell("File could not be deleted.");
         }
     }
 
@@ -215,12 +218,12 @@ public class FileEngine {
                 switch(line) {
                     case "debug":
                         Debug.setState(true);
-                        Debug.msg("Config: debug enabled");
+                        Io.tell("Config: debug enabled");
                         break;
 
                     case "noconsole":
                         Main.enableConsole = false;
-                        Debug.msg("Config: console disabled");
+                        Io.tell("Config: console disabled");
                         break;
                 }
             }

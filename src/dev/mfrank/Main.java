@@ -4,19 +4,18 @@ package dev.mfrank;
 import java.awt.*;
 import java.io.Console;
 import java.io.IOException;
-import java.util.Scanner;
 
 
 // Project files
 import dev.mfrank.level.Level;
 import dev.mfrank.level.Level0;
 import dev.mfrank.level.Level1;
-import dev.mfrank.paladin.Debug;
+import dev.mfrank.paladin.io.Debug;
 import dev.mfrank.paladin.Paladin;
 import dev.mfrank.paladin.context.Menu;
 import dev.mfrank.entity.Mage;
 import dev.mfrank.utils.FileEngine;
-import dev.mfrank.paladin.Io;
+import dev.mfrank.paladin.io.Io;
 
 
 public class Main {
@@ -66,10 +65,6 @@ public class Main {
 
        // Run current level
        player.getCurrentLevel().run();
-
-
-
-
     }
 
     public static Mage getPlayer() {

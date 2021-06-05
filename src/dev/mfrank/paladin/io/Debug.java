@@ -1,4 +1,4 @@
-package dev.mfrank.paladin;
+package dev.mfrank.paladin.io;
 
 public abstract class Debug {
 
@@ -24,9 +24,6 @@ public abstract class Debug {
 
 
     // Force a debug message, even if messages are disabled
-    public static void msg(String msg) {
-        System.out.println(msgPrefix + msg);
-    }
 
 
 }

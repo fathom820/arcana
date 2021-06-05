@@ -12,6 +12,8 @@ import java.util.Map.Entry;
 
 // Project modules
 import dev.mfrank.Main;
+import dev.mfrank.paladin.io.Debug;
+import dev.mfrank.paladin.io.Io;
 import dev.mfrank.utils.FileEngine;
 
 // Import global var player from main class
@@ -135,9 +137,9 @@ public class Paladin {
             case "debug":
                 Debug.setState(!Debug.getState());
                 if (Debug.getState())
-                    Debug.msg("Debug messages: ON");
+                    Io.tell("Debug messages: ON");
                 else
-                    Debug.msg("Debug messages: OFF");
+                    Io.tell("Debug messages: OFF");
             break;
 
             case "version":
@@ -146,12 +148,12 @@ public class Paladin {
 
             case "credits":
                 Debug.tell("Showing credits");
-                Debug.msg("Nothing here yet.");
+                Io.tell("Nothing here yet.");
             break;
 
             case "reset":
                 Debug.tell("Resetting save file");
-                Debug.msg("Nothing here yet.");
+                Io.tell("Nothing here yet.");
             break;
 
             case "save":
@@ -166,8 +168,10 @@ public class Paladin {
 
             case "help":
                 Debug.tell("Displaying help menu");
+                Io.tellRaw("List of all commands:");
+                Io.setIndent(1);
                 for (Command c : commandArray) {
-                    Debug.msg(c.getKeyword() + ": " + c.getDescription());
+                    Io.tell(c.getKeyword() + ": " + c.getDescription());
                 }
             break;
         }
@@ -188,7 +192,7 @@ public class Paladin {
 
     // Tells end user that their command was not valid.
     public static void tellInvalidCmd() {
-        Debug.msg("Invalid command. Use \"help\" to see a list of valid commands.");
+        Io.tell("Invalid command. Use \"help\" to see a list of valid commands.");
     }
 
     // GETTERS //

@@ -2,15 +2,15 @@ package dev.mfrank.paladin.context;
 
 import dev.mfrank.entity.Mage;
 import dev.mfrank.paladin.Command;
-import dev.mfrank.paladin.Debug;
+import dev.mfrank.paladin.io.Debug;
 import dev.mfrank.paladin.Paladin;
+import dev.mfrank.paladin.io.Io;
 import dev.mfrank.utils.FileEngine;
 
 import static dev.mfrank.Main.player;
 import static dev.mfrank.Main.setPlayer;
 import static dev.mfrank.Main.gameRunning;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -57,6 +57,7 @@ public class Menu extends Paladin {
         super.addCommand(newMage);
         super.addCommand(loadMage);
         super.addCommand(listMages);
+        super.addCommand(deleteMage);
     }
 
 
@@ -92,7 +93,7 @@ public class Menu extends Paladin {
                 break;
 
                 case "delete":
-                    Debug.msg("Which mage would you like to delete?");
+                    Io.tell("Which mage would you like to delete?");
                     FileEngine.listMages();
                     FileEngine.deleteMage();
             }

@@ -2,8 +2,8 @@ package dev.mfrank.level;
 
 import dev.mfrank.Main;
 
-import dev.mfrank.paladin.Debug;
-import dev.mfrank.paladin.Io;
+import dev.mfrank.paladin.io.Debug;
+import dev.mfrank.paladin.io.Io;
 
 public class Level1 extends Level {
 

@@ -1,4 +1,4 @@
 package dev.mfrank.paladin.context;
 
-public class Battle {
+public class ContextBattle {
 }

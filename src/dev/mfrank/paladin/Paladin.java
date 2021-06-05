@@ -36,7 +36,7 @@ public class Paladin {
 
     private static HashMap<String, String> aliasMap = new HashMap<>();       // map alias to keyword
 
-    private static String[] disabledCommands;
+    // private static String[] disabledCommands;
 
 
     // CONSTRUCTOR //
@@ -97,90 +97,7 @@ public class Paladin {
         }
 
         // Initialize disabled commands
-        disabledCommands = new String[] {};
-    }
-
-    // INTERPRETATIONS //
-    public static boolean interpret(String cmd) throws IOException {
-
-
-        /*
-        // TODO: Not working properly.
-        This section refers to the aliases.
-        Let's say the user enters "h", which is an alias but would not be recognized by the next statement.
-        In that case, it will be run through this algorithm, which will test if it is a valid alias;
-        If so, change the variable to the rightful command.
-         */
-        if(aliasMap.containsValue(cmd)) {
-            for (Entry<String,String> entry : aliasMap.entrySet()) {
-                if (entry.getKey().equals(cmd)) {
-                    cmd = entry.getKey();
-                }
-            }
-        }
-
-        /*
-        If command is disabled in given context, then set it to "NULL" so that it is caught
-        by the default section of the switch statement.
-         */
-        for (String token : disabledCommands) {
-            if (cmd.equals(token)) {
-                cmd = "NULL";
-                break;
-            }
-        }
-
-        switch (cmd) {
-            default:
-                return false;
-
-            case "debug":
-                Debug.setState(!Debug.getState());
-                if (Debug.getState())
-                    Io.tell("Debug messages: ON");
-                else
-                    Io.tell("Debug messages: OFF");
-            break;
-
-            case "version":
-                Io.printVersion();
-            break;
-
-            case "credits":
-                Debug.tell("Showing credits");
-                Io.tell("Nothing here yet.");
-            break;
-
-            case "reset":
-                Debug.tell("Resetting save file");
-                Io.tell("Nothing here yet.");
-            break;
-
-            case "save":
-                Debug.tell("Saving progress to file");
-                FileEngine.saveMage(player);
-            break;
-
-            case "quit":
-                Debug.tell("Quitting to main menu.");
-                Main.gameRunning = false;
-            break;
-
-            case "help":
-                Debug.tell("Displaying help menu");
-                Io.printDivider(25);
-                Io.tellRaw("List of all commands:");
-                Io.setIndent(1);
-                for (Command c : commandArray) {
-
-                    Io.tellRaw(c.getKeyword() + ": " + c.getDescription());
-                }
-                Io.setIndent(0);
-                Io.printDivider(25);
-            break;
-        }
-
-        return true;
+        // disabledCommands = new String[] {};
     }
 
     // OTHER //
@@ -200,13 +117,11 @@ public class Paladin {
     }
 
     // GETTERS //
-    public Command[] getCommandArray () {
+    public static Command[] getCommandArray () {
         return Paladin.commandArray;
     }
 
 
     // SETTERS //
-    public void setDisabledCommands (String[] disabledCommands) {
-        Paladin.disabledCommands = disabledCommands;
-    }
+
 }

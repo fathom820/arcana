@@ -12,7 +12,7 @@ import dev.mfrank.level.Level0;
 import dev.mfrank.level.Level1;
 import dev.mfrank.paladin.io.Debug;
 import dev.mfrank.paladin.Paladin;
-import dev.mfrank.paladin.context.Menu;
+import dev.mfrank.paladin.context.ContextMenu;
 import dev.mfrank.entity.Mage;
 import dev.mfrank.utils.FileEngine;
 import dev.mfrank.paladin.io.Io;
@@ -23,7 +23,7 @@ public class Main {
     // Global variables
     public static boolean gameRunning = false;
     public static Mage player;
-    public static Paladin currentContext = new Menu();
+    public static Paladin currentContext = new ContextMenu();
     public static boolean enableConsole = true;
 
     public static Level0 level0 = new Level0();
@@ -57,7 +57,7 @@ public class Main {
 
        while(!gameRunning) {
            // todo: move functionality to level0
-           Menu.interpret(Io.in());
+           ContextMenu.interpret(Io.in());
        }
 
        // BEGIN GAME RUNTIME

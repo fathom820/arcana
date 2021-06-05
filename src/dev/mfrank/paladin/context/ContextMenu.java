@@ -14,7 +14,7 @@ import static dev.mfrank.Main.gameRunning;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class Menu extends Paladin {
+public class ContextMenu extends Context {
 
     private static Command newMage;
     private static Command loadMage;
@@ -22,7 +22,7 @@ public class Menu extends Paladin {
     private static Command deleteMage;
 
 
-    public Menu () {
+    public ContextMenu() {
         /*
         Saving and resetting are disabled in the main menu, because
         those commands are meant to be passed during gameplay.
@@ -67,7 +67,7 @@ public class Menu extends Paladin {
     context-specific switch statement.
      */
     public static boolean interpret(String cmd) throws IOException {
-        if (!Paladin.interpret(cmd)) {
+        if (!Context.interpret(cmd)) {
 
             switch (cmd) {
                 default:

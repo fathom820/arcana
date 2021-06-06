@@ -95,6 +95,7 @@ public class FileEngine {
             boolean saveSuccess = newSaveFile.createNewFile();
             if (saveSuccess) {
                 Debug.tell("File " + fname + ".mage created.");
+                Main.player.setCurrentLevel(Main.getLevelById(1));
                 Main.gameRunning = true;
 
             } else {
@@ -182,7 +183,7 @@ public class FileEngine {
     }
 
     public static void listMages() {
-        Io.printDivider(25);
+        Io.printDivider();
         Io.tellRaw("List of all saved mages:");
         Io.setIndent(1);
         String[] files = saveDir.list();
@@ -192,7 +193,7 @@ public class FileEngine {
             Io.tellRaw(f);
         }
         Io.setIndent(0);
-        Io.printDivider(25);
+        Io.printDivider();
     }
 
     public static void deleteMage () {

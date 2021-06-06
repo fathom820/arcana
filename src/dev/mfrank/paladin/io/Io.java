@@ -10,6 +10,7 @@ public class Io {
     private final static String indent = "    ";
     private final static String tellPrefix = "[-] ";
     private final static String inPrefix = ">>> ";
+    private final static int width = 76;
 
     // utils
     public static void printWelcome() {
@@ -39,10 +40,10 @@ public class Io {
     }
 
 
-    public static void printDivider (int length) {
+    public static void printDivider () {
         StringBuilder out = new StringBuilder();
 
-        for (int i = 0; i < length; i++) {
+        for (int i = 0; i < width; i++) {
             out.append("-");
         }
 
@@ -71,8 +72,29 @@ public class Io {
         return console.nextLine();
     }
 
+    public static String wrap (String msg, int len) {
+        char[] chars = msg.toCharArray();
+        String out = "";
+        int charCount = 0;
+
+        for (char c : chars) {
+            charCount++;
+            out += c;
+            if (charCount == len) {
+                out += "\n";
+                charCount = 0;
+            }
+        }
+
+        return out;
+    }
+
     // getters and setters
     public static void setIndent(int indentLevel) {
         Io.indentLevel = indentLevel;
+    }
+
+    public static int getWidth() {
+        return width;
     }
 }

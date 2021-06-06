@@ -22,7 +22,6 @@ import static dev.mfrank.Main.player;
 
 public class Paladin {
 
-
     private static Command debug;
     private static Command version;
     private static Command credits;
@@ -42,7 +41,6 @@ public class Paladin {
     // CONSTRUCTOR //
     public void init() {
         Debug.tell("Initializing Paladin...");
-
 
         // Command instantiation
         debug = new Command (

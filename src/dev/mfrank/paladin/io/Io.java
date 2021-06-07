@@ -1,5 +1,7 @@
 package dev.mfrank.paladin.io;
 
+import dev.mfrank.Main;
+
 import java.util.Scanner;
 
 public class Io {
@@ -13,25 +15,49 @@ public class Io {
     private final static int width = 76;
 
     // utils
-    public static void printWelcome() {
+    public static void printWelcome() throws InterruptedException {
 
-        System.out.print(
-            "*--------------------------------------------------------------------------*\n" +
-            "|    ▄████████    ▄████████  ▄████████    ▄████████ ███▄▄▄▄      ▄████████ |\n" +
-            "|   ███    ███   ███    ███ ███    ███   ███    ███ ███▀▀▀██▄   ███    ███ |\n" +
-            "|   ███    ███   ███    ███ ███    █▀    ███    ███ ███   ███   ███    ███ |\n" +
-            "|   ███    ███  ▄███▄▄▄▄██▀ ███          ███    ███ ███   ███   ███    ███ |\n" +
-            "| ▀███████████ ▀▀███▀▀▀▀▀   ███        ▀███████████ ███   ███ ▀███████████ |\n" +
-            "|   ███    ███ ▀███████████ ███    █▄    ███    ███ ███   ███   ███    ███ |\n" +
-            "|   ███    ███   ███    ███ ███    ███   ███    ███ ███   ███   ███    ███ |\n" +
-            "|   ███    █▀    ███    ███ ████████▀    ███    █▀   ▀█   █▀    ███    █▀  |\n" +
-            "*--------------------------------------------------------------------------*\n" +
+        if (Main.enableConsole) {
+            Io.delayType(
+                    "*--------------------------------------------------------------------------*\n" +
+                            "|    ▄████████    ▄████████  ▄████████    ▄████████ ███▄▄▄▄      ▄████████ |\n" +
+                            "|   ███    ███   ███    ███ ███    ███   ███    ███ ███▀▀▀██▄   ███    ███ |\n" +
+                            "|   ███    ███   ███    ███ ███    █▀    ███    ███ ███   ███   ███    ███ |\n" +
+                            "|   ███    ███  ▄███▄▄▄▄██▀ ███          ███    ███ ███   ███   ███    ███ |\n" +
+                            "| ▀███████████ ▀▀███▀▀▀▀▀   ███        ▀███████████ ███   ███ ▀███████████ |\n" +
+                            "|   ███    ███ ▀███████████ ███    █▄    ███    ███ ███   ███   ███    ███ |\n" +
+                            "|   ███    ███   ███    ███ ███    ███   ███    ███ ███   ███   ███    ███ |\n" +
+                            "|   ███    █▀    ███    ███ ████████▀    ███    █▀   ▀█   █▀    ███    █▀  |\n" +
+                            "*--------------------------------------------------------------------------*\n" +
 
-            "Welcome to Arcana, a spellbound game of mystery and intrigue!\n" +
-            "The land of Arcana has been overrun by demonic invaders...\n" +
-            "You are a novice mage, seeking new spells to learn and enemies to conquer.\n" +
-            "Discover new spells, and combine them to create devastating attacks!\n"
-        );
+                            "Welcome to Arcana, a spellbound game of mystery and intrigue!\n" +
+                            "The land of Arcana has been overrun by demonic invaders...\n" +
+                            "You are a novice mage, seeking new spells to learn and enemies to conquer.\n" +
+                            "Discover new spells, and combine them to create devastating attacks!\n",
+                    1
+            );
+        }
+
+        else {
+            Io.tellRaw("*--------------------------------------------------------------------------*\n" +
+                    "|    ▄████████    ▄████████  ▄████████    ▄████████ ███▄▄▄▄      ▄████████ |\n" +
+                    "|   ███    ███   ███    ███ ███    ███   ███    ███ ███▀▀▀██▄   ███    ███ |\n" +
+                    "|   ███    ███   ███    ███ ███    █▀    ███    ███ ███   ███   ███    ███ |\n" +
+                    "|   ███    ███  ▄███▄▄▄▄██▀ ███          ███    ███ ███   ███   ███    ███ |\n" +
+                    "| ▀███████████ ▀▀███▀▀▀▀▀   ███        ▀███████████ ███   ███ ▀███████████ |\n" +
+                    "|   ███    ███ ▀███████████ ███    █▄    ███    ███ ███   ███   ███    ███ |\n" +
+                    "|   ███    ███   ███    ███ ███    ███   ███    ███ ███   ███   ███    ███ |\n" +
+                    "|   ███    █▀    ███    ███ ████████▀    ███    █▀   ▀█   █▀    ███    █▀  |\n" +
+                    "*--------------------------------------------------------------------------*\n" +
+
+                    "Welcome to Arcana, a spellbound game of mystery and intrigue!\n" +
+                    "The land of Arcana has been overrun by demonic invaders...\n" +
+                    "You are a novice mage, seeking new spells to learn and enemies to conquer.\n" +
+                    "Discover new spells, and combine them to create devastating attacks!"
+            );
+        }
+        printDivider();
+
     }
 
 
@@ -44,7 +70,7 @@ public class Io {
         StringBuilder out = new StringBuilder();
 
         for (int i = 0; i < width; i++) {
-            out.append("-");
+            out.append("=");
         }
 
         System.out.println(out);
@@ -72,21 +98,37 @@ public class Io {
         return console.nextLine();
     }
 
-    public static String wrap (String msg, int len) {
+    public static String wrap (String msg, int ind) {
         char[] chars = msg.toCharArray();
         String out = "";
         int charCount = 0;
+        int tempWidth = width - ind * 4;
 
         for (char c : chars) {
             charCount++;
             out += c;
-            if (charCount == len) {
+
+            if (charCount == tempWidth) {
                 out += "\n";
+
+                for (int i = 1; i <= ind; i++) {
+                    out += indent;
+                }
+
                 charCount = 0;
             }
         }
 
         return out;
+    }
+
+    public static void delayType (String msg, int del) throws InterruptedException {
+        char[] chars = msg.toCharArray();
+
+        for (char c : chars) {
+            System.out.print(c);
+            Thread.sleep(del);
+        }
     }
 
     // getters and setters

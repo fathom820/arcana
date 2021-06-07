@@ -113,7 +113,7 @@ public class FileEngine {
     This function creates a new player using values from the current configured file
     in the file engine. It then returns that player.
      */
-    public static Mage loadMage() throws FileNotFoundException {
+    public static Mage loadMage() throws FileNotFoundException, InterruptedException {
         Io.tell("Which file would you like to load?");
         listMages();
         File loadedMage = new File(saveAddr + "\\" + Io.in() + ".mage");
@@ -164,7 +164,8 @@ public class FileEngine {
                 }
             }
 
-            Debug.tell("Successfully loaded mage attributes.");
+            Thread.sleep(200);
+            Io.tell("Successfully loaded mage attributes.");
             Debug.tell(player.toSaveFormat());
             Main.gameRunning = true;
         }

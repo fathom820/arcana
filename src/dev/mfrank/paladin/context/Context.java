@@ -14,7 +14,7 @@ import static dev.mfrank.Main.player;
 public class Context extends Paladin {
     private static String[] disabledCommands;
 
-    public static boolean interpret(String cmd) throws IOException {
+    public static boolean interpret(String cmd) throws IOException, InterruptedException {
 
 
         /*
@@ -96,7 +96,7 @@ public class Context extends Paladin {
                     }
                     if (!disabled) {
                         Io.tellRaw(c.getKeyword() + ": " + c.getDescription());
-
+                        Thread.sleep(20);
                     }
                 }
                 Io.setIndent(0);

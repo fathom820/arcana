@@ -66,7 +66,7 @@ public class ContextMenu extends Context {
     First the command is run through the base, then it is run through the
     context-specific switch statement.
      */
-    public static boolean interpret(String cmd) throws IOException {
+    public static boolean interpret(String cmd) throws IOException, InterruptedException {
         if (!Context.interpret(cmd)) {
 
             switch (cmd) {

@@ -34,7 +34,7 @@ public class Main {
             level1
     };
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, InterruptedException {
 
 
         // Engine setup

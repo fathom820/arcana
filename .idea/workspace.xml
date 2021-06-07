@@ -7,12 +7,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="53ce2d0f-ff08-4066-be85-8eff67bada50" name="Default Changelist" comment="v. 21.5.22">
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dev/mfrank/level/Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/level/Level.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/mfrank/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dev/mfrank/level/Level1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/level/Level1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dev/mfrank/paladin/Paladin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/paladin/Paladin.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dev/mfrank/paladin/context/Context.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/paladin/context/Context.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/mfrank/paladin/context/ContextMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/paladin/context/ContextMenu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dev/mfrank/paladin/io/Io.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/paladin/io/Io.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dev/mfrank/utils/FileEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/utils/FileEngine.java" afterDir="false" />
     </list>
@@ -102,17 +101,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="arcana.jar" type="JarApplication" temporary="true">
       <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/arcana_jar/arcana.jar" />
       <method v="2" />
@@ -170,7 +158,8 @@
       <workItem from="1622426825134" duration="2987000" />
       <workItem from="1622779666103" duration="4012000" />
       <workItem from="1622862428048" duration="2862000" />
-      <workItem from="1622922417108" duration="7749000" />
+      <workItem from="1622922417108" duration="8991000" />
+      <workItem from="1623046569270" duration="1610000" />
     </task>
     <task id="LOCAL-00001" summary="Testing">
       <created>1621661497456</created>
@@ -494,7 +483,14 @@
       <option name="project" value="LOCAL" />
       <updated>1622925018947</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="updated level system and io system">
+      <created>1622960625138</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1622960625138</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -516,7 +512,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Version 5.22.21" />
     <MESSAGE value="Version 21.5.22" />
     <MESSAGE value="v. 21.5.22" />
     <MESSAGE value="v. 21.5.24" />
@@ -541,7 +536,8 @@
     <MESSAGE value="moved Debug.msg() to Io under Io.tell() -- added indent feature" />
     <MESSAGE value="fixed indent bugs and added Io.in() prompt" />
     <MESSAGE value="moved interpretation to Context.java, no longer prints disabled commands" />
-    <option name="LAST_COMMIT_MESSAGE" value="moved interpretation to Context.java, no longer prints disabled commands" />
+    <MESSAGE value="updated level system and io system" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated level system and io system" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

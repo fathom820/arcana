@@ -11,13 +11,14 @@ public class Level1 extends Level {
         super.setId(1);
         super.setName("LEVEL 1");
         super.setInfo(Io.wrap("Welcome to Level 1! This is the first level of " +
-                "the Dungeon, where", 76));
+                "the Dungeon, whereeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee", 0));
     }
 
     public void run () {
         Debug.tell("Begin level 1");
         Io.printDivider();
         Io.tellRaw(getName());
+        Io.setIndent(1);
         Io.tellRaw(getInfo());
     }
 }

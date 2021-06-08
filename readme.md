@@ -7,8 +7,6 @@ Welcome to **Arcana**!
 I created this game just for fun, as a summer project, as well as something to add to my resume.
 As such, don't expect anything super complicated - it's more of a proof of concept. 
 
-[Development Info](#Development)
-
 [How to Run](#How To Run)
 
 [How to Play](#How To Play)

@@ -7,6 +7,10 @@ Welcome to **Arcana**!
 I created this game just for fun, as a summer project, as well as something to add to my resume.
 As such, don't expect anything super complicated - it's more of a proof of concept. 
 
+[Development Info](#Development)
+[How To Run](#How To Run)
+[How To Play](#How To Play)
+
 **Arcana is currently in Alpha, and is not available for download at this time.**
 
 - Tentative date for **BETA** release: **July 1, 2021**
@@ -17,12 +21,11 @@ Note that these release dates are tentative and are subject to change should I r
 
 # Development
 ### Source Code
-For the curious souls out there, the source code for this project can be found in the `src/dev/mfrank` folder.
-The `.idea`, `.gitignore`, and `arcana.iml` files are not part of the source code.
+The source code for this project can be located in `src/dev/mfrank`
 
 ### Purpose
 This project was programmed entirely in Java, using no framework whatsoever. 
-The purpose of writing this project from scratch was mainly to challenge the author, 
+The purpose of writing this project from scratch was mainly to challenge myself, 
 as the game's main intention was to be a Java learning experience. 
 Of course, being a game, making it fun was also the second largest priority.
 

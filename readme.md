@@ -9,9 +9,9 @@ As such, don't expect anything super complicated - it's more of a proof of conce
 
 [Development Info](#Development)
 
-[How To Run](#How To Run)
+[How to Run](#How To Run)
 
-[How To Play](#How To Play)
+[How to Play](#How To Play)
 
 **Arcana is currently in Alpha, and is not available for download at this time.**
 

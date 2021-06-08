@@ -7,9 +7,11 @@ Welcome to **Arcana**!
 I created this game just for fun, as a summer project, as well as something to add to my resume.
 As such, don't expect anything super complicated - it's more of a proof of concept. 
 
-[How to Run](#How To Run)
+[Info](#Info)
 
-[How to Play](#How To Play)
+[How to Run](#How-To-Run)
+
+[How to Play](#How-To-Play)
 
 **Arcana is currently in Alpha, and is not available for download at this time.**
 
@@ -19,7 +21,7 @@ As such, don't expect anything super complicated - it's more of a proof of conce
 
 Note that these release dates are tentative and are subject to change should I run into too many issues.
 
-# Development
+# Info
 ### Source Code
 The source code for this project can be located in `src/dev/mfrank`
 

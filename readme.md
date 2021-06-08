@@ -19,13 +19,13 @@ Note that these release dates are tentative and are subject to change should I r
 
 ### Table Of Contents
 
-[Info](#Info)
+[Information](#Information)
 
 [How to Run](#How-To-Run)
 
 [How to Play](#How-To-Play)
 
-# Info
+# Informoation
 ### Source Code
 The source code for this project can be located in `src/dev/mfrank`
 

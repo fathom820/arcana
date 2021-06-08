@@ -17,7 +17,7 @@ As such, don't expect anything super complicated - it's more of a proof of conce
 
 Note that these release dates are tentative and are subject to change should I run into too many issues.
 
-### Table Of Contents
+# Table Of Contents
 
 [Information](#Information)
 

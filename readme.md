@@ -8,7 +8,9 @@ I created this game just for fun, as a summer project, as well as something to a
 As such, don't expect anything super complicated - it's more of a proof of concept. 
 
 [Development Info](#Development)
+
 [How To Run](#How To Run)
+
 [How To Play](#How To Play)
 
 **Arcana is currently in Alpha, and is not available for download at this time.**

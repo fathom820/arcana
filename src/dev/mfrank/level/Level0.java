@@ -7,7 +7,7 @@ public class Level0 extends Level {
     }
 
     public void run () {
-        // TODO: move menu function from Main.java into Level0.java
+
     }
 
 }

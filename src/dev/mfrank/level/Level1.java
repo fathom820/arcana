@@ -10,8 +10,7 @@ public class Level1 extends Level {
     public Level1 () {
         super.setId(1);
         super.setName("LEVEL 1");
-        super.setInfo(Io.wrap("Welcome to Level 1! This is the first level of " +
-                "the Dungeon, whereeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee", 0));
+        super.setInfo(Io.wrap("Welcome to Level 1! This is the first level of the Dungeon, ", 1));
     }
 
     public void run () {
@@ -20,5 +19,7 @@ public class Level1 extends Level {
         Io.tellRaw(getName());
         Io.setIndent(1);
         Io.tellRaw(getInfo());
+
+        // TODO: implement battle context and test out new enemy functionality
     }
 }

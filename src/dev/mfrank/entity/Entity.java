@@ -1,5 +1,7 @@
 package dev.mfrank.entity;
 
+import dev.mfrank.paladin.io.Io;
+
 public class Entity {
 
 
@@ -21,15 +23,26 @@ public class Entity {
 
     // FUNC //
 
+    /*
+    Damage calculation function. Any damage done to armor will be halved,
+    and if the damage is greater than the armor that is left,
+    it will still absorb all of it before breaking.
+     */
     public void takeDamage (int damage) {
         if (armor > 0) {
             armor -= damage / 2;
+
+            if (armor <= 0) {
+                Io.tell("Your armor has been broken!");
+            }
+
         }
         if (armor < 0) {
             armor = 0;
         }
         if (armor == 0) {
             health -= damage;
+
             if (health <= 0) {
                 die();
             }
@@ -39,7 +52,6 @@ public class Entity {
 
     public void die () {
         alive = false;
-        System.out.printf("%s was slain!\n", name);
     }
 
 
@@ -85,7 +97,7 @@ public class Entity {
         this.damageOut = damageOut;
     }
     public void setName(String name) {
-        this.name = name;
+        Entity.name = name;
     }
     public void setAlive(boolean alive) {
         this.alive = alive;

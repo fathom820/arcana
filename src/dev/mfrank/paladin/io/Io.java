@@ -127,8 +127,20 @@ public class Io {
 
         for (char c : chars) {
             System.out.print(c);
-            Thread.sleep(del);
+
+            if (Main.enableConsole) {
+                Thread.sleep(del);
+
+            }
         }
+    }
+
+    public static String center (String msg) {
+        String out = "";
+        int len = msg.length();
+        // TODO: center text function
+
+        return out;
     }
 
     // getters and setters

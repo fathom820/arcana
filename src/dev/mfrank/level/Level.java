@@ -3,7 +3,6 @@ package dev.mfrank.level;
 import dev.mfrank.paladin.io.Io;
 
 public abstract class Level {
-    // TODO: level functionality
     private int id;
     private String name;
     private String info;

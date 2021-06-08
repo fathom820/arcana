@@ -56,7 +56,7 @@ public class Main {
        Io.printWelcome();                                            // !! Deprecated !!
 
        while(!gameRunning) {
-           // todo: move functionality to level0
+           // todo: move functionality to Level0.java
            ContextMenu.interpret(Io.in());
        }
 

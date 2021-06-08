@@ -25,7 +25,7 @@ Note that these release dates are tentative and are subject to change should I r
 
 [How to Play](#How-To-Play)
 
-# Informoation
+# Information
 ### Source Code
 The source code for this project can be located in `src/dev/mfrank`
 

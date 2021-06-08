@@ -7,11 +7,7 @@ Welcome to **Arcana**!
 I created this game just for fun, as a summer project, as well as something to add to my resume.
 As such, don't expect anything super complicated - it's more of a proof of concept. 
 
-[Info](#Info)
 
-[How to Run](#How-To-Run)
-
-[How to Play](#How-To-Play)
 
 **Arcana is currently in Alpha, and is not available for download at this time.**
 
@@ -20,6 +16,14 @@ As such, don't expect anything super complicated - it's more of a proof of conce
 - Tentative date for **FULL** release: **August 1, 2021**
 
 Note that these release dates are tentative and are subject to change should I run into too many issues.
+
+### Table Of Contents
+
+[Info](#Info)
+
+[How to Run](#How-To-Run)
+
+[How to Play](#How-To-Play)
 
 # Info
 ### Source Code

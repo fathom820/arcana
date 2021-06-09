@@ -7,6 +7,8 @@ Welcome to **Arcana**!
 I created this game just for fun, as a summer project, as well as something to add to my resume.
 As such, don't expect anything super complicated - it's more of a proof of concept. 
 
+
+### Download
 **Arcana is currently in Alpha, and is not available for download at this time.**
 
 - Tentative date for **BETA** release: **July 1, 2021**
@@ -15,14 +17,21 @@ As such, don't expect anything super complicated - it's more of a proof of conce
 
 Note that these release dates are tentative and are subject to change should I run into too many issues.
 
-# Development
+# Table Of Contents
+
+[Information](#Information)
+
+[How to Run](#How-To-Run)
+
+[How to Play](#How-To-Play)
+
+# Information
 ### Source Code
-For the curious souls out there, the source code for this project can be found in the `src/dev/mfrank` folder.
-The `.idea`, `.gitignore`, and `arcana.iml` files are not part of the source code.
+The source code for this project can be located in `src/dev/mfrank`
 
 ### Purpose
 This project was programmed entirely in Java, using no framework whatsoever. 
-The purpose of writing this project from scratch was mainly to challenge the author, 
+The purpose of writing this project from scratch was mainly to challenge myself, 
 as the game's main intention was to be a Java learning experience. 
 Of course, being a game, making it fun was also the second largest priority.
 
@@ -39,7 +48,7 @@ to run properly. The latest version of Java can be downloaded here:
 https://java.com/en/download/windows_manual.jsp
 
 ### 2. Download game 
-**Arcana is not currently available to play.** When I deem the game suitable for public testing, I will release a beta version in the `releases` tab of this GitHub page. In the same way, when I deem the game to be finished, I will release the full version in the `releases` section. If you want more information on tentative release dates, see the **Arcana** section at the top of this document.
+**Arcana is not currently available to play.** When I deem the game suitable for public testing, I will release a beta version on my personal website, which I will post a link to. Click [here](#Arcana) for more release information.
 
 ### 3. Run game
 The game can simply be run by running the Arcana.exe file. 

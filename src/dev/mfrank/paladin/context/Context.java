@@ -9,6 +9,7 @@ import dev.mfrank.utils.FileEngine;
 
 import java.io.IOException;
 
+import static dev.mfrank.Main.gameRunning;
 import static dev.mfrank.Main.player;
 
 public class Context extends Paladin {
@@ -78,8 +79,11 @@ public class Context extends Paladin {
                 break;
 
             case "quit":
-                Debug.tell("Quitting to main menu.");
-                Main.gameRunning = false;
+                if (gameRunning) {
+                    Debug.tell("Quitting to main menu.");
+                    Main.gameRunning = false;
+                }
+
                 break;
 
             case "help":

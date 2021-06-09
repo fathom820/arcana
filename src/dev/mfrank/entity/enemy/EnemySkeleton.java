@@ -27,7 +27,7 @@ public class EnemySkeleton extends Enemy{
             60
         );
 
-        super.attacks[3] = new Attack (
+        super.attacks[2] = new Attack (
             "Mandible Assault",
             20,
             30,

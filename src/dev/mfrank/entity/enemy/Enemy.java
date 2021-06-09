@@ -11,6 +11,10 @@ public abstract class Enemy extends Entity {
     public Attack[] attacks = new Attack[3];
     Random rand = new Random();
 
+    public Enemy() {
+        super();
+    }
+
 
     public void attack (Mage m) {
         Attack atk = attacks[randInt(0, 2)];
@@ -18,11 +22,11 @@ public abstract class Enemy extends Entity {
 
         if (hit) {
             int dmg = randInt(atk.getDamageMin(), atk.getDamageMax());
-            Io.tellRaw(getName() + "attempted " + atk.getName() + "and hit for " + dmg);
-            m.takeDamage(dmg);
+            Io.tell(super.getName() + " attempted " + atk.getName() + " and hit for " + m.takeDamage(dmg));
+
 
         } else {
-            Io.tellRaw(getName() + " attempted " + atk.getName() + "and missed.");
+            Io.tell(super.getName() + " attempted " + atk.getName() + " and missed.");
 
         }
     }

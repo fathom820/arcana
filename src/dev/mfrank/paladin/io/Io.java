@@ -76,6 +76,16 @@ public class Io {
         System.out.println(out);
     }
 
+    public static void printSmallDivider () {
+        StringBuilder out = new StringBuilder();
+
+        for (int i = 0; i < width; i++) {
+            out.append("-");
+        }
+
+        System.out.println(out);
+    }
+
     public static void tell(String msg) {
         StringBuilder out = new StringBuilder();
         for (int i = 1; i <= indentLevel; i++) {
@@ -133,6 +143,10 @@ public class Io {
 
             }
         }
+    }
+
+    public static void pause() throws InterruptedException {
+        Thread.sleep(1000);
     }
 
     public static String center (String msg) {

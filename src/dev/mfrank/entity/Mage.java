@@ -2,7 +2,6 @@ package dev.mfrank.entity;
 
 import dev.mfrank.level.Level;
 import dev.mfrank.level.Level0;
-import dev.mfrank.level.Level1;
 import dev.mfrank.spell.Spell;
 
 
@@ -10,6 +9,7 @@ public class Mage extends Entity {
 
     private int maxMana;
     private int mana;
+    private Spell[] scroll;
     private Spell[] spells;
 
     private Level currentLevel;
@@ -22,6 +22,7 @@ public class Mage extends Entity {
         super.setName("NULL");
         this.maxMana = 100;
         this.mana = maxMana;
+        this.scroll = new Spell[] {};
         this.spells = new Spell[] {};
         this.currentLevel = new Level0();
     }
@@ -34,6 +35,7 @@ public class Mage extends Entity {
         super.setName(name);
         this.maxMana = 100;
         this.mana = maxMana;
+        this.scroll = new Spell[] {};
         this.spells = new Spell[] {};
         this.currentLevel = new Level0();
     }
@@ -91,6 +93,8 @@ public class Mage extends Entity {
     }
 
 
+    // SETTERS
+
     public void setMaxMana (int maxMana) {
         this.maxMana = maxMana;
     }
@@ -103,7 +107,28 @@ public class Mage extends Entity {
         this.currentLevel = currentLevel;
     }
 
+    public void setScroll (Spell[] scroll) {
+        this.scroll = scroll;
+    }
+
+    public void setSpells (Spell[] spells) {
+        this.spells = spells;
+    }
+
+    // GETTERS
     public Level getCurrentLevel () {
         return currentLevel;
+    }
+
+    public Spell[] getSpells() {
+        return spells;
+    }
+
+    public int getMana() {
+        return mana;
+    }
+
+    public int getMaxMana() {
+        return maxMana;
     }
 }

@@ -12,7 +12,7 @@ public class Entity {
     private int health;
     private int armor;
     private int damageOut;
-    private static String name;
+    private String name;
     private boolean alive;
 
     // CONSTR //
@@ -28,9 +28,11 @@ public class Entity {
     and if the damage is greater than the armor that is left,
     it will still absorb all of it before breaking.
      */
-    public void takeDamage (int damage) {
+    public int takeDamage (int damage) {
+
         if (armor > 0) {
-            armor -= damage / 2;
+            damage /= 2;
+            armor -= damage;
 
             if (armor <= 0) {
                 Io.tell("Your armor has been broken!");
@@ -48,6 +50,7 @@ public class Entity {
             }
         }
 
+        return damage;
     }
 
     public void die () {
@@ -72,7 +75,7 @@ public class Entity {
     public int getDamageOut() {
         return damageOut;
     }
-    public static String getName() {
+    public String getName() {
         return name;
     }
     public boolean getAlive() {
@@ -97,8 +100,9 @@ public class Entity {
         this.damageOut = damageOut;
     }
     public void setName(String name) {
-        Entity.name = name;
+        this.name = name;
     }
+
     public void setAlive(boolean alive) {
         this.alive = alive;
     }

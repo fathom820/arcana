@@ -7,15 +7,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="53ce2d0f-ff08-4066-be85-8eff67bada50" name="Default Changelist" comment="v. 21.5.22">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dev/mfrank/entity/enemy/Attack.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dev/mfrank/entity/enemy/EnemySkeleton.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dev/mfrank/entity/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/entity/enemy/Enemy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dev/mfrank/entity/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/entity/Entity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/mfrank/entity/Mage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/entity/Mage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/mfrank/entity/enemy/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/entity/enemy/Enemy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/mfrank/entity/enemy/EnemySkeleton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/entity/enemy/EnemySkeleton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/mfrank/level/Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/level/Level.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dev/mfrank/level/Level1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/level/Level1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/mfrank/paladin/context/Context.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/paladin/context/Context.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dev/mfrank/paladin/context/ContextBattle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/paladin/context/ContextBattle.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dev/mfrank/paladin/io/Io.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/paladin/io/Io.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/mfrank/spell/Spell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/spell/Spell.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -173,7 +175,9 @@
       <workItem from="1622862428048" duration="2862000" />
       <workItem from="1622922417108" duration="8991000" />
       <workItem from="1623046569270" duration="2849000" />
-      <workItem from="1623090985574" duration="4909000" />
+      <workItem from="1623090985574" duration="6191000" />
+      <workItem from="1623175719408" duration="1398000" />
+      <workItem from="1623212945339" duration="5066000" />
     </task>
     <task id="LOCAL-00001" summary="Testing">
       <created>1621661497456</created>
@@ -511,7 +515,14 @@
       <option name="project" value="LOCAL" />
       <updated>1623049145511</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="added enemy and attack functionality (to be implemented)">
+      <created>1623135559919</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1623135559919</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -533,7 +544,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="v. 21.5.22" />
     <MESSAGE value="v. 21.5.24" />
     <MESSAGE value="+ file loading functionality" />
     <MESSAGE value="v. 21.5.25" />
@@ -558,7 +568,8 @@
     <MESSAGE value="moved interpretation to Context.java, no longer prints disabled commands" />
     <MESSAGE value="updated level system and io system" />
     <MESSAGE value="added delay function" />
-    <option name="LAST_COMMIT_MESSAGE" value="added delay function" />
+    <MESSAGE value="added enemy and attack functionality (to be implemented)" />
+    <option name="LAST_COMMIT_MESSAGE" value="added enemy and attack functionality (to be implemented)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -567,11 +578,6 @@
           <properties class="java.lang.NullPointerException" package="java.lang" />
           <option name="timeStamp" value="1" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/dev/mfrank/Main.java</url>
-          <line>66</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

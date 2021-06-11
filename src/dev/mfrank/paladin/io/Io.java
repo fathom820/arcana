@@ -14,7 +14,7 @@ public class Io {
     private final static String inPrefix = ">>> ";
     private final static int width = 76;
 
-    // utils
+    // eng
     public static void printWelcome() throws InterruptedException {
 
         if (Main.enableConsole) {

@@ -2,6 +2,8 @@ package dev.mfrank.entity;
 
 import dev.mfrank.paladin.io.Io;
 
+import java.util.Random;
+
 public class Entity {
 
 
@@ -15,10 +17,13 @@ public class Entity {
     private String name;
     private boolean alive;
 
+    private Random rand;
+
     // CONSTR //
 
     public Entity () {
         setAlive(true);
+        rand = new Random();
     }
 
     // FUNC //
@@ -35,7 +40,7 @@ public class Entity {
             armor -= damage;
 
             if (armor <= 0) {
-                Io.tell("Your armor has been broken!");
+                Io.tell(name +"'s armor has been broken!");
             }
 
         }
@@ -57,6 +62,14 @@ public class Entity {
         alive = false;
     }
 
+    protected int randInt(int min, int max) {
+
+        if (min >= max) {
+            throw new IllegalArgumentException("randInt error: max must be greater than min");
+        }
+
+        return rand.nextInt((max - min) + 1) + min;
+    }
 
     // GET //
 

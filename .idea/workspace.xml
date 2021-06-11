@@ -7,17 +7,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="53ce2d0f-ff08-4066-be85-8eff67bada50" name="Default Changelist" comment="v. 21.5.22">
+      <change afterPath="$PROJECT_DIR$/src/dev/mfrank/eng/SpellEngine.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/mfrank/spell/SpellEmpty.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/mfrank/spell/SpellSpark.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/arcana.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/arcana.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/mfrank/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dev/mfrank/entity/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/entity/Entity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dev/mfrank/entity/Mage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/entity/Mage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dev/mfrank/entity/enemy/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/entity/enemy/Enemy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dev/mfrank/entity/enemy/EnemySkeleton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/entity/enemy/EnemySkeleton.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dev/mfrank/level/Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/level/Level.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dev/mfrank/level/Level1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/level/Level1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/mfrank/paladin/Paladin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/paladin/Paladin.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dev/mfrank/paladin/context/Context.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/paladin/context/Context.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dev/mfrank/paladin/context/ContextBattle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/paladin/context/ContextBattle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/mfrank/paladin/context/ContextMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/paladin/context/ContextMenu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dev/mfrank/paladin/io/Io.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/paladin/io/Io.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dev/mfrank/spell/Spell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/spell/Spell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/mfrank/utils/FileEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/eng/FileEngine.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +48,13 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="hiddenUrls">
+      <set>
+        <option value="https://github.com/fathom820/arcana_alpha" />
+      </set>
+    </option>
+  </component>
   <component name="ProjectId" id="1rH4whX4EAN7ZsqmDjnHT5NNVV9" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="false" id="Update" />
@@ -53,6 +65,10 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -105,13 +121,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -177,14 +195,8 @@
       <workItem from="1623046569270" duration="2849000" />
       <workItem from="1623090985574" duration="6191000" />
       <workItem from="1623175719408" duration="1398000" />
-      <workItem from="1623212945339" duration="5066000" />
-    </task>
-    <task id="LOCAL-00001" summary="Testing">
-      <created>1621661497456</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1621661497456</updated>
+      <workItem from="1623212945339" duration="6165000" />
+      <workItem from="1623352766627" duration="7574000" />
     </task>
     <task id="LOCAL-00002" summary="Testing">
       <created>1621661587869</created>
@@ -522,7 +534,14 @@
       <option name="project" value="LOCAL" />
       <updated>1623135559919</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="95% implemented fighting context and commands">
+      <created>1623221246326</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1623221246326</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -544,7 +563,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="v. 21.5.24" />
     <MESSAGE value="+ file loading functionality" />
     <MESSAGE value="v. 21.5.25" />
     <MESSAGE value="Alpha 21.5.25" />
@@ -569,7 +587,8 @@
     <MESSAGE value="updated level system and io system" />
     <MESSAGE value="added delay function" />
     <MESSAGE value="added enemy and attack functionality (to be implemented)" />
-    <option name="LAST_COMMIT_MESSAGE" value="added enemy and attack functionality (to be implemented)" />
+    <MESSAGE value="95% implemented fighting context and commands" />
+    <option name="LAST_COMMIT_MESSAGE" value="95% implemented fighting context and commands" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

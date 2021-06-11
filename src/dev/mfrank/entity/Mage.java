@@ -1,8 +1,17 @@
 package dev.mfrank.entity;
 
+import dev.mfrank.Main;
+import dev.mfrank.eng.SpellEngine;
+import dev.mfrank.entity.enemy.Enemy;
 import dev.mfrank.level.Level;
 import dev.mfrank.level.Level0;
+import dev.mfrank.paladin.io.Debug;
+import dev.mfrank.paladin.io.Io;
 import dev.mfrank.spell.Spell;
+import dev.mfrank.spell.SpellSpark;
+
+import java.util.Arrays;
+import java.util.Random;
 
 
 public class Mage extends Entity {
@@ -13,6 +22,7 @@ public class Mage extends Entity {
     private Spell[] spells;
 
     private Level currentLevel;
+    private Random rand = new Random();
 
     public Mage() {
         super.setMaxHealth(100);
@@ -22,8 +32,10 @@ public class Mage extends Entity {
         super.setName("NULL");
         this.maxMana = 100;
         this.mana = maxMana;
-        this.scroll = new Spell[] {};
-        this.spells = new Spell[] {};
+        this.scroll = new Spell[3];
+        this.spells = new Spell[] {
+            SpellEngine.getById("Spark")
+        };
         this.currentLevel = new Level0();
     }
 
@@ -35,9 +47,17 @@ public class Mage extends Entity {
         super.setName(name);
         this.maxMana = 100;
         this.mana = maxMana;
-        this.scroll = new Spell[] {};
-        this.spells = new Spell[] {};
+        this.scroll = new Spell[] {
+            new SpellSpark(),
+            null,
+            null
+        };
+        this.spells = new Spell[] {
+            SpellEngine.getById("Spark")
+        };
         this.currentLevel = new Level0();
+
+        Debug.tell(Arrays.toString(scroll));
     }
 
     /*
@@ -79,7 +99,52 @@ public class Mage extends Entity {
             out.append(attr).append("\n");
         }
 
+        out.append("# SPELLS\n");
+        for (Spell s : spells) {
+            if (s != null) {
+                out.append("-spell: ").append(s.getName());
+            }
+        }
+
+        out.append("\n# SCROLL\n");
+        for (Spell s : scroll) {
+            if (s != null) {
+                out.append("-scroll: ").append(s.getName());
+            }
+        }
+
         return out.toString();
+    }
+
+    public void addSpell(Spell spell) {
+        Spell[] temp = new Spell[spells.length + 1];
+
+        for (int i = 0; i < spells.length; i++) {
+            temp[i] = spells[i];
+        }
+
+        temp[temp.length -1] = spell;
+
+        spells = temp;
+    }
+
+    public boolean castSpell (Spell spell, Enemy enemy) {
+        if (spell != null) {
+            boolean hit = rand.nextInt(100) < spell.getPrecision();
+
+            if (hit) {
+                int dmg = randInt(spell.getDamageMin(), spell.getDamageMax());
+                Io.tell(Main.player.getName() + " attempted " + spell.getName() + " and hit for " + enemy.takeDamage(dmg));
+                return true;
+
+            } else {
+                Io.tell(Main.player.getName() + " attempted " + spell.getName() + " and missed.");
+                return true;
+            }
+        } else {
+            Io.tell("There is no spell assigned to this slot.");
+        }
+        return false;
     }
 
     // AS INT
@@ -115,9 +180,17 @@ public class Mage extends Entity {
         this.spells = spells;
     }
 
+    public void setScrollSlot(int slot, Spell spell) {
+        scroll[slot] = spell;
+    }
+
     // GETTERS
     public Level getCurrentLevel () {
         return currentLevel;
+    }
+
+    public Spell[] getScroll() {
+        return scroll;
     }
 
     public Spell[] getSpells() {

@@ -7,12 +7,13 @@ Files are stored in the MAGE file format.
 Any line starting with # will be ignored, and the rest will be read.
  */
 
-package dev.mfrank.utils;
+package dev.mfrank.eng;
 
 import dev.mfrank.Main;
 import dev.mfrank.paladin.io.Debug;
 import dev.mfrank.entity.Mage;
 import dev.mfrank.paladin.io.Io;
+import dev.mfrank.spell.Spell;
 
 import java.io.*;
 import java.nio.file.Files;
@@ -125,7 +126,7 @@ public class FileEngine {
             while (fileReader.hasNextLine()) {
                 String line = fileReader.nextLine();
 
-                if (line.charAt(0) != '#') {
+                if (line.charAt(0) != '#' && line.charAt(0) != '-') {
                     String[] splitLine = line.split("=");
                     String val = splitLine[1];
 
@@ -160,6 +161,26 @@ public class FileEngine {
 
                         case "currentLevel":
                             player.setCurrentLevel(Main.getLevelById(Integer.parseInt(val)));
+                    }
+
+                } else if (line.charAt(0) == '-') {
+                    String[] splitLine = line.split(": ");
+                    String dest = splitLine[0];
+                    String tok = splitLine[1];
+                    Spell[] spells = new Spell[0];
+                    Spell[] scroll = new Spell[0];
+                    int scrollIndex = 0;
+
+                    if (dest.equals("-spell")) {
+                        player.addSpell(SpellEngine.getById(tok));
+                    }
+
+                    if (dest.equals("-scroll")) {
+                        if (scrollIndex < 3) {
+                            Debug.tell(tok);
+                            player.setScrollSlot(scrollIndex, SpellEngine.getById(tok));
+                            scrollIndex++;
+                        }
                     }
                 }
             }
@@ -224,7 +245,7 @@ public class FileEngine {
 
                     case "noconsole":
                         Main.enableConsole = false;
-                        Io.tell("Config: console disabled");
+                        Io.tell("Config: external console disabled");
                         break;
                 }
             }

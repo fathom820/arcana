@@ -6,18 +6,13 @@ the pre-defined context to calculate the results. The engine is designed like th
 package dev.mfrank.paladin;
 
 // Java libraries
-import java.io.IOException;
 import java.util.HashMap;
-import java.util.Map.Entry;
 
 // Project modules
-import dev.mfrank.Main;
 import dev.mfrank.paladin.io.Debug;
 import dev.mfrank.paladin.io.Io;
-import dev.mfrank.utils.FileEngine;
 
 // Import global var player from main class
-import static dev.mfrank.Main.player;
 
 
 public class Paladin {

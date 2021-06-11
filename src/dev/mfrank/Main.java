@@ -7,6 +7,7 @@ import java.io.IOException;
 
 
 // Project files
+import dev.mfrank.eng.SpellEngine;
 import dev.mfrank.level.Level;
 import dev.mfrank.level.Level0;
 import dev.mfrank.level.Level1;
@@ -14,7 +15,7 @@ import dev.mfrank.paladin.io.Debug;
 import dev.mfrank.paladin.Paladin;
 import dev.mfrank.paladin.context.ContextMenu;
 import dev.mfrank.entity.Mage;
-import dev.mfrank.utils.FileEngine;
+import dev.mfrank.eng.FileEngine;
 import dev.mfrank.paladin.io.Io;
 
 
@@ -38,6 +39,7 @@ public class Main {
 
 
         // Engine setup
+        SpellEngine.init();
         FileEngine.initConfig();
         FileEngine.readConfig();
         FileEngine.initSaves();

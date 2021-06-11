@@ -2,17 +2,15 @@ package dev.mfrank.paladin.context;
 
 import dev.mfrank.entity.Mage;
 import dev.mfrank.paladin.Command;
-import dev.mfrank.paladin.io.Debug;
 import dev.mfrank.paladin.Paladin;
 import dev.mfrank.paladin.io.Io;
-import dev.mfrank.utils.FileEngine;
+import dev.mfrank.eng.FileEngine;
 
 import static dev.mfrank.Main.player;
 import static dev.mfrank.Main.setPlayer;
 import static dev.mfrank.Main.gameRunning;
 
 import java.io.IOException;
-import java.util.Scanner;
 
 public class ContextMenu extends Context {
 

@@ -21,7 +21,7 @@ public abstract class Enemy extends Entity {
         boolean hit = rand.nextInt(100) < atk.getPrecision();
 
         if (hit) {
-            int dmg = randInt(atk.getDamageMin(), atk.getDamageMax());
+            int dmg = super.randInt(atk.getDamageMin(), atk.getDamageMax());
             Io.tell(super.getName() + " attempted " + atk.getName() + " and hit for " + m.takeDamage(dmg));
 
 
@@ -31,12 +31,4 @@ public abstract class Enemy extends Entity {
         }
     }
 
-    private int randInt(int min, int max) {
-
-        if (min >= max) {
-            throw new IllegalArgumentException("randInt error: max must be greater than min");
-        }
-
-        return rand.nextInt((max - min) + 1) + min;
-    }
 }

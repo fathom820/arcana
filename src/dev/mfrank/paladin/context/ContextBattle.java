@@ -9,7 +9,6 @@ import dev.mfrank.paladin.io.Io;
 import dev.mfrank.spell.Spell;
 
 import java.io.IOException;
-import java.util.Locale;
 
 public class ContextBattle extends Context {
 
@@ -76,21 +75,20 @@ public class ContextBattle extends Context {
 
                 case "attack1":
                     Debug.tell("Player attempted atk1");
-                    playerAttacked = true;
-                    playerTurn = false;
+                    playerAttacked = Main.player.castSpell(Main.player.getScroll()[0], enemy);
+                    playerTurn = !playerAttacked;
                 break;
 
                 case "attack2":
                     Debug.tell("Player attempted atk2");
-                    playerAttacked = true;
-                    playerTurn = false;
+                    playerAttacked = Main.player.castSpell(Main.player.getScroll()[1], enemy);;
+                    playerTurn = !playerAttacked;
                 break;
 
                 case "attack3":
                     Debug.tell("Player attempted atk3");
-                    playerAttacked = true;
-                    playerTurn = false;
-
+                    playerAttacked = Main.player.castSpell(Main.player.getScroll()[2], enemy);;
+                    playerTurn = !playerAttacked;
                 break;
 
                 case "spells":
@@ -99,13 +97,15 @@ public class ContextBattle extends Context {
                     Io.tellRaw("Your spells:");
 
                     for (Spell s : Main.player.getSpells()) {
-                        Io.tellRaw(s.getName().toUpperCase());
-                        Io.setIndent(1);
-                        Io.tell("Minimum damage: " + s.getDamageMin());
-                        Io.tell("Maximum damage: " + s.getDamageMax());
-                        Io.tell("Piercing chance: " + s.getPiercing() + "%");
-                        Io.tell("Precision: " + s.getPrecision() + "%");
-                        Io.setIndent(0);
+                        if (s != null) {
+                            Io.tell(s.getName().toUpperCase());
+                            Io.setIndent(1);
+                            Io.tellRaw("Minimum damage: " + s.getDamageMin());
+                            Io.tellRaw("Maximum damage: " + s.getDamageMax());
+                            Io.tellRaw("Piercing chance: " + s.getPiercing() + "%");
+                            Io.tellRaw("Precision: " + s.getPrecision() + "%");
+                            Io.setIndent(0);
+                        }
                     }
                     Io.printSmallDivider();
                 break;

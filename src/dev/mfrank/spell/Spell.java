@@ -1,45 +1,61 @@
 package dev.mfrank.spell;
 
+import dev.mfrank.paladin.io.Debug;
+
 public class Spell {
 
     private String name;
-    private String damageMin;
-    private String damageMax;
-    private String piercing;
-    private String precision;
+    private int damageMin;
+    private int damageMax;
+    private int piercing;
+    private int precision;
 
-    private Spell[] spells;
 
-    public Spell getById (String id) {
-        for (Spell s : spells) {
-            if (s.getName().equals(id)) {
-                return s;
-            }
-        }
+    public Spell () {
 
-        return null;
     }
-
-
     // GETTERS
 
     public String getName() {
         return name;
     }
 
-    public String getDamageMin() {
+    public int getDamageMin() {
         return damageMin;
     }
 
-    public String getDamageMax() {
+    public int getDamageMax() {
         return damageMax;
     }
 
-    public String getPiercing() {
+    public int getPiercing() {
         return piercing;
     }
 
-    public String getPrecision() {
+    public int getPrecision() {
         return precision;
+    }
+
+    // SETTERS
+
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setDamageMin(int damageMin) {
+        this.damageMin = damageMin;
+    }
+
+    public void setDamageMax(int damageMax) {
+        this.damageMax = damageMax;
+    }
+
+    public void setPiercing(int piercing) {
+        this.piercing = piercing;
+    }
+
+    public void setPrecision(int precision) {
+        this.precision = precision;
     }
 }

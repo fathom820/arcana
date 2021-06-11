@@ -146,7 +146,9 @@ public class Io {
     }
 
     public static void pause() throws InterruptedException {
-        Thread.sleep(1000);
+        if (Debug.getState()) {
+            Thread.sleep(500);
+        }
     }
 
     public static String center (String msg) {

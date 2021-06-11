@@ -54,9 +54,9 @@ public class Context extends Paladin {
             case "debug":
                 Debug.setState(!Debug.getState());
                 if (Debug.getState())
-                    Io.tell("Debug messages: ON");
+                    Io.tell("Debug mode: ON");
                 else
-                    Io.tell("Debug messages: OFF");
+                    Io.tell("Debug mode: OFF");
                 break;
 
             case "version":

@@ -41,7 +41,7 @@ public class Paladin {
         debug = new Command (
                 "debug",
                 "dbg",
-                "Intended for developer use. Displays debug messages."
+                "[DEV USE] Enables engine logs and disables thread delay."
         );
         version = new Command (
                 "version",

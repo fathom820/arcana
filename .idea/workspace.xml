@@ -7,22 +7,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="53ce2d0f-ff08-4066-be85-8eff67bada50" name="Default Changelist" comment="v. 21.5.22">
-      <change afterPath="$PROJECT_DIR$/src/dev/mfrank/eng/SpellEngine.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dev/mfrank/spell/SpellEmpty.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dev/mfrank/spell/SpellSpark.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/arcana.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/arcana.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dev/mfrank/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dev/mfrank/entity/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/entity/Entity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dev/mfrank/entity/Mage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/entity/Mage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dev/mfrank/entity/enemy/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/entity/enemy/Enemy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dev/mfrank/paladin/Paladin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/paladin/Paladin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dev/mfrank/paladin/context/Context.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/paladin/context/Context.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dev/mfrank/paladin/context/ContextBattle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/paladin/context/ContextBattle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dev/mfrank/paladin/context/ContextMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/paladin/context/ContextMenu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dev/mfrank/paladin/io/Io.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/paladin/io/Io.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dev/mfrank/spell/Spell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/spell/Spell.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dev/mfrank/utils/FileEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/eng/FileEngine.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +74,7 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Java" />
+    <property name="settings.editor.selected.configurable" value="preferences.customizations" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -117,19 +103,6 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -196,14 +169,9 @@
       <workItem from="1623090985574" duration="6191000" />
       <workItem from="1623175719408" duration="1398000" />
       <workItem from="1623212945339" duration="6165000" />
-      <workItem from="1623352766627" duration="7574000" />
-    </task>
-    <task id="LOCAL-00002" summary="Testing">
-      <created>1621661587869</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1621661587869</updated>
+      <workItem from="1623352766627" duration="7895000" />
+      <workItem from="1623393953767" duration="69000" />
+      <workItem from="1623394034056" duration="422000" />
     </task>
     <task id="LOCAL-00003" summary="Testing">
       <created>1621661940874</created>
@@ -541,7 +509,14 @@
       <option name="project" value="LOCAL" />
       <updated>1623221246326</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="added spell engine and functionality">
+      <created>1623393891898</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1623393891898</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -563,7 +538,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="+ file loading functionality" />
     <MESSAGE value="v. 21.5.25" />
     <MESSAGE value="Alpha 21.5.25" />
     <MESSAGE value="updated .gitignore" />
@@ -588,7 +562,8 @@
     <MESSAGE value="added delay function" />
     <MESSAGE value="added enemy and attack functionality (to be implemented)" />
     <MESSAGE value="95% implemented fighting context and commands" />
-    <option name="LAST_COMMIT_MESSAGE" value="95% implemented fighting context and commands" />
+    <MESSAGE value="added spell engine and functionality" />
+    <option name="LAST_COMMIT_MESSAGE" value="added spell engine and functionality" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

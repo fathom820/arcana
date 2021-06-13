@@ -7,36 +7,28 @@ import java.io.IOException;
 
 
 // Project files
-import dev.mfrank.eng.SpellEngine;
+import dev.mfrank.engine.SpellEngine;
 import dev.mfrank.level.Level;
 import dev.mfrank.level.Level0;
 import dev.mfrank.level.Level1;
-import dev.mfrank.paladin.io.Debug;
-import dev.mfrank.paladin.Paladin;
-import dev.mfrank.paladin.context.ContextMenu;
 import dev.mfrank.entity.Mage;
-import dev.mfrank.eng.FileEngine;
-import dev.mfrank.paladin.io.Io;
+import dev.mfrank.engine.FileEngine;
 
 
 public class Main {
 
     // Global variables
     public static boolean gameRunning = false;
-    public static Mage player;
-    public static Paladin currentContext = new ContextMenu();
+    private static Mage player;
     public static boolean enableConsole = true;
 
-    public static Level0 level0 = new Level0();
-    public static Level1 level1 = new Level1();
 
-    public static Level[] levelArray = new Level[] {
-            level0,
-            level1
+    public static Level[] levelArray = new Level[]{
+        new Level0(),
+        new Level1()
     };
 
     public static void main(String[] args) throws IOException, InterruptedException {
-
 
         // Engine setup
         SpellEngine.init();
@@ -55,23 +47,17 @@ public class Main {
         }
 
 
-       Io.printWelcome();                                            // !! Deprecated !!
+       levelArray[0].run(); // run level 0 (main menu), from here the next level will be determined
 
-       while(!gameRunning) {
-           // todo: move functionality to Level0.java
-           ContextMenu.interpret(Io.in());
-       }
-
-       // BEGIN GAME RUNTIME
-       Debug.tell("Game start");
-
-       // Run current level
-       player.getCurrentLevel().run();
     }
+
+    // GETTERS
 
     public static Mage getPlayer() {
         return player;
     }
+
+    public static boolean getGameRunning() {return gameRunning;}
 
     public static void setPlayer(Mage player) {
         Main.player = player;

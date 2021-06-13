@@ -2,9 +2,10 @@ package dev.mfrank.spell;
 
 import dev.mfrank.paladin.io.Debug;
 
-public class Spell {
+public abstract class Spell {
 
     private String name;
+    private String description;
     private int damageMin;
     private int damageMax;
     private int piercing;
@@ -18,6 +19,10 @@ public class Spell {
 
     public String getName() {
         return name;
+    }
+
+    public String getDescription() {
+        return description;
     }
 
     public int getDamageMin() {
@@ -41,6 +46,10 @@ public class Spell {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public void setDamageMin(int damageMin) {

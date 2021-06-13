@@ -1,16 +1,15 @@
 package dev.mfrank.paladin.context;
 
+import dev.mfrank.Main;
 import dev.mfrank.entity.Mage;
 import dev.mfrank.paladin.Command;
 import dev.mfrank.paladin.Paladin;
 import dev.mfrank.paladin.io.Io;
-import dev.mfrank.eng.FileEngine;
-
-import static dev.mfrank.Main.player;
-import static dev.mfrank.Main.setPlayer;
-import static dev.mfrank.Main.gameRunning;
+import dev.mfrank.engine.FileEngine;
 
 import java.io.IOException;
+
+import static dev.mfrank.Main.*;
 
 public class ContextMenu extends Context {
 
@@ -64,8 +63,8 @@ public class ContextMenu extends Context {
     First the command is run through the base, then it is run through the
     context-specific switch statement.
      */
-    public static boolean interpret(String cmd) throws IOException, InterruptedException {
-        if (!Context.interpret(cmd)) {
+    public boolean interpret(String cmd) throws IOException, InterruptedException {
+        if (!super.interpret(cmd)) {
 
             switch (cmd) {
                 default:
@@ -73,16 +72,16 @@ public class ContextMenu extends Context {
                     return false;
 
                 case "new":
-                    Io.tell("Enter the name of your new mage.");
-                    setPlayer(new Mage(Io.in()));
-                    FileEngine.setCurrentMage(player.getName());
-                    gameRunning = FileEngine.newMage(player.getName());
-                    FileEngine.saveMage(player);
+                    Io.tell("You've decided to create a new mage. Wonderful!");
+                    setPlayer(new Mage(Io.prompt("Name")));
+                    FileEngine.setCurrentMage(getPlayer().getName());
+                    gameRunning = FileEngine.newMage(getPlayer().getName());
+                    FileEngine.saveMage(getPlayer());
                     // FileEngine.loadFile();
                 break;
 
                 case "load":
-                    player = FileEngine.loadMage();
+                    Main.setPlayer(FileEngine.loadMage());
                 break;
 
                 case "list":
@@ -90,7 +89,7 @@ public class ContextMenu extends Context {
                 break;
 
                 case "delete":
-                    Io.tell("Which mage would you like to delete?");
+
                     FileEngine.listMages();
                     FileEngine.deleteMage();
             }

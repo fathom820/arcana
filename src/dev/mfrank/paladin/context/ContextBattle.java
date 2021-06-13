@@ -9,16 +9,17 @@ import dev.mfrank.paladin.io.Io;
 import dev.mfrank.spell.Spell;
 
 import java.io.IOException;
+import java.util.Arrays;
 
 public class ContextBattle extends Context {
 
-    private static Command attack1;
-    private static Command attack2;
-    private static Command attack3;
-    private static Command spells;
-    private static Enemy enemy;
-    private static boolean playerTurn;
-    private static boolean playerAttacked;
+    private Command attack1;
+    private Command attack2;
+    private Command attack3;
+    private Command spells;
+    private Enemy enemy;
+    private boolean playerTurn;
+    private boolean playerAttacked;
 
 
     public ContextBattle(Enemy enemy) {
@@ -57,16 +58,17 @@ public class ContextBattle extends Context {
         super.addCommand(attack3);
         super.addCommand(spells);
 
-        ContextBattle.enemy = enemy;
+        this.enemy = enemy;
         playerTurn = false;
         playerAttacked = false;
 
     }
 
 
-    public static boolean interpret(String cmd) throws IOException, InterruptedException {
+    public boolean interpret(String cmd) throws IOException, InterruptedException {
 
-        if (!Context.interpret(cmd)) {
+        if (!super.interpret(cmd)) {
+            this.playerAttacked = false;
 
             switch(cmd) {
                 default:
@@ -75,39 +77,42 @@ public class ContextBattle extends Context {
 
                 case "attack1":
                     Debug.tell("Player attempted atk1");
-                    playerAttacked = Main.player.castSpell(Main.player.getScroll()[0], enemy);
+                    playerAttacked = Main.getPlayer().castSpell(Main.getPlayer().getHotbar()[0], enemy);
                     playerTurn = !playerAttacked;
                 break;
 
                 case "attack2":
                     Debug.tell("Player attempted atk2");
-                    playerAttacked = Main.player.castSpell(Main.player.getScroll()[1], enemy);;
+                    playerAttacked = Main.getPlayer().castSpell(Main.getPlayer().getHotbar()[1], enemy);;
                     playerTurn = !playerAttacked;
                 break;
 
                 case "attack3":
                     Debug.tell("Player attempted atk3");
-                    playerAttacked = Main.player.castSpell(Main.player.getScroll()[2], enemy);;
+                    playerAttacked = Main.getPlayer().castSpell(Main.getPlayer().getHotbar()[2], enemy);;
                     playerTurn = !playerAttacked;
                 break;
 
                 case "spells":
                     Io.printSmallDivider();
                     Io.setIndent(0);
-                    Io.tellRaw("Your spells:");
+                    Io.tellRaw("Your spells:\n");
+                    Debug.tell(Arrays.toString(Main.getPlayer().getSpells()));
 
-                    for (Spell s : Main.player.getSpells()) {
+                    for (Spell s : Main.getPlayer().getSpells()) {
                         if (s != null) {
-                            Io.tell(s.getName().toUpperCase());
+                            Io.tellRaw(s.getName().toUpperCase());
+                            Io.tellRaw(s.getDescription());
                             Io.setIndent(1);
                             Io.tellRaw("Minimum damage: " + s.getDamageMin());
                             Io.tellRaw("Maximum damage: " + s.getDamageMax());
                             Io.tellRaw("Piercing chance: " + s.getPiercing() + "%");
-                            Io.tellRaw("Precision: " + s.getPrecision() + "%");
+                            Io.tellRaw("Precision: " + s.getPrecision() + "%\n");
                             Io.setIndent(0);
                         }
                     }
                     Io.printSmallDivider();
+                    playerAttacked = false;
                 break;
             }
         }
@@ -119,9 +124,9 @@ public class ContextBattle extends Context {
         Io.setIndent(0);
         Io.tellRaw("PLAYER STATUS:");
         Io.setIndent(1);
-        Io.tellRaw("Health: " + Main.player.getHealth() + "/" + Main.player.getMaxHealth());
-        Io.tellRaw("Armor: " + Main.player.getArmor() + "/" + Main.player.getMaxArmor());
-        Io.tellRaw("Mana: " + Main.player.getMana() + "/" + Main.player.getMaxMana());
+        Io.tellRaw("Health: " + Main.getPlayer().getHealth() + "/" + Main.getPlayer().getMaxHealth());
+        Io.tellRaw("Armor: " + Main.getPlayer().getArmor() + "/" + Main.getPlayer().getMaxArmor());
+        Io.tellRaw("Mana: " + Main.getPlayer().getMana() + "/" + Main.getPlayer().getMaxMana());
         Io.setIndent(0);
         Io.printSmallDivider();
         Io.pause();
@@ -140,14 +145,15 @@ public class ContextBattle extends Context {
     }
 
     public void run () throws IOException, InterruptedException {
+        enemy.setAlive(true);
         Io.printDivider();
         Io.setIndent(0);
         Io.tell(enemy.getName() + " has appeared!");
 
-        while(enemy.getAlive() && Main.player.getAlive()) {
+        while(enemy.getAlive() && Main.getPlayer().getAlive()) {
 
             if (playerTurn) {
-                ContextBattle.interpret(Io.in());
+                interpret(Io.in());
                 Io.pause();
 
                 if (playerAttacked) {
@@ -155,13 +161,18 @@ public class ContextBattle extends Context {
                 }
 
             } else {
-                enemy.attack(Main.player);
                 Io.pause();
+                enemy.attack(Main.getPlayer());
+                Io.longPause();
 
                 printPlayerStatus();
 
                 playerTurn = true;
             }
+        }
+
+        if (!enemy.getAlive()) {
+            Io.tell(enemy.getName() + " has been defeated!");
         }
     }
 }

@@ -7,7 +7,7 @@ Files are stored in the MAGE file format.
 Any line starting with # will be ignored, and the rest will be read.
  */
 
-package dev.mfrank.eng;
+package dev.mfrank.engine;
 
 import dev.mfrank.Main;
 import dev.mfrank.paladin.io.Debug;
@@ -96,7 +96,10 @@ public class FileEngine {
             boolean saveSuccess = newSaveFile.createNewFile();
             if (saveSuccess) {
                 Debug.tell("File " + fname + ".mage created.");
-                Main.player.setCurrentLevel(Main.getLevelById(1));
+                Main.getPlayer().setCurrentLevel(Main.getLevelById(1));
+                Main.getPlayer().addSpell(SpellEngine.getById("Spark"));
+                Main.getPlayer().setScrollSlot(0, SpellEngine.getById("Spark"));
+                saveMage(Main.getPlayer());
                 Main.gameRunning = true;
 
             } else {
@@ -167,8 +170,7 @@ public class FileEngine {
                     String[] splitLine = line.split(": ");
                     String dest = splitLine[0];
                     String tok = splitLine[1];
-                    Spell[] spells = new Spell[0];
-                    Spell[] scroll = new Spell[0];
+
                     int scrollIndex = 0;
 
                     if (dest.equals("-spell")) {
@@ -219,7 +221,7 @@ public class FileEngine {
     }
 
     public static void deleteMage () {
-        setCurrentMage(Io.in());
+        setCurrentMage(Io.prompt("Delete mage"));
         File mage = new File(currentFile);
 
         if (mage.delete()) {

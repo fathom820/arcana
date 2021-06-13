@@ -14,52 +14,6 @@ public class Io {
     private final static String inPrefix = ">>> ";
     private final static int width = 76;
 
-    // eng
-    public static void printWelcome() throws InterruptedException {
-
-        if (Main.enableConsole) {
-            Io.delayType(
-                    "*--------------------------------------------------------------------------*\n" +
-                            "|    ▄████████    ▄████████  ▄████████    ▄████████ ███▄▄▄▄      ▄████████ |\n" +
-                            "|   ███    ███   ███    ███ ███    ███   ███    ███ ███▀▀▀██▄   ███    ███ |\n" +
-                            "|   ███    ███   ███    ███ ███    █▀    ███    ███ ███   ███   ███    ███ |\n" +
-                            "|   ███    ███  ▄███▄▄▄▄██▀ ███          ███    ███ ███   ███   ███    ███ |\n" +
-                            "| ▀███████████ ▀▀███▀▀▀▀▀   ███        ▀███████████ ███   ███ ▀███████████ |\n" +
-                            "|   ███    ███ ▀███████████ ███    █▄    ███    ███ ███   ███   ███    ███ |\n" +
-                            "|   ███    ███   ███    ███ ███    ███   ███    ███ ███   ███   ███    ███ |\n" +
-                            "|   ███    █▀    ███    ███ ████████▀    ███    █▀   ▀█   █▀    ███    █▀  |\n" +
-                            "*--------------------------------------------------------------------------*\n" +
-
-                            "Welcome to Arcana, a spellbound game of mystery and intrigue!\n" +
-                            "The land of Arcana has been overrun by demonic invaders...\n" +
-                            "You are a novice mage, seeking new spells to learn and enemies to conquer.\n" +
-                            "Discover new spells, and combine them to create devastating attacks!\n",
-                    1
-            );
-        }
-
-        else {
-            Io.tellRaw("*--------------------------------------------------------------------------*\n" +
-                    "|    ▄████████    ▄████████  ▄████████    ▄████████ ███▄▄▄▄      ▄████████ |\n" +
-                    "|   ███    ███   ███    ███ ███    ███   ███    ███ ███▀▀▀██▄   ███    ███ |\n" +
-                    "|   ███    ███   ███    ███ ███    █▀    ███    ███ ███   ███   ███    ███ |\n" +
-                    "|   ███    ███  ▄███▄▄▄▄██▀ ███          ███    ███ ███   ███   ███    ███ |\n" +
-                    "| ▀███████████ ▀▀███▀▀▀▀▀   ███        ▀███████████ ███   ███ ▀███████████ |\n" +
-                    "|   ███    ███ ▀███████████ ███    █▄    ███    ███ ███   ███   ███    ███ |\n" +
-                    "|   ███    ███   ███    ███ ███    ███   ███    ███ ███   ███   ███    ███ |\n" +
-                    "|   ███    █▀    ███    ███ ████████▀    ███    █▀   ▀█   █▀    ███    █▀  |\n" +
-                    "*--------------------------------------------------------------------------*\n" +
-
-                    "Welcome to Arcana, a spellbound game of mystery and intrigue!\n" +
-                    "The land of Arcana has been overrun by demonic invaders...\n" +
-                    "You are a novice mage, seeking new spells to learn and enemies to conquer.\n" +
-                    "Discover new spells, and combine them to create devastating attacks!"
-            );
-        }
-        printDivider();
-
-    }
-
 
     public static void printVersion () {
         System.out.println("Current version: " + versionNumber);
@@ -108,6 +62,11 @@ public class Io {
         return console.nextLine();
     }
 
+    public static String prompt(String msg) {
+        System.out.print(msg + " " + inPrefix);
+        return console.nextLine();
+    }
+
     public static String wrap (String msg, int ind) {
         char[] chars = msg.toCharArray();
         String out = "";
@@ -146,8 +105,14 @@ public class Io {
     }
 
     public static void pause() throws InterruptedException {
-        if (Debug.getState()) {
-            Thread.sleep(500);
+        if (!Debug.getState()) {
+            Thread.sleep(750);
+        }
+    }
+
+    public static void longPause () throws InterruptedException {
+        if (!Debug.getState()) {
+            Thread.sleep(1250);
         }
     }
 

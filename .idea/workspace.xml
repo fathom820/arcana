@@ -7,8 +7,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="53ce2d0f-ff08-4066-be85-8eff67bada50" name="Default Changelist" comment="v. 21.5.22">
+      <change afterPath="$PROJECT_DIR$/src/dev/mfrank/item/Item.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/mfrank/item/scroll/Scroll.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/mfrank/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/mfrank/eng/FileEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/engine/FileEngine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/mfrank/eng/SpellEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/engine/SpellEngine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/mfrank/entity/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/entity/Entity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/mfrank/entity/Mage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/entity/Mage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/mfrank/entity/enemy/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/entity/enemy/Enemy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/mfrank/entity/enemy/EnemySkeleton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/entity/enemy/lvl1/EnemySkeleton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/mfrank/level/Level0.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/level/Level0.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/mfrank/level/Level1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/level/Level1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/mfrank/paladin/context/Context.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/paladin/context/Context.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/mfrank/paladin/context/ContextBattle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/paladin/context/ContextBattle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/mfrank/paladin/context/ContextMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/paladin/context/ContextMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/mfrank/paladin/io/Debug.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/paladin/io/Debug.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dev/mfrank/paladin/io/Io.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/paladin/io/Io.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/mfrank/spell/Spell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/spell/Spell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/mfrank/spell/SpellSpark.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/spell/SpellSpark.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,6 +124,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="arcana.jar" type="JarApplication" temporary="true">
       <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/arcana_jar/arcana.jar" />
       <method v="2" />
@@ -171,14 +199,12 @@
       <workItem from="1623212945339" duration="6165000" />
       <workItem from="1623352766627" duration="7895000" />
       <workItem from="1623393953767" duration="69000" />
-      <workItem from="1623394034056" duration="422000" />
-    </task>
-    <task id="LOCAL-00003" summary="Testing">
-      <created>1621661940874</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1621661940875</updated>
+      <workItem from="1623394034056" duration="734000" />
+      <workItem from="1623470968550" duration="4126000" />
+      <workItem from="1623523739660" duration="677000" />
+      <workItem from="1623524438716" duration="4701000" />
+      <workItem from="1623566717531" duration="78000" />
+      <workItem from="1623566810816" duration="1757000" />
     </task>
     <task id="LOCAL-00004" summary="Testing">
       <created>1621661985840</created>
@@ -516,7 +542,14 @@
       <option name="project" value="LOCAL" />
       <updated>1623393891898</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="modified debug command description">
+      <created>1623394767389</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1623394767390</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -538,7 +571,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="v. 21.5.25" />
     <MESSAGE value="Alpha 21.5.25" />
     <MESSAGE value="updated .gitignore" />
     <MESSAGE value="update .gitignore" />
@@ -563,7 +595,8 @@
     <MESSAGE value="added enemy and attack functionality (to be implemented)" />
     <MESSAGE value="95% implemented fighting context and commands" />
     <MESSAGE value="added spell engine and functionality" />
-    <option name="LAST_COMMIT_MESSAGE" value="added spell engine and functionality" />
+    <MESSAGE value="modified debug command description" />
+    <option name="LAST_COMMIT_MESSAGE" value="modified debug command description" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -1,8 +1,6 @@
 package dev.mfrank.level;
 
-import dev.mfrank.Main;
-
-import dev.mfrank.entity.enemy.EnemySkeleton;
+import dev.mfrank.entity.enemy.lvl1.EnemySkeleton;
 import dev.mfrank.paladin.context.ContextBattle;
 import dev.mfrank.paladin.io.Debug;
 import dev.mfrank.paladin.io.Io;
@@ -11,17 +9,18 @@ import java.io.IOException;
 
 public class Level1 extends Level {
 
-    private EnemySkeleton testSkele;
-    private ContextBattle stage1;
+    private ContextBattle stage1, stage2;
 
     public Level1 () {
         super.setId(1);
         super.setName("LEVEL 1");
-        super.setInfo(Io.wrap("Welcome to Level 1! This is the first level of the Dungeon.", 1));
+        super.setInfo("Welcome to Level 1! As you descend into the dungeon, the smell of\n" +
+            "dust and bones permeates the air. Out of the darkness, you hear creaking...");
         Io.setIndent(0);
         super.setComplete(false);
-        testSkele = new EnemySkeleton();
-        stage1 = new ContextBattle(testSkele);
+
+        stage1 = new ContextBattle(new EnemySkeleton());
+        stage2 = new ContextBattle(new EnemySkeleton());
     }
 
     public void run () throws IOException, InterruptedException {
@@ -31,9 +30,9 @@ public class Level1 extends Level {
         Io.setIndent(1);
         Io.tellRaw(getInfo());
 
-
-        // TODO: implement battle context and test out new enemy functionality
-
+        Debug.tell("stage1");
         stage1.run();
+        Debug.tell("stage2");
+        stage2.run();
     }
 }

@@ -1,6 +1,6 @@
 package dev.mfrank.paladin.io;
 
-public abstract class Debug {
+public class Debug {
 
     private static boolean debug = false;                       // whether or not to show debug messages
     private static final String tellPrefix = "[|] ";           // prefix for debug messages

@@ -1,6 +1,9 @@
-package dev.mfrank.entity.enemy;
+package dev.mfrank.entity.enemy.lvl1;
 
-public class EnemySkeleton extends Enemy{
+import dev.mfrank.entity.enemy.Attack;
+import dev.mfrank.entity.enemy.Enemy;
+
+public class EnemySkeleton extends Enemy {
 
     public EnemySkeleton () {
         super.setMaxHealth(20);
@@ -11,10 +14,10 @@ public class EnemySkeleton extends Enemy{
         super.setName("Skeleton");
         super.setAlive(true);
 
-        super.attacks[0] = new Attack (
+        super.attacks[0] = new Attack(
             "Bone Throw",
-            10,
-            18,
+            5,
+            8,
             0,
             90
         );
@@ -24,15 +27,15 @@ public class EnemySkeleton extends Enemy{
             15,
             20,
             10,
-            60
+            35
         );
 
         super.attacks[2] = new Attack (
             "Mandible Assault",
-            20,
-            30,
-            25,
-            75
+            10,
+            15,
+            50,
+            50
         );
 
 

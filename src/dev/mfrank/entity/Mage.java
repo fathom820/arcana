@@ -1,14 +1,12 @@
 package dev.mfrank.entity;
 
 import dev.mfrank.Main;
-import dev.mfrank.eng.SpellEngine;
 import dev.mfrank.entity.enemy.Enemy;
 import dev.mfrank.level.Level;
 import dev.mfrank.level.Level0;
 import dev.mfrank.paladin.io.Debug;
 import dev.mfrank.paladin.io.Io;
 import dev.mfrank.spell.Spell;
-import dev.mfrank.spell.SpellSpark;
 
 import java.util.Arrays;
 import java.util.Random;
@@ -18,7 +16,7 @@ public class Mage extends Entity {
 
     private int maxMana;
     private int mana;
-    private Spell[] scroll;
+    private Spell[] hotbar;
     private Spell[] spells;
 
     private Level currentLevel;
@@ -32,10 +30,8 @@ public class Mage extends Entity {
         super.setName("NULL");
         this.maxMana = 100;
         this.mana = maxMana;
-        this.scroll = new Spell[3];
-        this.spells = new Spell[] {
-            SpellEngine.getById("Spark")
-        };
+        this.hotbar = new Spell[3];
+        this.spells = new Spell[] {};
         this.currentLevel = new Level0();
     }
 
@@ -47,17 +43,11 @@ public class Mage extends Entity {
         super.setName(name);
         this.maxMana = 100;
         this.mana = maxMana;
-        this.scroll = new Spell[] {
-            new SpellSpark(),
-            null,
-            null
-        };
-        this.spells = new Spell[] {
-            SpellEngine.getById("Spark")
-        };
+        this.hotbar = new Spell[3];
+        this.spells = new Spell[] {};
         this.currentLevel = new Level0();
 
-        Debug.tell(Arrays.toString(scroll));
+        Debug.tell(Arrays.toString(hotbar));
     }
 
     /*
@@ -107,7 +97,7 @@ public class Mage extends Entity {
         }
 
         out.append("\n# SCROLL\n");
-        for (Spell s : scroll) {
+        for (Spell s : hotbar) {
             if (s != null) {
                 out.append("-scroll: ").append(s.getName());
             }
@@ -134,11 +124,11 @@ public class Mage extends Entity {
 
             if (hit) {
                 int dmg = randInt(spell.getDamageMin(), spell.getDamageMax());
-                Io.tell(Main.player.getName() + " attempted " + spell.getName() + " and hit for " + enemy.takeDamage(dmg));
+                Io.tell(Main.getPlayer().getName() + " attempted " + spell.getName() + " and hit for " + enemy.takeDamage(dmg));
                 return true;
 
             } else {
-                Io.tell(Main.player.getName() + " attempted " + spell.getName() + " and missed.");
+                Io.tell(Main.getPlayer().getName() + " attempted " + spell.getName() + " and missed.");
                 return true;
             }
         } else {
@@ -172,8 +162,8 @@ public class Mage extends Entity {
         this.currentLevel = currentLevel;
     }
 
-    public void setScroll (Spell[] scroll) {
-        this.scroll = scroll;
+    public void setHotbar(Spell[] hotbar) {
+        this.hotbar = hotbar;
     }
 
     public void setSpells (Spell[] spells) {
@@ -181,7 +171,7 @@ public class Mage extends Entity {
     }
 
     public void setScrollSlot(int slot, Spell spell) {
-        scroll[slot] = spell;
+        hotbar[slot] = spell;
     }
 
     // GETTERS
@@ -189,8 +179,8 @@ public class Mage extends Entity {
         return currentLevel;
     }
 
-    public Spell[] getScroll() {
-        return scroll;
+    public Spell[] getHotbar() {
+        return hotbar;
     }
 
     public Spell[] getSpells() {

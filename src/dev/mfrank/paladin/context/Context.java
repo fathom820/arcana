@@ -5,17 +5,16 @@ import dev.mfrank.paladin.Command;
 import dev.mfrank.paladin.Paladin;
 import dev.mfrank.paladin.io.Debug;
 import dev.mfrank.paladin.io.Io;
-import dev.mfrank.eng.FileEngine;
+import dev.mfrank.engine.FileEngine;
 
 import java.io.IOException;
 
 import static dev.mfrank.Main.gameRunning;
-import static dev.mfrank.Main.player;
 
-public class Context extends Paladin {
+public abstract class Context extends Paladin {
     private static String[] disabledCommands;
 
-    public static boolean interpret(String cmd) throws IOException, InterruptedException {
+    public boolean interpret(String cmd) throws IOException, InterruptedException {
 
 
         /*
@@ -53,6 +52,7 @@ public class Context extends Paladin {
 
             case "debug":
                 Debug.setState(!Debug.getState());
+
                 if (Debug.getState())
                     Io.tell("Debug mode: ON");
                 else
@@ -75,7 +75,7 @@ public class Context extends Paladin {
 
             case "save":
                 Debug.tell("Saving progress to file");
-                FileEngine.saveMage(player);
+                FileEngine.saveMage(Main.getPlayer());
                 break;
 
             case "quit":

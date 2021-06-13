@@ -1,4 +1,4 @@
-package dev.mfrank.eng;
+package dev.mfrank.engine;
 
 import dev.mfrank.spell.Spell;
 import dev.mfrank.spell.SpellEmpty;

@@ -1,10 +1,11 @@
 package dev.mfrank.entity;
 
+import dev.mfrank.paladin.io.Debug;
 import dev.mfrank.paladin.io.Io;
 
 import java.util.Random;
 
-public class Entity {
+public abstract class Entity {
 
 
     // INIT //
@@ -36,23 +37,30 @@ public class Entity {
     public int takeDamage (int damage) {
 
         if (armor > 0) {
+            Debug.tell("prearmor: " + damage);
             damage /= 2;
+            Debug.tell("postarmor: " + damage);
+
             armor -= damage;
 
             if (armor <= 0) {
                 Io.tell(name +"'s armor has been broken!");
             }
-
         }
+
         if (armor < 0) {
             armor = 0;
         }
+
         if (armor == 0) {
             health -= damage;
 
-            if (health <= 0) {
-                die();
-            }
+
+        }
+
+        if (health <= 0) {
+            health = 0;
+            die();
         }
 
         return damage;

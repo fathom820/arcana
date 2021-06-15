@@ -7,23 +7,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="53ce2d0f-ff08-4066-be85-8eff67bada50" name="Default Changelist" comment="v. 21.5.22">
-      <change afterPath="$PROJECT_DIR$/src/dev/mfrank/item/Item.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dev/mfrank/item/scroll/Scroll.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/mfrank/item/scroll/ScrollFireball.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dev/mfrank/spell/SpellFireball.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dev/mfrank/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dev/mfrank/eng/FileEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/engine/FileEngine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dev/mfrank/eng/SpellEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/engine/SpellEngine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dev/mfrank/entity/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/entity/Entity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/mfrank/engine/SpellEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/engine/SpellEngine.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dev/mfrank/entity/Mage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/entity/Mage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dev/mfrank/entity/enemy/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/entity/enemy/Enemy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dev/mfrank/entity/enemy/EnemySkeleton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/entity/enemy/lvl1/EnemySkeleton.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dev/mfrank/level/Level0.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/level/Level0.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dev/mfrank/level/Level1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/level/Level1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dev/mfrank/paladin/context/Context.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/paladin/context/Context.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dev/mfrank/paladin/context/ContextBattle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/paladin/context/ContextBattle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dev/mfrank/paladin/context/ContextMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/paladin/context/ContextMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dev/mfrank/paladin/io/Debug.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/paladin/io/Debug.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dev/mfrank/paladin/io/Io.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/paladin/io/Io.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/mfrank/entity/enemy/lvl1/EnemySkeleton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/entity/enemy/lvl1/EnemySkeleton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/mfrank/item/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/item/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/mfrank/item/scroll/Scroll.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/item/scroll/Scroll.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dev/mfrank/spell/Spell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/spell/Spell.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dev/mfrank/spell/SpellSpark.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/spell/SpellSpark.java" afterDir="false" />
     </list>
@@ -204,14 +197,9 @@
       <workItem from="1623523739660" duration="677000" />
       <workItem from="1623524438716" duration="4701000" />
       <workItem from="1623566717531" duration="78000" />
-      <workItem from="1623566810816" duration="1757000" />
-    </task>
-    <task id="LOCAL-00004" summary="Testing">
-      <created>1621661985840</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1621661985840</updated>
+      <workItem from="1623566810816" duration="2160000" />
+      <workItem from="1623571068161" duration="16000" />
+      <workItem from="1623730658803" duration="5152000" />
     </task>
     <task id="LOCAL-00005" summary="- Made player a global, encapsulated variable&#10;- Added basic functionality to FileEngine.saveFile()... it now writes player.toString()">
       <created>1621667332859</created>
@@ -549,7 +537,14 @@
       <option name="project" value="LOCAL" />
       <updated>1623394767390</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="improved combat UX, refactoring">
+      <created>1623571036498</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1623571036499</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -571,7 +566,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Alpha 21.5.25" />
     <MESSAGE value="updated .gitignore" />
     <MESSAGE value="update .gitignore" />
     <MESSAGE value="test" />
@@ -596,7 +590,8 @@
     <MESSAGE value="95% implemented fighting context and commands" />
     <MESSAGE value="added spell engine and functionality" />
     <MESSAGE value="modified debug command description" />
-    <option name="LAST_COMMIT_MESSAGE" value="modified debug command description" />
+    <MESSAGE value="improved combat UX, refactoring" />
+    <option name="LAST_COMMIT_MESSAGE" value="improved combat UX, refactoring" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

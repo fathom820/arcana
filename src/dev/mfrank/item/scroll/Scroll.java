@@ -1,13 +1,24 @@
 package dev.mfrank.item.scroll;
 
+import dev.mfrank.engine.SpellEngine;
 import dev.mfrank.item.Item;
+import dev.mfrank.spell.Spell;
 
-public class Scroll extends Item {
+public abstract class Scroll extends Item {
 
-    private final String spell;
+    private Spell spell;
 
-    public Scroll (String spell, int dropChance) {
-        this.spell = spell;
-        super.setDropChance(dropChance);
+    public Scroll () {
+        super.setType("Scroll");
+    }
+
+    // getters //
+    public Spell getSpell() {
+        return spell;
+    }
+
+    // setters //
+    public void setSpell(String spell) {
+        this.spell = SpellEngine.getById(spell);
     }
 }

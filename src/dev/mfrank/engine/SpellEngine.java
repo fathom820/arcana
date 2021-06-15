@@ -1,27 +1,37 @@
 package dev.mfrank.engine;
 
+import dev.mfrank.paladin.io.Debug;
+import dev.mfrank.paladin.io.Io;
 import dev.mfrank.spell.Spell;
 import dev.mfrank.spell.SpellEmpty;
+import dev.mfrank.spell.SpellFireball;
 import dev.mfrank.spell.SpellSpark;
 
 public class SpellEngine {
 
-    private static Spell[] spells;
+    private static Spell[] spells = new Spell[] {
+        new SpellEmpty(),
+        new SpellSpark(),
+        new SpellFireball()
+    };;
 
     public static void init() {
-        spells = new Spell[] {
-            new SpellSpark(),
-            new SpellEmpty()
-        };
+
     }
 
     public static Spell getById(String id) {
-        for (Spell s : spells) {
-            if (s.getName().equals(id)) {
-                return s;
+        try {
+            for (Spell s : spells) {
+                Debug.tell(s.getName());
+                if (s.getName().equals(id)) {
+                    return s;
+                }
             }
+        } catch (NullPointerException nullPointerException) {
+            Io.tell("Spell.getById(): Unable to find spell" + id);
+
         }
-        //Debug.tell("Spell.getById(): spell not found.");
+
         return null;
     }
 }

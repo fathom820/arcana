@@ -2,6 +2,7 @@ package dev.mfrank.entity.enemy.lvl1;
 
 import dev.mfrank.entity.enemy.Attack;
 import dev.mfrank.entity.enemy.Enemy;
+import dev.mfrank.item.scroll.ScrollFireball;
 
 public class EnemySkeleton extends Enemy {
 
@@ -37,6 +38,8 @@ public class EnemySkeleton extends Enemy {
             50,
             50
         );
+
+        super.addItemDrop(new ScrollFireball(100));
 
 
     }

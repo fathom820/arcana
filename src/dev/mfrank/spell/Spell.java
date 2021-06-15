@@ -10,6 +10,7 @@ public abstract class Spell {
     private int damageMax;
     private int piercing;
     private int precision;
+    private int manaCost;
 
 
     public Spell () {
@@ -41,6 +42,10 @@ public abstract class Spell {
         return precision;
     }
 
+    public int getManaCost() {
+        return manaCost;
+    }
+
     // SETTERS
 
 
@@ -66,5 +71,9 @@ public abstract class Spell {
 
     public void setPrecision(int precision) {
         this.precision = precision;
+    }
+
+    public void setManaCost(int manaCost) {
+        this.manaCost = manaCost;
     }
 }

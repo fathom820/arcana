@@ -50,28 +50,6 @@ public class Mage extends Entity {
         Debug.tell(Arrays.toString(hotbar));
     }
 
-    /*
-    --------------
-    * DEPRECATED *
-    --------------
-    public String toString () {
-        StringBuilder out =
-            new StringBuilder(attributeToString("maxHealth", super.getMaxHealth()) +
-                attributeToString("maxArmor", super.getMaxArmor()) +
-                attributeToString("health", super.getHealth()) +
-                attributeToString("armor", super.getArmor()) +
-                attributeToString("name", super.getName()) +
-                attributeToString("maxMana", maxMana) +
-                attributeToString("mana", mana)
-                + "Spells:\n");
-
-        for (Spell spell : spells) {
-            out.append("    ").append(spell.getName()).append("\n");
-        }
-
-        return out.toString();
-    }
-    */
 
     public String toSaveFormat () {
         StringBuilder out = new StringBuilder();
@@ -113,7 +91,7 @@ public class Mage extends Entity {
             temp[i] = spells[i];
         }
 
-        temp[temp.length -1] = spell;
+        temp[temp.length - 1] = spell;
 
         spells = temp;
     }

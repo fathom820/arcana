@@ -1,9 +1,22 @@
 package dev.mfrank.item;
 
-public class Item {
+import dev.mfrank.spell.Spell;
 
+public abstract class Item {
+
+    private String name;
+    private String type;
     private int dropChance;
     private String description;
+
+    // getters //
+    public String getName() {
+        return name;
+    }
+
+    public String getType() {
+        return type;
+    }
 
     public int getDropChance () {
         return dropChance;
@@ -13,6 +26,15 @@ public class Item {
         return description;
     }
 
+    // setters //
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
     public void setDropChance(int dropChance) {
         this.dropChance = dropChance;
     }
@@ -20,4 +42,6 @@ public class Item {
     public void setDescription(String description) {
         this.description = description;
     }
+
+    public abstract Spell getSpell();
 }

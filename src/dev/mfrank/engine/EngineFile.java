@@ -13,7 +13,6 @@ import dev.mfrank.Main;
 import dev.mfrank.paladin.io.Debug;
 import dev.mfrank.entity.Mage;
 import dev.mfrank.paladin.io.Io;
-import dev.mfrank.spell.Spell;
 
 import java.io.*;
 import java.nio.file.Files;
@@ -22,7 +21,7 @@ import java.util.Scanner;
 // end import
 
 
-public class FileEngine {
+public class EngineFile {
 
     private final static String winUser = System.getProperty("user.name");
     private final static String saveAddr = "C:\\Users\\" + winUser + "\\Documents\\My Games\\Arcana\\Mages";
@@ -97,8 +96,8 @@ public class FileEngine {
             if (saveSuccess) {
                 Debug.tell("File " + fname + ".mage created.");
                 Main.getPlayer().setCurrentLevel(Main.getLevelById(1));
-                Main.getPlayer().addSpell(SpellEngine.getById("Spark"));
-                Main.getPlayer().setScrollSlot(0, SpellEngine.getById("Spark"));
+                Main.getPlayer().addSpell(EngineSpell.getById("Spark"));
+                Main.getPlayer().setScrollSlot(0, EngineSpell.getById("Spark"));
                 saveMage(Main.getPlayer());
                 Main.gameRunning = true;
 
@@ -174,13 +173,13 @@ public class FileEngine {
                     int scrollIndex = 0;
 
                     if (dest.equals("-spell")) {
-                        player.addSpell(SpellEngine.getById(tok));
+                        player.addSpell(EngineSpell.getById(tok));
                     }
 
                     if (dest.equals("-scroll")) {
                         if (scrollIndex < 3) {
                             Debug.tell(tok);
-                            player.setScrollSlot(scrollIndex, SpellEngine.getById(tok));
+                            player.setScrollSlot(scrollIndex, EngineSpell.getById(tok));
                             scrollIndex++;
                         }
                     }

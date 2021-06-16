@@ -1,4 +1,4 @@
-package dev.mfrank.paladin;
+package dev.mfrank.paladin.context;
 
 public class Command {
 

@@ -1,18 +1,52 @@
 package dev.mfrank.paladin.context;
 
 import dev.mfrank.Main;
-import dev.mfrank.paladin.Command;
-import dev.mfrank.paladin.Paladin;
 import dev.mfrank.paladin.io.Debug;
 import dev.mfrank.paladin.io.Io;
-import dev.mfrank.engine.FileEngine;
+import dev.mfrank.engine.EngineFile;
 
 import java.io.IOException;
 
 import static dev.mfrank.Main.gameRunning;
 
-public abstract class Context extends Paladin {
-    private static String[] disabledCommands;
+public class Context {
+
+    private Command[] localCommands;
+    private String[] disabledCommands;
+    private Command[] globalCommands;
+
+    private Command debug, version, quit, help;
+
+    public Context () {
+        debug = new Command (
+            "debug",
+            "dbg",
+            "Displays debug info and disables thread delay."
+        );
+        version = new Command (
+            "version",
+            "v",
+            "Displays the game's current version."
+        );
+        quit = new Command (
+            "quit",
+            "q",
+            "Quits to main menu, or quits the game."
+        );
+        help = new Command (
+            "help",
+            "h",
+            "Displays all usable commands."
+        );
+
+        globalCommands = new Command[] {
+            debug, version, quit, help
+        };
+
+        localCommands = new Command[0];
+        disabledCommands = new String[0];
+    }
+
 
     public boolean interpret(String cmd) throws IOException, InterruptedException {
 
@@ -41,6 +75,7 @@ public abstract class Context extends Paladin {
          */
         for (String token : disabledCommands) {
             if (cmd.equals(token)) {
+                Debug.tell("set to null");
                 cmd = "NULL";
                 break;
             }
@@ -68,14 +103,11 @@ public abstract class Context extends Paladin {
                 Io.tell("Nothing here yet.");
                 break;
 
-            case "reset":
-                Debug.tell("Resetting save file");
-                Io.tell("Nothing here yet.");
-                break;
+
 
             case "save":
                 Debug.tell("Saving progress to file");
-                FileEngine.saveMage(Main.getPlayer());
+                EngineFile.saveMage(Main.getPlayer());
                 break;
 
             case "quit":
@@ -83,36 +115,67 @@ public abstract class Context extends Paladin {
                     Debug.tell("Quitting to main menu.");
                     Main.gameRunning = false;
                 }
-
-                break;
+            break;
 
             case "help":
                 Debug.tell("Displaying help menu");
                 Io.printDivider();
                 Io.tellRaw("List of all commands:");
+
+                // display global commands
                 Io.setIndent(1);
-                for (Command c : getCommandArray()) {
-                    boolean disabled = false;
-                    for (String token : disabledCommands) {
-                        if (c.getKeyword().equals(token)) {
-                            disabled = true;
-                        }
-                    }
-                    if (!disabled) {
-                        Io.tellRaw(c.getKeyword() + ": " + c.getDescription());
-                        Thread.sleep(20);
-                    }
-                }
-                Io.setIndent(0);
+                Io.tellRaw("GLOBAL");
+                Io.setIndent(2);
+                parseCommand(globalCommands);
+
+                // display local commands
+                Io.setIndent(1);
+                Io.tellRaw("LOCAL");
+                Io.setIndent(2);
+                parseCommand(localCommands);
                 Io.printDivider();
+                Io.setIndent(0);
                 break;
         }
 
         return true;
     }
 
-    // SETTERS
-    public void setDisabledCommands (String[] disabledCommands) {
-        Context.disabledCommands = disabledCommands;
+    private void parseCommand(Command[] localCommands) throws InterruptedException {
+        for (Command c : localCommands) {
+            boolean disabled = false;
+            for (String token : disabledCommands) {
+                if (c.getKeyword().equals(token)) {
+                    disabled = true;
+                }
+            }
+            if (!disabled) {
+                Io.tellRaw(c.getKeyword() + ": " + c.getDescription());
+                Thread.sleep(20);
+            }
+        }
+    }
+
+    public void addCommand (Command cmd) {
+        Command[] temp = new Command[localCommands.length + 1];
+        System.arraycopy(localCommands, 0, temp, 0, localCommands.length);
+        temp[temp.length - 1] = cmd;
+        localCommands = temp;
+    }
+
+    public static void tellInvalidCmd() {
+        Io.tell("Invalid command. Use \"help\" to see a list of valid commands.");
+    }
+
+
+
+    // GETTERS //
+
+    // SETTERS//
+    public void setDisabledCommands (String[] disabledCommands) { this.disabledCommands = disabledCommands;
+    }
+
+    public void setLocalCommands(Command[] localCommands) {
+        this.localCommands = localCommands;
     }
 }

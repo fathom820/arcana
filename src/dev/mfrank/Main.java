@@ -5,14 +5,13 @@ import java.awt.*;
 import java.io.Console;
 import java.io.IOException;
 
-
 // Project files
-import dev.mfrank.engine.SpellEngine;
 import dev.mfrank.level.Level;
 import dev.mfrank.level.Level0;
 import dev.mfrank.level.Level1;
 import dev.mfrank.entity.Mage;
-import dev.mfrank.engine.FileEngine;
+import dev.mfrank.engine.EngineFile;
+import dev.mfrank.paladin.context.Context;
 
 
 public class Main {
@@ -31,10 +30,10 @@ public class Main {
     public static void main(String[] args) throws IOException, InterruptedException {
 
         // Engine setup
-        SpellEngine.init();
-        FileEngine.initConfig();
-        FileEngine.readConfig();
-        FileEngine.initSaves();
+        Context paladin = new Context();
+        EngineFile.initConfig();
+        EngineFile.readConfig();
+        EngineFile.initSaves();
 
 
         // Console setup (if enabled)

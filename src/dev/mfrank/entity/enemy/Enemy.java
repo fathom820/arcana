@@ -41,7 +41,7 @@ public abstract class Enemy extends Entity {
         if (hit) {
             int dmg = super.randInt(atk.getDamageMin(), atk.getDamageMax());
             int netDmg = m.takeDamage((dmg));
-            Io.tell(super.getName() + " attempted " + atk.getName() + " and hit for " + dmg + "damage.");
+            Io.tell(super.getName() + " attempted " + atk.getName() + " and hit for " + dmg + " damage.");
 
             if (m.getArmor() > 0) {
                 Io.tell("Your armor absorbed half of the damage.");

@@ -7,7 +7,7 @@ import dev.mfrank.spell.SpellEmpty;
 import dev.mfrank.spell.SpellFireball;
 import dev.mfrank.spell.SpellSpark;
 
-public class SpellEngine {
+public class EngineSpell {
 
     private static Spell[] spells = new Spell[] {
         new SpellEmpty(),
@@ -15,9 +15,6 @@ public class SpellEngine {
         new SpellFireball()
     };;
 
-    public static void init() {
-
-    }
 
     public static Spell getById(String id) {
         try {
@@ -28,8 +25,7 @@ public class SpellEngine {
                 }
             }
         } catch (NullPointerException nullPointerException) {
-            Io.tell("Spell.getById(): Unable to find spell" + id);
-
+            Io.tell("Spell.getById(): Unable to find spell " + id);
         }
 
         return null;

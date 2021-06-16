@@ -2,10 +2,8 @@ package dev.mfrank.paladin.context;
 
 import dev.mfrank.Main;
 import dev.mfrank.entity.Mage;
-import dev.mfrank.paladin.Command;
-import dev.mfrank.paladin.Paladin;
 import dev.mfrank.paladin.io.Io;
-import dev.mfrank.engine.FileEngine;
+import dev.mfrank.engine.EngineFile;
 
 import java.io.IOException;
 
@@ -13,22 +11,10 @@ import static dev.mfrank.Main.*;
 
 public class ContextMenu extends Context {
 
-    private static Command newMage;
-    private static Command loadMage;
-    private static Command listMages;
-    private static Command deleteMage;
+    private static Command newMage, loadMage, listMages, deleteMage, reset, save, quit;
 
 
     public ContextMenu() {
-        /*
-        Saving and resetting are disabled in the main menu, because
-        those commands are meant to be passed during gameplay.
-         */
-        super.init();
-        super.setDisabledCommands( new String[] {
-            "save",
-            "reset"
-        });
 
         newMage = new Command (
                 "new",
@@ -51,10 +37,22 @@ public class ContextMenu extends Context {
                 "Deletes a mage."
         );
 
+        save = new Command (
+            "save",
+            "s",
+            "Saves the current mage's progress."
+        );
+        quit = new Command (
+            "quit",
+            "q",
+            "Quits to main menu. Does not auto-save."
+        );
+
         super.addCommand(newMage);
         super.addCommand(loadMage);
         super.addCommand(listMages);
         super.addCommand(deleteMage);
+
     }
 
 
@@ -68,30 +66,28 @@ public class ContextMenu extends Context {
 
             switch (cmd) {
                 default:
-                    Paladin.tellInvalidCmd();
+                    tellInvalidCmd();
                     return false;
 
                 case "new":
                     Io.tell("You've decided to create a new mage. Wonderful!");
                     setPlayer(new Mage(Io.prompt("Name")));
-                    FileEngine.setCurrentMage(getPlayer().getName());
-                    gameRunning = FileEngine.newMage(getPlayer().getName());
-                    FileEngine.saveMage(getPlayer());
-                    // FileEngine.loadFile();
+                    EngineFile.setCurrentMage(getPlayer().getName());
+                    gameRunning = EngineFile.newMage(getPlayer().getName());
+                    EngineFile.saveMage(getPlayer());
                 break;
 
                 case "load":
-                    Main.setPlayer(FileEngine.loadMage());
+                    Main.setPlayer(EngineFile.loadMage());
                 break;
 
                 case "list":
-                    FileEngine.listMages();
+                    EngineFile.listMages();
                 break;
 
                 case "delete":
-
-                    FileEngine.listMages();
-                    FileEngine.deleteMage();
+                    EngineFile.listMages();
+                    EngineFile.deleteMage();
             }
             return true;
         }

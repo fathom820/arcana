@@ -2,8 +2,6 @@ package dev.mfrank.paladin.context;
 
 import dev.mfrank.Main;
 import dev.mfrank.entity.enemy.Enemy;
-import dev.mfrank.paladin.Command;
-import dev.mfrank.paladin.Paladin;
 import dev.mfrank.paladin.io.Debug;
 import dev.mfrank.paladin.io.Io;
 import dev.mfrank.spell.Spell;
@@ -13,27 +11,20 @@ import java.util.Arrays;
 
 public class ContextBattle extends Context {
 
-    private Command attack1;
-    private Command attack2;
-    private Command attack3;
-    private Command spells;
+    private Command attack1, attack2, attack3, spells, inventory, reset;
+
     private Enemy enemy;
     private boolean playerTurn;
     private boolean playerAttacked;
 
 
     public ContextBattle(Enemy enemy) {
-        super.init();
-        super.setDisabledCommands(new String[] {
-            "credits",
-            "version",
-            "save",
-        });
+
         attack1 = new Command (
             "attack1",
             "atk1",
             "Fire off the first spell in your quick-attack scroll."
-            );
+        );
 
         attack2 = new Command (
             "attack2",
@@ -53,10 +44,18 @@ public class ContextBattle extends Context {
             "Bring up all of your unlocked spells and change what is stored\n        in your quick-attack scroll."
         );
 
+        reset = new Command (
+            "reset",
+            "r",
+            "Resets the current mage to the beginning of the game."
+        );
+
+
         super.addCommand(attack1);
         super.addCommand(attack2);
         super.addCommand(attack3);
         super.addCommand(spells);
+        super.addCommand(reset);
 
         this.enemy = enemy;
         playerTurn = false;
@@ -66,13 +65,13 @@ public class ContextBattle extends Context {
 
 
     public boolean interpret(String cmd) throws IOException, InterruptedException {
+        this.playerAttacked = false;
 
         if (!super.interpret(cmd)) {
-            this.playerAttacked = false;
 
             switch(cmd) {
                 default:
-                    Paladin.tellInvalidCmd();
+                    tellInvalidCmd();
                     return false;
 
                 case "attack1":
@@ -114,6 +113,12 @@ public class ContextBattle extends Context {
                     Io.printSmallDivider();
                     playerAttacked = false;
                 break;
+
+                case "reset":
+                    Debug.tell("Resetting save file");
+                    Io.tell("Nothing here yet.");
+                break;
+
             }
         }
         return false;

@@ -119,7 +119,7 @@ public class EngineFile {
     public static Mage loadMage() throws FileNotFoundException, InterruptedException {
         Io.tell("Which file would you like to load?");
         listMages();
-        File loadedMage = new File(saveAddr + "\\" + Io.in() + ".mage");
+        File loadedMage = new File(saveAddr + "\\" + Io.prompt("Load mage") + ".mage");
         Mage player = new Mage();
 
         if (loadedMage.isFile()) {

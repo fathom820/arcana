@@ -1,10 +1,12 @@
 package dev.mfrank.spell;
 
 import dev.mfrank.paladin.io.Debug;
+import dev.mfrank.paladin.io.Io;
 
 public abstract class Spell {
 
     private String name;
+    private int tier;
     private String description;
     private int damageMin;
     private int damageMax;
@@ -15,6 +17,37 @@ public abstract class Spell {
 
     public Spell () {
 
+    }
+
+    public void printInfo () {
+        Io.setIndent(1);
+        Io.tellRaw("-=| " + name.toUpperCase() + " [" + tierAsString() + "] |=-");
+        Io.tellRaw(description);
+
+        Io.printList(new String[] {
+                "Minimum damage: " + damageMin,
+                "Maximum damage: " + damageMax,
+                "Piercing chance: " + piercing + "%",
+                "Precision: " + precision+ "%",
+                "Mana cost: " + manaCost
+        });
+
+        Io.setIndent(0);
+
+    }
+
+    private String tierAsString () {
+        switch (tier) {
+            case 1:
+                return "I";
+
+            case 2:
+                return "II";
+
+            case 3:
+                return "III";
+        }
+        return "null";
     }
     // GETTERS
 
@@ -46,6 +79,12 @@ public abstract class Spell {
         return manaCost;
     }
 
+    public int getTier() {
+        return tier;
+    }
+
+    public String getTierAsString() {return tierAsString();};
+
     // SETTERS
 
 
@@ -75,5 +114,9 @@ public abstract class Spell {
 
     public void setManaCost(int manaCost) {
         this.manaCost = manaCost;
+    }
+
+    public void setTier(int tier) {
+        this.tier = tier;
     }
 }

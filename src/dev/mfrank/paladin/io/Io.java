@@ -19,6 +19,9 @@ public class Io {
         System.out.println("Current version: " + versionNumber);
     }
 
+    public static void lineBreak () {
+        System.out.println();
+    }
 
     public static void printDivider () {
         StringBuilder out = new StringBuilder();
@@ -38,6 +41,12 @@ public class Io {
         }
 
         System.out.println(out);
+    }
+
+    public static void printList(String[] list) {
+        for (String s : list) {
+            Io.tellRaw("| " + s);
+        }
     }
 
     public static void tell(String msg) {

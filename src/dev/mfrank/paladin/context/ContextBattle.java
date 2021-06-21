@@ -11,7 +11,7 @@ import java.util.Arrays;
 
 public class ContextBattle extends Context {
 
-    private Command attack1, attack2, attack3, spells, inventory, reset;
+    private Command attack1, attack2, attack3, spells, hotbar, reset;
 
     private Enemy enemy;
     private boolean playerTurn;
@@ -23,25 +23,31 @@ public class ContextBattle extends Context {
         attack1 = new Command (
             "attack1",
             "atk1",
-            "Fire off the first spell in your quick-attack scroll."
+            "Fire off the first spell in your hotbar."
         );
 
         attack2 = new Command (
             "attack2",
             "atk2",
-            "Fire off the second spell in your quick-attack scroll."
+            "Fire off the second spell in your hotbar."
         );
 
         attack3 = new Command (
             "attack3",
             "atk3",
-            "Fire off the third spell in your quick-attack scroll."
+            "Fire off the third spell in your hotbar."
         );
 
         spells = new Command (
             "spells",
             "sp",
-            "Bring up all of your unlocked spells and change what is stored\n        in your quick-attack scroll."
+            "View a list of all your unlocked spells."
+        );
+
+        hotbar = new Command (
+                "hotbar",
+                "hb",
+                "View and change the spells in your hotbar."
         );
 
         reset = new Command (
@@ -55,6 +61,7 @@ public class ContextBattle extends Context {
         super.addCommand(attack2);
         super.addCommand(attack3);
         super.addCommand(spells);
+        super.addCommand(hotbar);
         super.addCommand(reset);
 
         this.enemy = enemy;
@@ -100,18 +107,34 @@ public class ContextBattle extends Context {
 
                     for (Spell s : Main.getPlayer().getSpells()) {
                         if (s != null) {
-                            Io.tellRaw(s.getName().toUpperCase());
-                            Io.tellRaw(s.getDescription());
-                            Io.setIndent(1);
-                            Io.tellRaw("Minimum damage: " + s.getDamageMin());
-                            Io.tellRaw("Maximum damage: " + s.getDamageMax());
-                            Io.tellRaw("Piercing chance: " + s.getPiercing() + "%");
-                            Io.tellRaw("Precision: " + s.getPrecision() + "%\n");
-                            Io.setIndent(0);
+                            s.printInfo();
                         }
+                        Io.lineBreak();
                     }
                     Io.printSmallDivider();
                     playerAttacked = false;
+                break;
+
+                case "hotbar":
+                    Io.setIndent(0);
+                    Io.printSmallDivider();
+                    Io.tellRaw("HOTBAR:");
+                    Io.lineBreak();
+
+
+                    int slot = 1;
+                    for (Spell s : Main.getPlayer().getHotbar()) {
+                        Io.tellRaw("SLOT " + slot);
+                        if (s != null) {
+                            s.printInfo();
+                        } else {
+                            Io.tellRaw("[Empty]");
+                        }
+                        Io.lineBreak();
+                        slot++;
+                    }
+                    Io.printSmallDivider();
+
                 break;
 
                 case "reset":

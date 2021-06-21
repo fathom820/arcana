@@ -9,7 +9,8 @@ public class SpellSpark extends Spell {
         super.setDamageMax(10);
         super.setPiercing(10);
         super.setPrecision(80);
-        super.setManaCost(10);
+        super.setManaCost(2);
+        super.setTier(1);
     }
 
 }

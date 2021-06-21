@@ -13,9 +13,11 @@ public class Context {
 
     private Command[] localCommands;
     private String[] disabledCommands;
-    private Command[] globalCommands;
+    private final Command[] globalCommands;
 
-    private Command debug, version, quit, help;
+    private final Command debug;
+    private final Command quit;
+    private final Command help;
 
     public Context () {
         debug = new Command (
@@ -23,10 +25,10 @@ public class Context {
             "dbg",
             "Displays debug info and disables thread delay."
         );
-        version = new Command (
-            "version",
-            "v",
-            "Displays the game's current version."
+        Command version = new Command(
+                "version",
+                "v",
+                "Displays the game's current version."
         );
         quit = new Command (
             "quit",
@@ -121,20 +123,27 @@ public class Context {
                 Debug.tell("Displaying help menu");
                 Io.printDivider();
                 Io.tellRaw("List of all commands:");
+                Io.lineBreak();
 
                 // display global commands
                 Io.setIndent(1);
-                Io.tellRaw("GLOBAL");
-                Io.setIndent(2);
+                Io.tellRaw("GLOBAL (usable everywhere)");
+                //Io.setIndent(2);
                 parseCommand(globalCommands);
+
+                Io.lineBreak();
 
                 // display local commands
                 Io.setIndent(1);
-                Io.tellRaw("LOCAL");
-                Io.setIndent(2);
+                Io.tellRaw("LOCAL (only exist in current context)");
+                //Io.setIndent(2);
                 parseCommand(localCommands);
+
+                Io.lineBreak();
+
                 Io.printDivider();
                 Io.setIndent(0);
+
                 break;
         }
 
@@ -144,14 +153,16 @@ public class Context {
     private void parseCommand(Command[] localCommands) throws InterruptedException {
         for (Command c : localCommands) {
             boolean disabled = false;
+
             for (String token : disabledCommands) {
                 if (c.getKeyword().equals(token)) {
                     disabled = true;
                 }
             }
+
             if (!disabled) {
-                Io.tellRaw(c.getKeyword() + ": " + c.getDescription());
-                Thread.sleep(20);
+                //TODO: change to Io.printList()
+                Io.tellRaw("| " + c.getKeyword() + ": " + c.getDescription());
             }
         }
     }
@@ -163,7 +174,7 @@ public class Context {
         localCommands = temp;
     }
 
-    public static void tellInvalidCmd() {
+    public void tellInvalidCmd() {
         Io.tell("Invalid command. Use \"help\" to see a list of valid commands.");
     }
 

@@ -5,21 +5,34 @@
       <artifact name="arcana:jar" />
     </artifacts-to-build>
   </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="53ce2d0f-ff08-4066-be85-8eff67bada50" name="Default Changelist" comment="v. 21.5.22">
-      <change afterPath="$PROJECT_DIR$/src/dev/mfrank/engine/EngineItem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dev/mfrank/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dev/mfrank/engine/FileEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/engine/EngineFile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dev/mfrank/engine/SpellEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/engine/EngineSpell.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dev/mfrank/entity/enemy/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/entity/enemy/Enemy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dev/mfrank/item/scroll/Scroll.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/item/scroll/Scroll.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dev/mfrank/item/scroll/ScrollFireball.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/item/scroll/ScrollFireball.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dev/mfrank/paladin/Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/paladin/context/Command.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dev/mfrank/paladin/Paladin.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/mfrank/engine/EngineFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/engine/EngineFile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dev/mfrank/paladin/context/Context.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/paladin/context/Context.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dev/mfrank/paladin/context/ContextBattle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/paladin/context/ContextBattle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dev/mfrank/paladin/context/ContextMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/paladin/context/ContextMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/mfrank/paladin/io/Io.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/paladin/io/Io.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/mfrank/spell/Spell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/spell/Spell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/mfrank/spell/SpellFireball.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/spell/SpellFireball.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dev/mfrank/spell/SpellSpark.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/spell/SpellSpark.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,7 +104,10 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="preferences.customizations" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.appearance" />
+  </component>
+  <component name="ReaderModeSettings">
+    <option name="showLigatures" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -124,15 +140,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -210,6 +224,11 @@
       <workItem from="1623571068161" duration="16000" />
       <workItem from="1623730658803" duration="5902000" />
       <workItem from="1623788287200" duration="5573000" />
+      <workItem from="1624219059143" duration="169000" />
+      <workItem from="1624219248321" duration="1187000" />
+      <workItem from="1624249322745" duration="188000" />
+      <workItem from="1624249537311" duration="465000" />
+      <workItem from="1624250035438" duration="4062000" />
     </task>
     <task id="LOCAL-00006" summary="Version 5.22.21">
       <created>1621667393589</created>
@@ -612,5 +631,9 @@
         </breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

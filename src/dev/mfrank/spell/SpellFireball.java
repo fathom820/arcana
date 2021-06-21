@@ -10,6 +10,7 @@ public class SpellFireball extends Spell{
         super.setPiercing(25);
         super.setPrecision(75);
         super.setManaCost(25);
+        super.setTier(1);
     }
 
 }

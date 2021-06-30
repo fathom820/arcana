@@ -7,19 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="53ce2d0f-ff08-4066-be85-8eff67bada50" name="Default Changelist" comment="v. 21.5.22">
-      <change afterPath="$PROJECT_DIR$/src/dev/mfrank/engine/EngineItem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dev/mfrank/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dev/mfrank/engine/FileEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/engine/EngineFile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dev/mfrank/engine/SpellEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/engine/EngineSpell.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dev/mfrank/entity/enemy/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/entity/enemy/Enemy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dev/mfrank/item/scroll/Scroll.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/item/scroll/Scroll.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dev/mfrank/item/scroll/ScrollFireball.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/item/scroll/ScrollFireball.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dev/mfrank/paladin/Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/paladin/context/Command.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dev/mfrank/paladin/Paladin.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dev/mfrank/paladin/context/Context.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/paladin/context/Context.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dev/mfrank/paladin/context/ContextBattle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/paladin/context/ContextBattle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dev/mfrank/paladin/context/ContextMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dev/mfrank/paladin/context/ContextMenu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,7 +79,7 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="preferences.customizations" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -120,19 +108,6 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -209,14 +184,8 @@
       <workItem from="1623566810816" duration="2160000" />
       <workItem from="1623571068161" duration="16000" />
       <workItem from="1623730658803" duration="5902000" />
-      <workItem from="1623788287200" duration="5573000" />
-    </task>
-    <task id="LOCAL-00006" summary="Version 5.22.21">
-      <created>1621667393589</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1621667393589</updated>
+      <workItem from="1623788287200" duration="6986000" />
+      <workItem from="1625093453015" duration="95000" />
     </task>
     <task id="LOCAL-00007" summary="Version 5.22.21">
       <created>1621667438108</created>
@@ -554,7 +523,14 @@
       <option name="project" value="LOCAL" />
       <updated>1623742850550</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="paladin rewrite">
+      <created>1623801729586</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1623801729587</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -576,7 +552,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="update .gitignore" />
     <MESSAGE value="test" />
     <MESSAGE value="alpha 5.25" />
     <MESSAGE value="Merge remote-tracking branch 'origin/master'" />
@@ -601,7 +576,8 @@
     <MESSAGE value="modified debug command description" />
     <MESSAGE value="improved combat UX, refactoring" />
     <MESSAGE value="scroll implementation, basic loot drop mechanic" />
-    <option name="LAST_COMMIT_MESSAGE" value="scroll implementation, basic loot drop mechanic" />
+    <MESSAGE value="paladin rewrite" />
+    <option name="LAST_COMMIT_MESSAGE" value="paladin rewrite" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

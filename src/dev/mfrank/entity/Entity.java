@@ -34,7 +34,7 @@ public abstract class Entity {
     and if the damage is greater than the armor that is left,
     it will still absorb all of it before breaking.
      */
-    public int takeDamage (int damage) {
+    public int takeDamage (int damage) throws InterruptedException {
 
         if (armor > 0) {
             Debug.tell("prearmor: " + damage);
@@ -66,7 +66,7 @@ public abstract class Entity {
         return damage;
     }
 
-    public void die () {
+    public void die () throws InterruptedException {
         alive = false;
     }
 

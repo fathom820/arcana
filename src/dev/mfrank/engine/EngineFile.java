@@ -96,8 +96,7 @@ public class EngineFile {
             if (saveSuccess) {
                 Debug.tell("File " + fname + ".mage created.");
                 Main.getPlayer().setCurrentLevel(Main.getLevelById(1));
-                Main.getPlayer().addSpell(EngineSpell.getById("Spark"));
-                Main.getPlayer().setScrollSlot(0, EngineSpell.getById("Spark"));
+                Main.getPlayer().addSpell(EngineSpell.getById("spark"));
                 saveMage(Main.getPlayer());
                 Main.gameRunning = true;
 
@@ -119,7 +118,7 @@ public class EngineFile {
     public static Mage loadMage() throws FileNotFoundException, InterruptedException {
         Io.tell("Which file would you like to load?");
         listMages();
-        File loadedMage = new File(saveAddr + "\\" + Io.in() + ".mage");
+        File loadedMage = new File(saveAddr + "\\" + Io.prompt("Load mage") + ".mage");
         Mage player = new Mage();
 
         if (loadedMage.isFile()) {

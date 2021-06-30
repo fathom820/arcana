@@ -2,6 +2,7 @@ package dev.mfrank.paladin.io;
 
 import dev.mfrank.Main;
 
+import java.util.Locale;
 import java.util.Scanner;
 
 public class Io {
@@ -19,6 +20,9 @@ public class Io {
         System.out.println("Current version: " + versionNumber);
     }
 
+    public static void lineBreak () {
+        System.out.println();
+    }
 
     public static void printDivider () {
         StringBuilder out = new StringBuilder();
@@ -38,6 +42,12 @@ public class Io {
         }
 
         System.out.println(out);
+    }
+
+    public static void printList(String[] list) {
+        for (String s : list) {
+            Io.tellRaw("| " + s);
+        }
     }
 
     public static void tell(String msg) {
@@ -64,7 +74,12 @@ public class Io {
 
     public static String prompt(String msg) {
         System.out.print(msg + " " + inPrefix);
-        return console.nextLine();
+        return console.nextLine().toLowerCase();
+    }
+
+    public static String prompt () {
+        System.out.println(inPrefix);
+        return console.nextLine().toLowerCase();
     }
 
     public static String wrap (String msg, int ind) {

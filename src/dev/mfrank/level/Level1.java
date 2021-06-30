@@ -29,6 +29,8 @@ public class Level1 extends Level {
         Io.tellRaw(getName());
         Io.setIndent(1);
         Io.tellRaw(getInfo());
+        Io.longPause();
+
 
         Debug.tell("stage1");
         stage1.run();

@@ -1,6 +1,8 @@
 package dev.mfrank.paladin.context;
 
 import dev.mfrank.Main;
+import dev.mfrank.engine.EngineSpell;
+import dev.mfrank.entity.Mage;
 import dev.mfrank.entity.enemy.Enemy;
 import dev.mfrank.paladin.io.Debug;
 import dev.mfrank.paladin.io.Io;
@@ -11,7 +13,7 @@ import java.util.Arrays;
 
 public class ContextBattle extends Context {
 
-    private Command attack1, attack2, attack3, spells, inventory, reset;
+    private Command cast, attack1, attack2, attack3, spells, hotbar, reset;
 
     private Enemy enemy;
     private boolean playerTurn;
@@ -20,28 +22,40 @@ public class ContextBattle extends Context {
 
     public ContextBattle(Enemy enemy) {
 
+        cast = new Command (
+                "cast",
+                "c",
+                "Cast a spell of your choice."
+        );
+
         attack1 = new Command (
             "attack1",
             "atk1",
-            "Fire off the first spell in your quick-attack scroll."
+            "Fire off the first spell in your hotbar."
         );
 
         attack2 = new Command (
             "attack2",
             "atk2",
-            "Fire off the second spell in your quick-attack scroll."
+            "Fire off the second spell in your hotbar."
         );
 
         attack3 = new Command (
             "attack3",
             "atk3",
-            "Fire off the third spell in your quick-attack scroll."
+            "Fire off the third spell in your hotbar."
         );
 
         spells = new Command (
             "spells",
             "sp",
-            "Bring up all of your unlocked spells and change what is stored\n        in your quick-attack scroll."
+            "View a list of all your unlocked spells."
+        );
+
+        hotbar = new Command (
+                "hotbar",
+                "hb",
+                "View and change the spells in your hotbar."
         );
 
         reset = new Command (
@@ -50,11 +64,9 @@ public class ContextBattle extends Context {
             "Resets the current mage to the beginning of the game."
         );
 
-
-        super.addCommand(attack1);
-        super.addCommand(attack2);
-        super.addCommand(attack3);
+        super.addCommand(cast);
         super.addCommand(spells);
+        super.addCommand(hotbar);
         super.addCommand(reset);
 
         this.enemy = enemy;
@@ -74,22 +86,33 @@ public class ContextBattle extends Context {
                     tellInvalidCmd();
                     return false;
 
+                case "cast":
+                    Mage player = Main.getPlayer();
+                    Spell toCast = EngineSpell.getById(Io.prompt("Cast spell"));
+                    boolean success = false;
+
+                    playerAttacked = player.castSpell(toCast, enemy);
+                    playerTurn = !playerAttacked;
+                break;
+
                 case "attack1":
+                    /*
                     Debug.tell("Player attempted atk1");
                     playerAttacked = Main.getPlayer().castSpell(Main.getPlayer().getHotbar()[0], enemy);
-                    playerTurn = !playerAttacked;
-                break;
+                    playerTurn = !playerAttacked; */
 
                 case "attack2":
+                    /*
                     Debug.tell("Player attempted atk2");
                     playerAttacked = Main.getPlayer().castSpell(Main.getPlayer().getHotbar()[1], enemy);;
-                    playerTurn = !playerAttacked;
-                break;
+                    playerTurn = !playerAttacked; */
 
                 case "attack3":
+                    Io.tell("* DEPRECATED *");
+                    /*
                     Debug.tell("Player attempted atk3");
                     playerAttacked = Main.getPlayer().castSpell(Main.getPlayer().getHotbar()[2], enemy);;
-                    playerTurn = !playerAttacked;
+                    playerTurn = !playerAttacked; */
                 break;
 
                 case "spells":
@@ -100,18 +123,34 @@ public class ContextBattle extends Context {
 
                     for (Spell s : Main.getPlayer().getSpells()) {
                         if (s != null) {
-                            Io.tellRaw(s.getName().toUpperCase());
-                            Io.tellRaw(s.getDescription());
-                            Io.setIndent(1);
-                            Io.tellRaw("Minimum damage: " + s.getDamageMin());
-                            Io.tellRaw("Maximum damage: " + s.getDamageMax());
-                            Io.tellRaw("Piercing chance: " + s.getPiercing() + "%");
-                            Io.tellRaw("Precision: " + s.getPrecision() + "%\n");
-                            Io.setIndent(0);
+                            s.printInfo();
                         }
+                        Io.lineBreak();
                     }
                     Io.printSmallDivider();
                     playerAttacked = false;
+                break;
+
+                case "hotbar":
+                    Io.setIndent(0);
+                    Io.printSmallDivider();
+                    Io.tellRaw("HOTBAR:");
+                    Io.lineBreak();
+
+                    int slot = 1;
+                    for (Spell s : Main.getPlayer().getHotbar()) {
+                        Io.tellRaw("SLOT " + slot);
+                        if (s != null) {
+                            s.printInfo();
+                        } else {
+                            Io.tellRaw("[Empty]");
+                        }
+                        Io.lineBreak();
+                        slot++;
+                    }
+
+                    Io.printSmallDivider();
+
                 break;
 
                 case "reset":
@@ -150,6 +189,10 @@ public class ContextBattle extends Context {
     }
 
     public void run () throws IOException, InterruptedException {
+        Io.setIndent(0);
+        Io.tell("When you're ready, type \"next\" to proceed to the next room.");
+        while (!Io.prompt().equals("next"));
+
         enemy.setAlive(true);
         Io.printDivider();
         Io.setIndent(0);
@@ -161,7 +204,7 @@ public class ContextBattle extends Context {
                 interpret(Io.in());
                 Io.pause();
 
-                if (playerAttacked) {
+                if (playerAttacked && enemy.getAlive()) {
                     printEnemyStatus();
                 }
 

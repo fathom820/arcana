@@ -5,14 +5,8 @@ import dev.mfrank.paladin.io.Io;
 
 public abstract class Spell {
 
-    private String name;
-    private int tier;
-    private String description;
-    private int damageMin;
-    private int damageMax;
-    private int piercing;
-    private int precision;
-    private int manaCost;
+    private String name, description;
+    private int tier, damageMin, damageMax, piercing, precision, manaCost;
 
 
     public Spell () {
@@ -49,6 +43,8 @@ public abstract class Spell {
         }
         return "null";
     }
+
+
     // GETTERS
 
     public String getName() {

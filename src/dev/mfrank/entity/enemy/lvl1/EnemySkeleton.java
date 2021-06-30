@@ -8,7 +8,7 @@ public class EnemySkeleton extends Enemy {
 
     public EnemySkeleton () {
         super.setMaxHealth(20);
-        super.setMaxArmor(10);
+        super.setMaxArmor(0);
         super.setHealth(super.getMaxHealth());
         super.setArmor(super.getMaxArmor());
         super.setDamageOut(0);

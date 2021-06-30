@@ -46,8 +46,6 @@ public class Mage extends Entity {
         this.hotbar = new Spell[3];
         this.spells = new Spell[] {};
         this.currentLevel = new Level0();
-
-        Debug.tell(Arrays.toString(hotbar));
     }
 
 
@@ -96,8 +94,8 @@ public class Mage extends Entity {
         spells = temp;
     }
 
-    public boolean castSpell (Spell spell, Enemy enemy) {
-        if (spell != null) {
+    public boolean castSpell (Spell spell, Enemy enemy) throws InterruptedException {
+        if (spell != null && hasSpell(spell)) {
             boolean hit = rand.nextInt(100) < spell.getPrecision();
 
             if (hit) {
@@ -110,7 +108,16 @@ public class Mage extends Entity {
                 return true;
             }
         } else {
-            Io.tell("There is no spell assigned to this slot.");
+            Io.tell("You have not yet unlocked this spell.");
+        }
+        return false;
+    }
+
+    public boolean hasSpell (Spell spell) {
+        for (Spell s : spells) {
+            if (s == spell) {
+                return true;
+            }
         }
         return false;
     }

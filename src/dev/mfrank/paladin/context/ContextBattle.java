@@ -1,6 +1,8 @@
 package dev.mfrank.paladin.context;
 
 import dev.mfrank.Main;
+import dev.mfrank.engine.EngineSpell;
+import dev.mfrank.entity.Mage;
 import dev.mfrank.entity.enemy.Enemy;
 import dev.mfrank.paladin.io.Debug;
 import dev.mfrank.paladin.io.Io;
@@ -11,7 +13,7 @@ import java.util.Arrays;
 
 public class ContextBattle extends Context {
 
-    private Command attack1, attack2, attack3, spells, hotbar, reset;
+    private Command cast, attack1, attack2, attack3, spells, hotbar, reset;
 
     private Enemy enemy;
     private boolean playerTurn;
@@ -19,6 +21,12 @@ public class ContextBattle extends Context {
 
 
     public ContextBattle(Enemy enemy) {
+
+        cast = new Command (
+                "cast",
+                "c",
+                "Cast a spell of your choice."
+        );
 
         attack1 = new Command (
             "attack1",
@@ -56,10 +64,7 @@ public class ContextBattle extends Context {
             "Resets the current mage to the beginning of the game."
         );
 
-
-        super.addCommand(attack1);
-        super.addCommand(attack2);
-        super.addCommand(attack3);
+        super.addCommand(cast);
         super.addCommand(spells);
         super.addCommand(hotbar);
         super.addCommand(reset);
@@ -81,22 +86,33 @@ public class ContextBattle extends Context {
                     tellInvalidCmd();
                     return false;
 
+                case "cast":
+                    Mage player = Main.getPlayer();
+                    Spell toCast = EngineSpell.getById(Io.prompt("Cast spell"));
+                    boolean success = false;
+
+                    playerAttacked = player.castSpell(toCast, enemy);
+                    playerTurn = !playerAttacked;
+                break;
+
                 case "attack1":
+                    /*
                     Debug.tell("Player attempted atk1");
                     playerAttacked = Main.getPlayer().castSpell(Main.getPlayer().getHotbar()[0], enemy);
-                    playerTurn = !playerAttacked;
-                break;
+                    playerTurn = !playerAttacked; */
 
                 case "attack2":
+                    /*
                     Debug.tell("Player attempted atk2");
                     playerAttacked = Main.getPlayer().castSpell(Main.getPlayer().getHotbar()[1], enemy);;
-                    playerTurn = !playerAttacked;
-                break;
+                    playerTurn = !playerAttacked; */
 
                 case "attack3":
+                    Io.tell("* DEPRECATED *");
+                    /*
                     Debug.tell("Player attempted atk3");
                     playerAttacked = Main.getPlayer().castSpell(Main.getPlayer().getHotbar()[2], enemy);;
-                    playerTurn = !playerAttacked;
+                    playerTurn = !playerAttacked; */
                 break;
 
                 case "spells":
@@ -121,7 +137,6 @@ public class ContextBattle extends Context {
                     Io.tellRaw("HOTBAR:");
                     Io.lineBreak();
 
-
                     int slot = 1;
                     for (Spell s : Main.getPlayer().getHotbar()) {
                         Io.tellRaw("SLOT " + slot);
@@ -133,6 +148,7 @@ public class ContextBattle extends Context {
                         Io.lineBreak();
                         slot++;
                     }
+
                     Io.printSmallDivider();
 
                 break;
@@ -173,6 +189,10 @@ public class ContextBattle extends Context {
     }
 
     public void run () throws IOException, InterruptedException {
+        Io.setIndent(0);
+        Io.tell("When you're ready, type \"next\" to proceed to the next room.");
+        while (!Io.prompt().equals("next"));
+
         enemy.setAlive(true);
         Io.printDivider();
         Io.setIndent(0);
@@ -184,7 +204,7 @@ public class ContextBattle extends Context {
                 interpret(Io.in());
                 Io.pause();
 
-                if (playerAttacked) {
+                if (playerAttacked && enemy.getAlive()) {
                     printEnemyStatus();
                 }
 

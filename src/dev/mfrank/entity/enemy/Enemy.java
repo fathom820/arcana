@@ -7,6 +7,7 @@ import dev.mfrank.item.Item;
 import dev.mfrank.item.scroll.Scroll;
 import dev.mfrank.paladin.io.Debug;
 import dev.mfrank.paladin.io.Io;
+import dev.mfrank.spell.Spell;
 
 import java.util.Arrays;
 import java.util.Random;
@@ -33,7 +34,7 @@ public abstract class Enemy extends Entity {
         drops = temp;
     }
 
-    public void attack (Mage m) {
+    public void attack (Mage m) throws InterruptedException {
         Attack atk = attacks[randInt(0, 2)];
         boolean hit = rand.nextInt(100) < atk.getPrecision();
         // TODO: pierce (use hit as blueprint)
@@ -41,27 +42,53 @@ public abstract class Enemy extends Entity {
         if (hit) {
             int dmg = super.randInt(atk.getDamageMin(), atk.getDamageMax());
             int netDmg = m.takeDamage((dmg));
+            Io.pause();
             Io.tell(super.getName() + " attempted " + atk.getName() + " and hit for " + dmg + " damage.");
 
             if (m.getArmor() > 0) {
+                Io.pause();
                 Io.tell("Your armor absorbed half of the damage.");
+                Io.pause();
                 Io.tell("Net damage taken: " + netDmg);
             }
 
         } else {
+            Io.pause();
             Io.tell(super.getName() + " attempted " + atk.getName() + " and missed.");
 
         }
     }
 
-    public void die () {
-        super.die();
+    public void die () throws InterruptedException {
+        super.die(); // sets "alive" to false
 
         for (Item i : drops) {
-            if (i.getType().equals("Scroll")) {
-                Main.getPlayer().addSpell(i.getSpell());
-                Debug.tell(Arrays.toString(Main.getPlayer().getSpells()));
+            boolean dropped = rand.nextInt(100) < i.getDropChance();
+            boolean scrollIncluded = false;
+
+            if (dropped) {
+                Io.tell(getName() + " dropped " + i.getName() + " (" + i.getDropChance() + "% chance)");
+
+                if (i.getType().equals("Scroll")) {
+                    Spell spell = i.getSpell();
+
+                    if (!Main.getPlayer().hasSpell(spell)) {
+                        scrollIncluded = true;
+                        Main.getPlayer().addSpell(spell);
+                        Io.pause();
+                        Io.tell(Main.getPlayer().getName() + " has unlocked the spell " + spell.getName().toUpperCase() + " [" + spell.getTierAsString() + "]");
+                    } else {
+                        Io.pause();
+                        Io.tell("You already possess the spell that this scroll unlocks.");
+                    }
+
+                }
             }
+
+            if (scrollIncluded) {
+                Io.tell("For more information on new spells, use the \"spells\" command.");
+            }
+
         }
     }
 

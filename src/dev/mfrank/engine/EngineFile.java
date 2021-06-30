@@ -96,8 +96,7 @@ public class EngineFile {
             if (saveSuccess) {
                 Debug.tell("File " + fname + ".mage created.");
                 Main.getPlayer().setCurrentLevel(Main.getLevelById(1));
-                Main.getPlayer().addSpell(EngineSpell.getById("Spark"));
-                Main.getPlayer().setScrollSlot(0, EngineSpell.getById("Spark"));
+                Main.getPlayer().addSpell(EngineSpell.getById("spark"));
                 saveMage(Main.getPlayer());
                 Main.gameRunning = true;
 

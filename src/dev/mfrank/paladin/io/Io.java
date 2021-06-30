@@ -2,6 +2,7 @@ package dev.mfrank.paladin.io;
 
 import dev.mfrank.Main;
 
+import java.util.Locale;
 import java.util.Scanner;
 
 public class Io {
@@ -73,7 +74,12 @@ public class Io {
 
     public static String prompt(String msg) {
         System.out.print(msg + " " + inPrefix);
-        return console.nextLine();
+        return console.nextLine().toLowerCase();
+    }
+
+    public static String prompt () {
+        System.out.println(inPrefix);
+        return console.nextLine().toLowerCase();
     }
 
     public static String wrap (String msg, int ind) {

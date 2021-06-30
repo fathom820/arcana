@@ -3,7 +3,7 @@ package dev.mfrank.spell;
 public class SpellSpark extends Spell {
 
     public SpellSpark () {
-        super.setName("Spark");
+        super.setName("spark");
         super.setDescription("Creates a small but potent spark that inflicts minimal damage.");
         super.setDamageMin(5);
         super.setDamageMax(10);

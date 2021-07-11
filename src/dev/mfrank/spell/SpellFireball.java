@@ -4,7 +4,7 @@ public class SpellFireball extends Spell{
 
     public SpellFireball () {
         super.setName("fireball");
-        super.setDescription("Conjures a fireball that inflicts low damage.");
+        super.setDescription("Conjures a sloppy fireball that inflicts low damage.");
         super.setDamageMin(10);
         super.setDamageMax(15);
         super.setPiercing(25);

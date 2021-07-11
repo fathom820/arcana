@@ -7,13 +7,12 @@ import dev.mfrank.item.scroll.ScrollFireball;
 public class EnemySkeleton extends Enemy {
 
     public EnemySkeleton () {
-        super.setMaxHealth(20);
-        super.setMaxArmor(0);
-        super.setHealth(super.getMaxHealth());
-        super.setArmor(super.getMaxArmor());
-        super.setDamageOut(0);
-        super.setName("Skeleton");
-        super.setAlive(true);
+        setMaxHealth(20);
+        setMaxArmor(0);
+        setHealth(super.getMaxHealth());
+        setArmor(super.getMaxArmor());
+        setName("Skeleton");
+        setAlive(true);
 
         super.attacks[0] = new Attack(
             "Bone Throw",
@@ -25,21 +24,21 @@ public class EnemySkeleton extends Enemy {
 
         super.attacks[1] = new Attack (
             "Femur Blade",
-            15,
-            20,
+            8,
+            12,
             10,
-            35
+            70
         );
 
         super.attacks[2] = new Attack (
             "Mandible Assault",
             10,
             15,
-            50,
-            50
+            15,
+            20
         );
 
-        super.addItemDrop(new ScrollFireball(100));
+        super.addItemDrop(new ScrollFireball(75));
 
 
     }

@@ -58,6 +58,7 @@ public class Level0 extends Level {
         else {
             Io.tellRaw(getName());
         }
+
         Io.tellRaw(getInfo());
         Io.printDivider();
 

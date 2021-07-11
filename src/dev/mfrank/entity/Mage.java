@@ -11,16 +11,18 @@ import dev.mfrank.spell.Spell;
 import java.util.Arrays;
 import java.util.Random;
 
-
+/*
+    Class representing the mage (player)
+    Only one instance of this class exists (Main.player)
+ */
 public class Mage extends Entity {
 
     private int maxMana;
     private int mana;
-    private Spell[] hotbar;
     private Spell[] spells;
 
     private Level currentLevel;
-    private Random rand = new Random();
+    private final Random rand = new Random();
 
     public Mage() {
         super.setMaxHealth(100);
@@ -30,7 +32,6 @@ public class Mage extends Entity {
         super.setName("NULL");
         this.maxMana = 100;
         this.mana = maxMana;
-        this.hotbar = new Spell[3];
         this.spells = new Spell[] {};
         this.currentLevel = new Level0();
     }
@@ -43,7 +44,6 @@ public class Mage extends Entity {
         super.setName(name);
         this.maxMana = 100;
         this.mana = maxMana;
-        this.hotbar = new Spell[3];
         this.spells = new Spell[] {};
         this.currentLevel = new Level0();
     }
@@ -71,14 +71,6 @@ public class Mage extends Entity {
                 out.append("-spell: ").append(s.getName());
             }
         }
-
-        out.append("\n# SCROLL\n");
-        for (Spell s : hotbar) {
-            if (s != null) {
-                out.append("-scroll: ").append(s.getName());
-            }
-        }
-
         return out.toString();
     }
 
@@ -95,20 +87,41 @@ public class Mage extends Entity {
     }
 
     public boolean castSpell (Spell spell, Enemy enemy) throws InterruptedException {
-        if (spell != null && hasSpell(spell)) {
+
+        if (spell != null && hasSpell(spell) && mana >= spell.getManaCost()) {
             boolean hit = rand.nextInt(100) < spell.getPrecision();
+            mana -= spell.getManaCost();
+            Io.tell(spell.getManaCost() + " mana was used.");
 
             if (hit) {
                 int dmg = randInt(spell.getDamageMin(), spell.getDamageMax());
                 Io.tell(Main.getPlayer().getName() + " attempted " + spell.getName() + " and hit for " + enemy.takeDamage(dmg));
-                return true;
+                Io.pause();
+                setMana(getMana() + (spell.getManaCost() / 2));
+                Io.tell("Since you hit your target, some mana has been returned.");
 
             } else {
                 Io.tell(Main.getPlayer().getName() + " attempted " + spell.getName() + " and missed.");
-                return true;
+
             }
+            return true;
+
         } else {
-            Io.tell("You have not yet unlocked this spell.");
+            if (spell == null) {
+                Io.tell("Error in Mage.castSpell(): spell == null");
+            } else if (!hasSpell(spell)) {
+                Io.tell("You do not possess this spell. Make sure you've typed the name correctly.");
+            } else if (mana <= 0) {
+                mana = 0;
+                Io.tell("It seems you're out of mana. You should skip your turn to regenerate.");
+            } else { // not enough mana
+                Io.tell("You don't have enough mana to cast " + spell.getName());
+                Io.setIndent(1);
+                Io.tellRaw("Required mana: " + spell.getManaCost());
+                Io.tellRaw("Your mana: " + mana + "/" + getMaxMana());
+                Io.setIndent(0);
+            }
+
         }
         return false;
     }
@@ -140,32 +153,25 @@ public class Mage extends Entity {
     }
 
     public void setMana (int mana) {
+        if (mana > maxMana) {
+            mana = maxMana;
+        }
         this.mana = mana;
+
     }
 
     public void setCurrentLevel (Level currentLevel) {
         this.currentLevel = currentLevel;
     }
 
-    public void setHotbar(Spell[] hotbar) {
-        this.hotbar = hotbar;
-    }
-
     public void setSpells (Spell[] spells) {
         this.spells = spells;
     }
 
-    public void setScrollSlot(int slot, Spell spell) {
-        hotbar[slot] = spell;
-    }
 
     // GETTERS
     public Level getCurrentLevel () {
         return currentLevel;
-    }
-
-    public Spell[] getHotbar() {
-        return hotbar;
     }
 
     public Spell[] getSpells() {

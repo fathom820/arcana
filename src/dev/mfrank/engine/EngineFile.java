@@ -174,14 +174,6 @@ public class EngineFile {
                     if (dest.equals("-spell")) {
                         player.addSpell(EngineSpell.getById(tok));
                     }
-
-                    if (dest.equals("-scroll")) {
-                        if (scrollIndex < 3) {
-                            Debug.tell(tok);
-                            player.setScrollSlot(scrollIndex, EngineSpell.getById(tok));
-                            scrollIndex++;
-                        }
-                    }
                 }
             }
 

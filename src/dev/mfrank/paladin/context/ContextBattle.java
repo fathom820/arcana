@@ -13,37 +13,24 @@ import java.util.Arrays;
 
 public class ContextBattle extends Context {
 
-    private Command cast, attack1, attack2, attack3, spells, hotbar, reset;
+    private Command cast, spells, skip, reset;
 
-    private Enemy enemy;
+    private final Enemy enemy;
+    private Mage player = Main.getPlayer();
+
     private boolean playerTurn;
     private boolean playerAttacked;
+
+    private int skipCount = 0;
 
 
     public ContextBattle(Enemy enemy) {
 
+        this.enemy = enemy;
         cast = new Command (
                 "cast",
                 "c",
                 "Cast a spell of your choice."
-        );
-
-        attack1 = new Command (
-            "attack1",
-            "atk1",
-            "Fire off the first spell in your hotbar."
-        );
-
-        attack2 = new Command (
-            "attack2",
-            "atk2",
-            "Fire off the second spell in your hotbar."
-        );
-
-        attack3 = new Command (
-            "attack3",
-            "atk3",
-            "Fire off the third spell in your hotbar."
         );
 
         spells = new Command (
@@ -52,10 +39,10 @@ public class ContextBattle extends Context {
             "View a list of all your unlocked spells."
         );
 
-        hotbar = new Command (
-                "hotbar",
-                "hb",
-                "View and change the spells in your hotbar."
+        skip = new Command (
+            "skip",
+            "sk",
+            "Skip your turn and regenerate mana in the process."
         );
 
         reset = new Command (
@@ -66,10 +53,9 @@ public class ContextBattle extends Context {
 
         super.addCommand(cast);
         super.addCommand(spells);
-        super.addCommand(hotbar);
+        super.addCommand(skip);
         super.addCommand(reset);
 
-        this.enemy = enemy;
         playerTurn = false;
         playerAttacked = false;
 
@@ -87,35 +73,16 @@ public class ContextBattle extends Context {
                     return false;
 
                 case "cast":
+                    skipCount = 0;
                     Mage player = Main.getPlayer();
                     Spell toCast = EngineSpell.getById(Io.prompt("Cast spell"));
-                    boolean success = false;
 
                     playerAttacked = player.castSpell(toCast, enemy);
                     playerTurn = !playerAttacked;
                 break;
 
-                case "attack1":
-                    /*
-                    Debug.tell("Player attempted atk1");
-                    playerAttacked = Main.getPlayer().castSpell(Main.getPlayer().getHotbar()[0], enemy);
-                    playerTurn = !playerAttacked; */
-
-                case "attack2":
-                    /*
-                    Debug.tell("Player attempted atk2");
-                    playerAttacked = Main.getPlayer().castSpell(Main.getPlayer().getHotbar()[1], enemy);;
-                    playerTurn = !playerAttacked; */
-
-                case "attack3":
-                    Io.tell("* DEPRECATED *");
-                    /*
-                    Debug.tell("Player attempted atk3");
-                    playerAttacked = Main.getPlayer().castSpell(Main.getPlayer().getHotbar()[2], enemy);;
-                    playerTurn = !playerAttacked; */
-                break;
-
                 case "spells":
+                    skipCount = 0;
                     Io.printSmallDivider();
                     Io.setIndent(0);
                     Io.tellRaw("Your spells:\n");
@@ -129,31 +96,30 @@ public class ContextBattle extends Context {
                     }
                     Io.printSmallDivider();
                     playerAttacked = false;
+                    playerTurn = true;
                 break;
 
-                case "hotbar":
-                    Io.setIndent(0);
-                    Io.printSmallDivider();
-                    Io.tellRaw("HOTBAR:");
-                    Io.lineBreak();
+                /*
+                    In the case of a player skipping their turn, they will regenerate mana.
+                    Depending on how many times in a row they've skipped a turn, they will
+                    regenerate more exponentially. This is what the variable skipCount is used for.
+                    The amount regenerated per turn will double for every skipped turn, up to 4 times.
+                 */
+                case "skip":
+                    skipCount++;
+                    Io.tell("You skipped your turn.");
 
-                    int slot = 1;
-                    for (Spell s : Main.getPlayer().getHotbar()) {
-                        Io.tellRaw("SLOT " + slot);
-                        if (s != null) {
-                            s.printInfo();
-                        } else {
-                            Io.tellRaw("[Empty]");
-                        }
-                        Io.lineBreak();
-                        slot++;
-                    }
+                    Main.getPlayer().setMana((int) (this.player.getMana() + 5 * (Math.pow(2.0, skipCount))));
 
-                    Io.printSmallDivider();
+                    Io.pause();
+                    Io.tell("You regenerated " + (int)(Math.pow(2.0, skipCount)) + " mana.");
 
+                    playerAttacked = false;
+                    playerTurn = false;
                 break;
 
                 case "reset":
+                    skipCount = 0;
                     Debug.tell("Resetting save file");
                     Io.tell("Nothing here yet.");
                 break;

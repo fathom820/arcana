@@ -9,13 +9,14 @@ As such, don't expect anything super complicated - it's more of a proof of conce
 
 
 ### Download
-**Arcana is currently in Alpha, and is not available for download at this time.**
-
-- Tentative date for **BETA** release: **July 1, 2021**
+**Arcana is currently in development, and is not available for download at this time.**
 
 - Tentative date for **FULL** release: **August 1, 2021**
 
-Note that these release dates are tentative and are subject to change should I run into too many issues.
+Note that this release date is tentative and is subject to change should I run into too many issues.
+That said, I will consider this project finished at the end of summer, whether I have added everything I originally planned or not.
+My next goal will be to establish a personal website, where I can host my portfolio and provide information
+about myself.
 
 
 When I deem Arcana to be complete enough for a public release,
@@ -26,7 +27,7 @@ an installer. It will automatically create all necessary folders and files it ne
 running for the first time. 
 
 _I recommend moving Arcana into its own folder, 
-way it isn't just sitting in your `downloads` folder._
+that way it isn't just sitting in your `downloads` folder._
 
 # Table Of Contents
 
@@ -51,9 +52,11 @@ as the game's main intention was to be a Java learning experience.
 Of course, being a game, making it fun was also the second largest priority.
 
 ### Paladin
-In order to make Arcana more accessible and fun to play, I created an I/O engine called **Paladin** 
-that allows the player to control what their character does through simple commands. 
-Paladin reads these simple one-word commands, then determines how to interpret them based off of context. 
+In order to make Arcana more accessible and fun to play, I created an I/O engine from the ground up and named it
+**Paladin** .
+
+Paladin allows the player to control what their character does through simple commands. 
+The algorithm reads these simple one-word commands, then determines how to interpret them based off of context. 
 In order to make something so simple for the player, I had to make it more complicated behind the scenes. 
 In fact, Paladin is what comprises most of the game's code - very little is actually related to gameplay. 
 Because most of the game's code contributes to Paladin in some way, I gave it its own info section in this document. 
@@ -95,4 +98,5 @@ Making the game an RPG was considered at one point, but was quickly cast aside d
 
 Since Arcana is a text-based game, all forms of input and output are run through the console.
 By typing `help`, you can see a list of all the commands that pertain to whatever context you're in. 
-In
+
+More information will be available here in the full release.

@@ -11,12 +11,4 @@ public class ScrollFireball extends Scroll {
         super.setSpell("fireball");
     }
 
-    public ScrollFireball() {
-        super();
-        super.setId("scrollFireball");
-        super.setName("Fireball Scroll");
-        super.setDropChance(0);
-        super.setDescription("Unlocks the Fireball spell.");
-        super.setSpell("fireball");
-    }
 }

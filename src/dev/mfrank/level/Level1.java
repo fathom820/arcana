@@ -1,6 +1,7 @@
 package dev.mfrank.level;
 
 import dev.mfrank.entity.enemy.lvl1.EnemySkeleton;
+import dev.mfrank.entity.enemy.lvl1.EnemyZombie;
 import dev.mfrank.paladin.context.ContextBattle;
 import dev.mfrank.paladin.io.Debug;
 import dev.mfrank.paladin.io.Io;
@@ -34,7 +35,14 @@ public class Level1 extends Level {
 
         Debug.tell("stage1");
         stage1.run();
+
         Debug.tell("stage2");
         stage2.run();
+
+        Debug.tell("stage3");
+        new ContextBattle(new EnemyZombie()).run();
+
+        Debug.tell("stage4");
+        new ContextBattle(new EnemyZombie()).run();
     }
 }

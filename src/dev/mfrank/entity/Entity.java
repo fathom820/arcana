@@ -20,12 +20,14 @@ public abstract class Entity {
 
     private Random rand;
 
+
     // CONSTR //
 
     public Entity () {
         setAlive(true);
         rand = new Random();
     }
+
 
     // FUNC //
 
@@ -79,6 +81,7 @@ public abstract class Entity {
         return rand.nextInt((max - min) + 1) + min;
     }
 
+
     // GET //
 
     public int getMaxHealth() {
@@ -102,6 +105,7 @@ public abstract class Entity {
     public boolean getAlive() {
         return alive;
     }
+
 
     // SET //
 

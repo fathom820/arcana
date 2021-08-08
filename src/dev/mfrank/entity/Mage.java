@@ -108,7 +108,7 @@ public class Mage extends Entity {
 
         } else {
             if (spell == null) {
-                Io.tell("Error in Mage.castSpell(): spell == null");
+                Io.tell("This spell does not exist. Make sure you've typed the name correctly.");
             } else if (!hasSpell(spell)) {
                 Io.tell("You do not possess this spell. Make sure you've typed the name correctly.");
             } else if (mana <= 0) {

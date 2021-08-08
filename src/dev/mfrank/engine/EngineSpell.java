@@ -2,17 +2,15 @@ package dev.mfrank.engine;
 
 import dev.mfrank.paladin.io.Debug;
 import dev.mfrank.paladin.io.Io;
-import dev.mfrank.spell.Spell;
-import dev.mfrank.spell.SpellEmpty;
-import dev.mfrank.spell.SpellFireball;
-import dev.mfrank.spell.SpellSpark;
+import dev.mfrank.spell.*;
 
 public class EngineSpell {
 
     private static Spell[] spells = new Spell[] {
         new SpellEmpty(),
         new SpellSpark(),
-        new SpellFireball()
+        new SpellFireball(),
+        new SpellPutridMusk()
     };;
 
 

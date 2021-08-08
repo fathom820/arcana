@@ -9,7 +9,6 @@ public class EngineItem {
 
     private static Item[] items = new Item[] {
         // SCROLLS //
-        new ScrollFireball()
 
         // POTIONS //
     };

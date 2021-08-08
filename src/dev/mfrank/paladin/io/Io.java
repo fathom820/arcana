@@ -14,6 +14,7 @@ public class Io {
     private final static String tellPrefix = "[-] ";
     private final static String inPrefix = ">>> ";
     private final static int width = 76;
+    private static boolean pauseEnabled = true;
 
 
     public static void printVersion () {
@@ -120,28 +121,25 @@ public class Io {
     }
 
     public static void pause() throws InterruptedException {
-        if (!Debug.getState()) {
+        if (pauseEnabled) {
             Thread.sleep(750);
         }
     }
 
     public static void longPause () throws InterruptedException {
-        if (!Debug.getState()) {
+        if (pauseEnabled) {
             Thread.sleep(1250);
         }
     }
 
-    public static String center (String msg) {
-        String out = "";
-        int len = msg.length();
-        // TODO: center text function
-
-        return out;
-    }
 
     // getters and setters
     public static void setIndent(int indentLevel) {
         Io.indentLevel = indentLevel;
+    }
+
+    public static void setPauseEnabled(boolean pauseEnabled) {
+        Io.pauseEnabled = pauseEnabled;
     }
 
     public static int getWidth() {

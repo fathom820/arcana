@@ -109,7 +109,7 @@ public class ContextBattle extends Context {
                     skipCount++;
                     Io.tell("You skipped your turn.");
 
-                    Main.getPlayer().setMana((int) (this.player.getMana() + 5 * (Math.pow(2.0, skipCount))));
+                    Main.getPlayer().setMana((int) (Main.getPlayer().getMana()  + 5 * (Math.pow(2.0, skipCount))));
 
                     Io.pause();
                     Io.tell("You regenerated " + (int)(Math.pow(2.0, skipCount)) + " mana.");

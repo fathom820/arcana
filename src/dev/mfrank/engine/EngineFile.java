@@ -232,12 +232,17 @@ public class EngineFile {
                 switch(line) {
                     case "debug":
                         Debug.setState(true);
-                        Io.tell("Config: debug enabled");
+                        Io.tell("Config: debug mode enabled");
                         break;
 
                     case "noconsole":
                         Main.enableConsole = false;
                         Io.tell("Config: external console disabled");
+                        break;
+
+                    case "nosleep":
+                        Io.setPauseEnabled(false);
+                        Io.tell("Config: thread sleep disabled");
                         break;
                 }
             }
